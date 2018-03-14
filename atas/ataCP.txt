@@ -1,0 +1,20 @@
+
+## Definir data workshop
+ - 4 dias 
+ - 23 a 26 de Abril
+
+
+## Definir quem dá o workshop
+18h00 - 20h00
+ - 2a - 
+ - 3a - 
+ - 4a - 
+#- 5a - 
+
+## Conteúdos 
+- Introdução 
+- Ler e tratar ficheiros
+- Testes estatísticos 
+- Visualização de dados
+
+
