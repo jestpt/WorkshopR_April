@@ -9,12 +9,12 @@
  - 2a - 
  - 3a - 
  - 4a - 
-#- 5a - 
+ - 5a - 
 
-## Conteúdos 
-- Introdução 
-- Ler e tratar ficheiros
-- Testes estatísticos 
-- Visualização de dados
+## Conteúdos 				|		Fazer
+- Introdução 				|		Grifo
+- Ler e tratar ficheiros    |		Xavier
+- Testes estatísticos  		|	Roque / Bem-Haja
+- Visualização de dados		| 		Roque
 
-
+Mandar T.P.C.

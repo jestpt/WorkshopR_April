@@ -1,0 +1,69 @@
+---
+title: "workshopR_ler_tratar_ficheiros"
+author: "Xavier Pinho"
+date: "21 de Marco de 2018"
+output: pdf_document
+---
+###Ler e tratar ficheiros
+
+```{r setup, include=FALSE}
+df1 <- read.table("file", header = FALSE, sep = "", fill = TRUE , dec = ",")
+```
+
+file -> url completo, nome.formato, entre aspas
+Header = TRUE -> primeira linha contem os titulos
+sep = "" -> de que forma os dados est?o separados
+fill = TRUE -> caso haja linhas de diferentes tamanhos adiciona espacos brancos
+na.strings = "NA"
+dec -> caracter usado nos numeros decimais
+
+O read.table() e o formato mais basico para importar ficheiros, pode-se fazer inumeras condicoes por default tem sep = "" e o header = FALSE
+
+```{r}
+df2 <- read.csv()
+
+df3 <- read.csv2()
+
+df4 <- read.delim()
+```
+O read.csv() tem por default ja tem o Header = TRUE, sep = "," , fill = TRUE
+O read.csv2() e Igual ao read.csv() mas o sep = ";"
+O read.delim() por default tem o sep = "\t", Header = TRUE
+
+Os ficheiros tem de estar na mesma diretoria que o R
+Para ver a directoria do R -> getwd()
+Caso se queira mudar a directoria -> setwd()
+
+
+```{r}
+df5 <- read.delim("file", header = FALSE, col.names = c("coluna1", "coluna2", "coluna3"))
+
+df6 <- read.delim("file", header = FALSE, colClasses = c("factor", "NULL", "numeric"))
+
+```
+Caso o data frame nao tenha titulos nas colunas, e possevel adicionar um vetor com os titulos, atraves de col.names.
+Podemos tambem definir o tipo de variaveis de cada coluna atraves de colClasses.
+A coluna a que corresponde o "NULL" desaparece.
+
+
+#Representacao do data frame
+```{r}
+str()
+summary()
+head() 
+tail()
+```
+O str() Da informacao sobre a estrutura de R que esta em caso
+O summary() Da informacao estatistica sobre todas as variaveis do data frame
+O head() mostra a primeira parte do objeto
+O tail() mostra a ultima parte do objeto
+
+
+#Ir buscar informacao ao data frame
+```{r}
+file[which.min(file$coluna), ]
+
+file[which.max(file$coluna), ]
+```
+Podemos ir buscar o valor minimo/maximo da coluna em especifico atraves de wich.
+
