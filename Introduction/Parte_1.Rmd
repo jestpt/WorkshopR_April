@@ -1,0 +1,26 @@
+---
+title: "Parte_1"
+author: "JEST"
+date: "29/03/2018"
+output: html_document
+---
+
+## Introdução ao R
+  O R é um sistema de computação científico e estatístico, programável e que permite o tratamento de vários tipos de dados. Esta linguagem contém um conjunto de ferramentas que nos permite efetuar cálculos, armazenamento, processamento, analise e visualização de dados. 
+  Hoje em dia os _Datasets_ surgem de várias fontes de informação nos mais diversos formatos e o primeiro passo é tornar essa informação analizável para poder ser processada.
+  O R é uma linguagem bastante poderosa para tratamento estatístico de dados e por isso mesmo é importante consolidar os conceitos básicos para poder seguir para os mais avançados.
+
+#### Atribuição de valores a um objecto
+
+```{r}
+x = 3
+print(x)
+x #podemos também imprimir variaveis sem utilizar o metodo print();
+y ='variavel'
+print(y)
+xfloat = 3.2
+print(xfloat)
+```
+
+
+  
