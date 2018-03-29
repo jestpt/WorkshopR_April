@@ -20,7 +20,19 @@ y ='variavel'
 print(y)
 xfloat = 3.2
 print(xfloat)
+bol = TRUE
+bol
 ```
 
+####Operações Aritméticas
 
+```{r}
+x + y 	  # adição
+x - y 	  # subtração
+x * y 	  # multiplicação
+x / y 	  # divisção
+x ^ y     # (ou x ** y) 	x elevado a y
+x %% y 	  # resto da divisão
+x %/% y   # divisão arredondada por defeito
+```
   
