@@ -128,12 +128,12 @@ $(document).ready(function () {
 <div id="introducao-ao-r" class="section level2">
 <h2>Introdução ao R</h2>
 <p>O R é um sistema de computação científico e estatístico, programável e que permite o tratamento de vários tipos de dados. Esta linguagem contém um conjunto de ferramentas que nos permite efetuar cálculos, armazenamento, processamento, analise e visualização de dados. Hoje em dia os <em>Datasets</em> surgem de várias fontes de informação nos mais diversos formatos e o primeiro passo é tornar essa informação analizável para poder ser processada. O R é uma linguagem bastante poderosa para tratamento estatístico de dados e por isso mesmo é importante consolidar os conceitos básicos para poder seguir para os mais avançados.</p>
-<div id="atribuicao-de-valores-a-um-objecto" class="section level4">
-<h4>Atribuição de valores a um objecto</h4>
+<div id="atribuicao-de-valores-a-um-objecto" class="section level3">
+<h3>Atribuição de valores a um objecto</h3>
 <pre class="r"><code>x = 3
 print(x)</code></pre>
 <pre><code>## [1] 3</code></pre>
-<pre class="r"><code>x #podemos também imprimir variaveis sem utilizar o metodo print();</code></pre>
+<pre class="r"><code>x #podemos também imprimir variaveis sem utilizar a função print();</code></pre>
 <pre><code>## [1] 3</code></pre>
 <pre class="r"><code>y ='variavel'
 print(y)</code></pre>
@@ -141,6 +141,76 @@ print(y)</code></pre>
 <pre class="r"><code>xfloat = 3.2
 print(xfloat)</code></pre>
 <pre><code>## [1] 3.2</code></pre>
+<pre class="r"><code>bol = TRUE
+bol</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+</div>
+<div id="operacoes-aritmeticas" class="section level3">
+<h3>Operações Aritméticas</h3>
+<pre class="r"><code>x=9
+y=2
+x + y     # adição</code></pre>
+<pre><code>## [1] 11</code></pre>
+<pre class="r"><code>x - y     # subtração</code></pre>
+<pre><code>## [1] 7</code></pre>
+<pre class="r"><code>x * y     # multiplicação</code></pre>
+<pre><code>## [1] 18</code></pre>
+<pre class="r"><code>x / y     # divisção</code></pre>
+<pre><code>## [1] 4.5</code></pre>
+<pre class="r"><code>x ^ y     # (ou x ** y)     x elevado a y</code></pre>
+<pre><code>## [1] 81</code></pre>
+<pre class="r"><code>x %% y    # resto da divisão</code></pre>
+<pre><code>## [1] 1</code></pre>
+<pre class="r"><code>x %/% y   # divisão arredondada por defeito</code></pre>
+<pre><code>## [1] 4</code></pre>
+</div>
+</div>
+<div id="vetores" class="section level1">
+<h1>Vetores</h1>
+<p>O R é orientado aos vectores que constituem objectos que permitem guardar uma sequência de valores. Existem vários tipos de vectores: Numéricos, Lógicos e de Strings.</p>
+<div id="vetores-numericos" class="section level4">
+<h4>Vetores Numericos</h4>
+<p>A função c() permite juntar (concatenar) um vetor com novos elementos (ou com outros vetores).</p>
+<pre class="r"><code>primeiro=c(1,2,3)
+segundo=c(4,5,6)
+vecFinal=c(primeiro,segundo)
+vecFinal</code></pre>
+<pre><code>## [1] 1 2 3 4 5 6</code></pre>
+<p>Outra forma de criar um vector numéricos por ser através da geração de uma sequência de números.</p>
+<pre class="r"><code>1:10</code></pre>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<pre class="r"><code>20:10</code></pre>
+<pre><code>##  [1] 20 19 18 17 16 15 14 13 12 11 10</code></pre>
+<pre class="r"><code>seq(1,2,0.2) #por definição a ordem dos argumentos de entrada na função seq é: from, to, by. Se especificarmos estes argumentos podemos trocar a ordem. Exemplo: seq(by=0.1,to=2,from=1). Se não especificarmos o passo (by), por definição é 1.</code></pre>
+<pre><code>## [1] 1.0 1.2 1.4 1.6 1.8 2.0</code></pre>
+<pre class="r"><code>v=rep(0,10); #Esta é uma maneira possivel de criar um vetor de zeros. No primeiro argumento indicamos o numeros que queremos repetir e no segundo argumento indicamos quantas vezes queremos repetir.
+v</code></pre>
+<pre><code>##  [1] 0 0 0 0 0 0 0 0 0 0</code></pre>
+<p>Para remover um elemento podemos especificar a posição do elemento que queremos eliminar e adicionar o operador ‘-’ imediatamente antes</p>
+<pre class="r"><code>numeros=1:10
+numeros[-2]</code></pre>
+<pre><code>## [1]  1  3  4  5  6  7  8  9 10</code></pre>
+<p>É possível realizar operações aritméticas sobre vetores de forma bastante simples.</p>
+<pre class="r"><code>contasAritmeticas=2:8
+2*contasAritmeticas+3    #As operações são feitas para todos os elementos do vetor</code></pre>
+<pre><code>## [1]  7  9 11 13 15 17 19</code></pre>
+<p>Operações aritméticas entre vetores também é possivel. Um operação aritmética entre dois vectores realiza a operação entre cada par de valores nas mesmas posições de ambos os vetores. Se os vetores não tiverem o mesmo tamanho, o mais pequeno será reciclado, isto é, será repetido enquanto for necessário. Quando o tamanho do vector não for multiplo do menor, deverá aparecer uma mensagem de erro.</p>
+<pre class="r"><code>maior=1:10
+menor=1:5
+maior+menor</code></pre>
+<pre><code>##  [1]  2  4  6  8 10  7  9 11 13 15</code></pre>
+<pre class="r"><code>key=c('batatas','cenoras','tomates')
+values=c(80,12,20)
+names(values)=key
+values</code></pre>
+<pre><code>## batatas cenoras tomates 
+##      80      12      20</code></pre>
+<pre class="r"><code>values['batatas']</code></pre>
+<pre><code>## batatas 
+##      80</code></pre>
+</div>
+<div id="vectores" class="section level4">
+<h4>Vectores</h4>
 </div>
 </div>
 

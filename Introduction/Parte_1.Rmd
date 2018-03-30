@@ -2,7 +2,9 @@
 title: "Parte_1"
 author: "JEST"
 date: "29/03/2018"
-output: html_document
+output:
+  html_document: default
+  pdf_document: default
 ---
 
 ## Introdução ao R
@@ -10,12 +12,12 @@ output: html_document
   Hoje em dia os _Datasets_ surgem de várias fontes de informação nos mais diversos formatos e o primeiro passo é tornar essa informação analizável para poder ser processada.
   O R é uma linguagem bastante poderosa para tratamento estatístico de dados e por isso mesmo é importante consolidar os conceitos básicos para poder seguir para os mais avançados.
 
-#### Atribuição de valores a um objecto
+### Atribuição de valores a um objecto
 
 ```{r}
 x = 3
 print(x)
-x #podemos também imprimir variaveis sem utilizar o metodo print();
+x #podemos também imprimir variaveis sem utilizar a função print();
 y ='variavel'
 print(y)
 xfloat = 3.2
@@ -24,9 +26,11 @@ bol = TRUE
 bol
 ```
 
-####Operações Aritméticas
+###Operações Aritméticas
 
 ```{r}
+x=9
+y=2
 x + y 	  # adição
 x - y 	  # subtração
 x * y 	  # multiplicação
@@ -35,4 +39,49 @@ x ^ y     # (ou x ** y) 	x elevado a y
 x %% y 	  # resto da divisão
 x %/% y   # divisão arredondada por defeito
 ```
+
+# Vetores 
+O R é orientado aos vectores que constituem objectos que permitem guardar uma sequência de valores. Existem vários tipos de vectores: Numéricos, Lógicos e de Strings.
+
+####Vetores Numericos
+A função c() permite juntar (concatenar) um vetor com novos elementos (ou com outros vetores).
+```{r}
+primeiro=c(1,2,3)
+segundo=c(4,5,6)
+vecFinal=c(primeiro,segundo)
+vecFinal
+```
+Outra forma de criar um vector numéricos por ser através da geração de uma sequência de números. 
+```{r}
+1:10
+20:10
+seq(1,2,0.2) #por definição a ordem dos argumentos de entrada na função seq é: from, to, by. Se especificarmos estes argumentos podemos trocar a ordem. Exemplo: seq(by=0.1,to=2,from=1). Se não especificarmos o passo (by), por definição é 1.
+v=rep(0,10); #Esta é uma maneira possivel de criar um vetor de zeros. No primeiro argumento indicamos o numeros que queremos repetir e no segundo argumento indicamos quantas vezes queremos repetir.
+v
+```
+Para remover um elemento podemos especificar a posição do elemento que queremos eliminar e adicionar o operador '-' imediatamente antes
+```{r}
+numeros=1:10
+numeros[-2]
+```
+É possível realizar operações aritméticas sobre vetores de forma bastante simples.
+```{r}
+contasAritmeticas=2:8
+2*contasAritmeticas+3    #As operações são feitas para todos os elementos do vetor
+```
+Operações aritméticas entre vetores também é possivel. Um operação aritmética entre dois vectores realiza a operação entre cada par de valores nas mesmas posições de ambos os vetores. Se os vetores não tiverem o mesmo tamanho, o mais pequeno será reciclado, isto é, será repetido enquanto for necessário. Quando o tamanho do vector não for multiplo do menor, deverá aparecer uma mensagem de erro.
+```{r}
+maior=1:10
+menor=1:5
+maior+menor
+```
+```{r}
+key=c('batatas','cenoras','tomates')
+values=c(80,12,20)
+names(values)=key
+values
+values['batatas']
+```
+
+#### Vectores 
   
