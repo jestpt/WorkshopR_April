@@ -1,5 +1,5 @@
 ---
-title: "Parte_1"
+title: "Workshop R"
 author: "JEST"
 date: "29/03/2018"
 output:
@@ -7,30 +7,30 @@ output:
   pdf_document: default
 ---
 
-## Introdução ao R
+# Introdução ao R
   O R é um sistema de computação científico e estatístico, programável e que permite o tratamento de vários tipos de dados. Esta linguagem contém um conjunto de ferramentas que nos permite efetuar cálculos, armazenamento, processamento, analise e visualização de dados. 
   Hoje em dia os _Datasets_ surgem de várias fontes de informação nos mais diversos formatos e o primeiro passo é tornar essa informação analizável para poder ser processada.
   O R é uma linguagem bastante poderosa para tratamento estatístico de dados e por isso mesmo é importante consolidar os conceitos básicos para poder seguir para os mais avançados.
 
-### Atribuição de valores a um objecto
-
+## Atribuição de valores a um objecto
+A operação mais básica que se pode realizar sobre um objecto em R é a atribuição. Para esse efeito utiliza-se o operador "<-"
 ```{r}
-x = 3
+x <-  3
 print(x)
 x #podemos também imprimir variaveis sem utilizar a função print();
-y ='variavel'
+y <- 'variavel'
 print(y)
-xfloat = 3.2
+xfloat <-  3.2
 print(xfloat)
-bol = TRUE
+bol <-  TRUE
 bol
 ```
 
-###Operações Aritméticas
+##Operações Aritméticas
 
 ```{r}
-x=9
-y=2
+x <- 9
+y <- 2
 x + y 	  # adição
 x - y 	  # subtração
 x * y 	  # multiplicação
@@ -43,12 +43,12 @@ x %/% y   # divisão arredondada por defeito
 # Vetores 
 O R é orientado aos vectores que constituem objectos que permitem guardar uma sequência de valores. Existem vários tipos de vectores: Numéricos, Lógicos e de Strings.
 
-####Vetores Numericos
+###Vetores Numericos
 A função c() permite juntar (concatenar) um vetor com novos elementos (ou com outros vetores).
 ```{r}
-primeiro=c(1,2,3)
-segundo=c(4,5,6)
-vecFinal=c(primeiro,segundo)
+primeiro <- c(1,2,3)
+segundo <- c(4,5,6)
+vecFinal <- c(primeiro,segundo)
 vecFinal
 ```
 Outra forma de criar um vector numéricos por ser através da geração de uma sequência de números. 
@@ -59,29 +59,74 @@ seq(1,2,0.2) #por definição a ordem dos argumentos de entrada na função seq 
 v=rep(0,10); #Esta é uma maneira possivel de criar um vetor de zeros. No primeiro argumento indicamos o numeros que queremos repetir e no segundo argumento indicamos quantas vezes queremos repetir.
 v
 ```
-Para remover um elemento podemos especificar a posição do elemento que queremos eliminar e adicionar o operador '-' imediatamente antes
-```{r}
-numeros=1:10
-numeros[-2]
-```
 É possível realizar operações aritméticas sobre vetores de forma bastante simples.
 ```{r}
-contasAritmeticas=2:8
+contasAritmeticas <- 2:8
 2*contasAritmeticas+3    #As operações são feitas para todos os elementos do vetor
 ```
 Operações aritméticas entre vetores também é possivel. Um operação aritmética entre dois vectores realiza a operação entre cada par de valores nas mesmas posições de ambos os vetores. Se os vetores não tiverem o mesmo tamanho, o mais pequeno será reciclado, isto é, será repetido enquanto for necessário. Quando o tamanho do vector não for multiplo do menor, deverá aparecer uma mensagem de erro.
 ```{r}
-maior=1:10
-menor=1:5
+maior <- 1:10
+menor <- 1:5
 maior+menor
 ```
+#### Acesso aos elementos de vectores
+Para consultarmos um elemento de um vetor, escrememos o nome do vector e entre parênteses retos, o indice. Assim se quisermos aceder a um elemtento do vetor X na posiçao i, escrevemos X[i].
 ```{r}
-key=c('batatas','cenoras','tomates')
-values=c(80,12,20)
-names(values)=key
+X <- 1:10
+X[3]  #aceder ao elemento na posição 3 do vetor
+```
+É também possível a indexação ser feita com um vetor sendo que, neste caso, é retornado um vector com os valores do vetor original nas posições do vetor indice.
+```{r}
+#Utilizando o vector X
+X[c(4:9)]
+X[4:9]  
+```
+Para remover um elemento podemos especificar a posição do elemento que queremos eliminar e adicionar o operador '-' imediatamente antes
+```{r}
+numeros <- 1:10
+numeros[-2]
+```
+#### Atribuir Nomes a vetores
+O R permite-nos atribuir nomes a cada uma das posições do vector e depois usar esses nomes para aceder aos seus valores. Para dar nomes aos valores do vetor utiliza-se a função "names()" 
+```{r}
+key <- c('batatas','cenoras','tomates')
+values <- c(80,12,20)
+names(values) <- key
 values
 values['batatas']
 ```
+#### Algumas funções que podem ser aplicadas em vetores numéricos
+```{r}
+v <- c(-1,-2,3,4)
+abs(v) #Valor absoluto (Módulo)
+sqrt(abs(v)) #Raiz quadrada
+sin(pi/2*v) #seno
+rnd <- c(3,345,5,2221,4.498628,1.987654321,2.123)
+round(rnd,2) #Arredonda o valor a um deternimado número de casas decimais a definir pelo segundo argumento. Se o número de casas decimais não for indicado, por definição o R arredonda para o número inteiro.
+v <- c(4,7,2,3,8,3,3,3,1,9,3,2,4)
+rev(v) #Inverte o vector
+sort(v) #Ordena o vetor por ordem crescente
+sort(v,decreasing=TRUE) #Ordena o vetor por ordem decrescente
+order(v) #Retorna a ordem do vetor pelos seus indices
+v[order(v)] #Ao passarmos o vector ordenado por indices, como indice, o resultado vai ser o vector ordenado.
+unique(v) #Retorna um vetor apenas com os elementos únicos
+cumsum(v) #Faz a soma cumulativa
+cumprod(v) #Faz o produto cumulativo
+v <- c(7,2,9,3,12)
+sum(v) #Somatório dos valores do vetor
+mean(v) #media dos valores do vetor
+min(v) #Menor valor do vetor
+which.min(v) #Indice do menor valor do vetor
+max(v)#Maior valor do vetor
+which.max(v) #Indice do maior valor do vetor
+which(v>=7) #Indices dos valores maiores ou igual a 7
+```
+### Vectores Lógicos
 
-#### Vectores 
+
+
+
+
+
   
