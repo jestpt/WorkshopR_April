@@ -107,7 +107,7 @@ round(rnd,2) #Arredonda o valor a um deternimado número de casas decimais a def
 v <- c(4,7,2,3,8,3,3,3,1,9,3,2,4)
 rev(v) #Inverte o vector
 sort(v) #Ordena o vetor por ordem crescente
-sort(v,decreasing=TRUE) #Ordena o vetor por ordem decrescente
+sort(v,decreasing <- TRUE) #Ordena o vetor por ordem decrescente
 order(v) #Retorna a ordem do vetor pelos seus indices
 v[order(v)] #Ao passarmos o vector ordenado por indices, como indice, o resultado vai ser o vector ordenado.
 unique(v) #Retorna um vetor apenas com os elementos únicos
@@ -117,13 +117,52 @@ v <- c(7,2,9,3,12)
 sum(v) #Somatório dos valores do vetor
 mean(v) #media dos valores do vetor
 min(v) #Menor valor do vetor
-which.min(v) #Indice do menor valor do vetor
+which.min(v ) #Indice do menor valor do vetor
 max(v)#Maior valor do vetor
 which.max(v) #Indice do maior valor do vetor
 which(v>=7) #Indices dos valores maiores ou igual a 7
 ```
 ### Vectores Lógicos
-
+Outro tipo de dados importante no R são os vetores lógicos. Os vetores logicos contêm valores do tipo _boolean_ e em alguns casos são uma exelente abordagem para encontrar determinados valores. Vejamos um exemplo.
+```{r}
+v <- 10:20
+vBoolean <- v>=18
+v[vBoolean]
+which(vBoolean)
+```
+###Vetores de Strings
+Vetores de strings são um tipo de dados em R que nos permite guardar sequencias de caracteres, também designadas por strings.
+```{r}
+nomes <- c("Grifo","Joao","Poço","Macario","Bruno","Grifo")
+nomes[4]
+nomes[1]==tail(nomes,n=1)
+#Poderiamos ter feito nomes[1]==nomes[6] ou nomes[1]==nomes[length(nomes)]
+#A função tail(<vetor>,<n elementos>) vai buscar os n últimos elementos ao vetor indicado
+```
+####Algumas funções que se podem usar para trabalhar com vetores de strings
+```{r}
+nome <- "Guilherme"
+apelido <- "Cruz"
+toupper(nome)  #Transforma todos os caracteres da string em letras maiúsculas
+tolower(nome)  #Transforma todos os caracteres da string em letras minúsculas
+paste(apelido,nomes) #Imprime todas as strings que forem passadas como argumento
+nchar(apelido) #Retorna o numero de caracteres da strings passada como argumento
+sub("z","zes",apelido) #Substitui a ocurrência passada no primeiro argumento pela string passada no segundo argumento, apenas uma vez. A função gsub() faz o mesmo mas para todas as ocurrências
+substr(nome,4,7) #Retorna um subtring da string passado no primeiro argumento. O recorte é feito desde a posição do caracter passada no segundo argumento até à posição passada no ultimo argumento
+str <- "O meu nome é Grifo"
+strsplit(str,' ') #"Parte" a string original em várias strings de acordo com o separador indicado no segundo argumento de entrade.
+grep("ifo",nomes) #Permite identificar a ocurrencia de string/substrings no vetor passado como segundo argumento
+#Explicar a função mapply()
+```
+###Limpeza de dados
+Por vezes quando estamos a trabalhar com dados importados, eles não estão trataveis. Valores omissos são muitas das vezes a causa disso mesmo e temos de aprender a lidar com este problema.
+```{r}
+v <-  c(1,2,NA,NA,NA,7,2,3,NA,3,NA,4,NA,NA,4,6,2,NA,1)
+v
+v[is.na(v)] #Para mostrar os indices dos valores nulos: which(is.na(v))
+v[!is.na(v)]
+```
+##Exercicios
 
 
 
