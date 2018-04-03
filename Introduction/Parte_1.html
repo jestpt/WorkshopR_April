@@ -243,7 +243,7 @@ rev(v) #Inverte o vector</code></pre>
 <pre><code>##  [1] 4 2 3 9 1 3 3 3 8 3 2 7 4</code></pre>
 <pre class="r"><code>sort(v) #Ordena o vetor por ordem crescente</code></pre>
 <pre><code>##  [1] 1 2 2 3 3 3 3 3 4 4 7 8 9</code></pre>
-<pre class="r"><code>sort(v,decreasing=TRUE) #Ordena o vetor por ordem decrescente</code></pre>
+<pre class="r"><code>sort(v,decreasing &lt;- TRUE) #Ordena o vetor por ordem decrescente</code></pre>
 <pre><code>##  [1] 9 8 7 4 4 3 3 3 3 3 2 2 1</code></pre>
 <pre class="r"><code>order(v) #Retorna a ordem do vetor pelos seus indices</code></pre>
 <pre><code>##  [1]  9  3 12  4  6  7  8 11  1 13  2  5 10</code></pre>
@@ -275,6 +275,69 @@ sum(v) #Somatório dos valores do vetor</code></pre>
 </div>
 <div id="vectores-logicos" class="section level3">
 <h3>Vectores Lógicos</h3>
+<p>Outro tipo de dados importante no R são os vetores lógicos. Os vetores logicos contêm valores do tipo <em>boolean</em> e em alguns casos são uma exelente abordagem para encontrar determinados valores. Vejamos um exemplo.</p>
+<pre class="r"><code>v &lt;- 10:20
+vBoolean &lt;- v&gt;=18
+v[vBoolean]</code></pre>
+<pre><code>## [1] 18 19 20</code></pre>
+<pre class="r"><code>which(vBoolean)</code></pre>
+<pre><code>## [1]  9 10 11</code></pre>
+</div>
+<div id="vetores-de-strings" class="section level3">
+<h3>Vetores de Strings</h3>
+<p>Vetores de strings são um tipo de dados em R que nos permite guardar sequencias de caracteres, também designadas por strings.</p>
+<pre class="r"><code>nomes &lt;- c(&quot;Grifo&quot;,&quot;Joao&quot;,&quot;Poço&quot;,&quot;Macario&quot;,&quot;Bruno&quot;,&quot;Grifo&quot;)
+nomes[4]</code></pre>
+<pre><code>## [1] &quot;Macario&quot;</code></pre>
+<pre class="r"><code>nomes[1]==tail(nomes,n=1)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>#Poderiamos ter feito nomes[1]==nomes[6] ou nomes[1]==nomes[length(nomes)]
+#A função tail(&lt;vetor&gt;,&lt;n elementos&gt;) vai buscar os n últimos elementos ao vetor indicado</code></pre>
+<div id="algumas-funcoes-que-se-podem-usar-para-trabalhar-com-vetores-de-strings" class="section level4">
+<h4>Algumas funções que se podem usar para trabalhar com vetores de strings</h4>
+<pre class="r"><code>nome &lt;- &quot;Guilherme&quot;
+apelido &lt;- &quot;Cruz&quot;
+toupper(nome)  #Transforma todos os caracteres da string em letras maiúsculas</code></pre>
+<pre><code>## [1] &quot;GUILHERME&quot;</code></pre>
+<pre class="r"><code>tolower(nome)  #Transforma todos os caracteres da string em letras minúsculas</code></pre>
+<pre><code>## [1] &quot;guilherme&quot;</code></pre>
+<pre class="r"><code>paste(apelido,nomes) #Imprime todas as strings que forem passadas como argumento</code></pre>
+<pre><code>## [1] &quot;Cruz Grifo&quot;   &quot;Cruz Joao&quot;    &quot;Cruz Poço&quot;    &quot;Cruz Macario&quot;
+## [5] &quot;Cruz Bruno&quot;   &quot;Cruz Grifo&quot;</code></pre>
+<pre class="r"><code>nchar(apelido) #Retorna o numero de caracteres da strings passada como argumento</code></pre>
+<pre><code>## [1] 4</code></pre>
+<pre class="r"><code>sub(&quot;z&quot;,&quot;zes&quot;,apelido) #Substitui a ocurrência passada no primeiro argumento pela string passada no segundo argumento, apenas uma vez. A função gsub() faz o mesmo mas para todas as ocurrências</code></pre>
+<pre><code>## [1] &quot;Cruzes&quot;</code></pre>
+<pre class="r"><code>substr(nome,4,7) #Retorna um subtring da string passado no primeiro argumento. O recorte é feito desde a posição do caracter passada no segundo argumento até à posição passada no ultimo argumento</code></pre>
+<pre><code>## [1] &quot;lher&quot;</code></pre>
+<pre class="r"><code>str &lt;- &quot;O meu nome é Grifo&quot;
+strsplit(str,' ') #&quot;Parte&quot; a string original em várias strings de acordo com o separador indicado no segundo argumento de entrade.</code></pre>
+<pre><code>## [[1]]
+## [1] &quot;O&quot;     &quot;meu&quot;   &quot;nome&quot;  &quot;é&quot;     &quot;Grifo&quot;</code></pre>
+<pre class="r"><code>grep(&quot;ifo&quot;,nomes) #Permite identificar a ocurrencia de string/substrings no vetor passado como segundo argumento</code></pre>
+<pre><code>## [1] 1 6</code></pre>
+<pre class="r"><code>#Explicar a função mapply()</code></pre>
+</div>
+</div>
+<div id="limpeza-de-dados" class="section level3">
+<h3>Limpeza de dados</h3>
+<p>Por vezes quando estamos a trabalhar com dados importados, eles não estão trataveis. Valores omissos são muitas das vezes a causa disso mesmo e temos de aprender a lidar com este problema.</p>
+<pre class="r"><code>v &lt;-  c(1,2,NA,NA,NA,7,2,3,NA,3,NA,4,NA,NA,4,6,2,NA,1)
+v</code></pre>
+<pre><code>##  [1]  1  2 NA NA NA  7  2  3 NA  3 NA  4 NA NA  4  6  2 NA  1</code></pre>
+<pre class="r"><code>v[is.na(v)] #Para mostrar os indices dos valores nulos: which(is.na(v))</code></pre>
+<pre><code>## [1] NA NA NA NA NA NA NA NA</code></pre>
+<pre class="r"><code>v[!is.na(v)]</code></pre>
+<pre><code>##  [1] 1 2 7 2 3 3 4 4 6 2 1</code></pre>
+</div>
+<div id="exercicios" class="section level2">
+<h2>Exercicios</h2>
+<p>1.1) Definir um vetor com uma sequência de números ímpares menores do que 30</p>
+<pre><code>##  [1]  1  3  5  7  9 11 13 15 17 19 21 23 25 27 29</code></pre>
+<p>1.2) Calcular a soma de todos os valores do vetor anteriormente definido</p>
+<pre><code>## [1] 225</code></pre>
+<p>1.3) Selecionar os elementos do vetor múltiplos de 3</p>
+<pre><code>## [1]  3  9 15 21 27</code></pre>
 </div>
 </div>
 
