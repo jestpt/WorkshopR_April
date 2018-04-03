@@ -175,7 +175,7 @@ sum(sequencia)
 1.3) Selecionar os elementos do vetor múltiplos de 3
 ```{r, echo = FALSE}
 sequencia[sequencia%%3==0]
-``
+```
 
 
   
