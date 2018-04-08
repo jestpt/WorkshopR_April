@@ -4,7 +4,6 @@ author: "JEST"
 date: "29/03/2018"
 output:
   html_document: default
-  pdf_document: default
 ---
 
 # Introdução ao R
@@ -88,7 +87,7 @@ numeros <- 1:10
 numeros[-2]
 ```
 #### Atribuir Nomes a vetores
-O R permite-nos atribuir nomes a cada uma das posições do vector e depois usar esses nomes para aceder aos seus valores. Para dar nomes aos valores do vetor utiliza-se a função "names()" 
+O R permite-nos atribuir nomes a cada uma das posições do vector e depois usar esses nomes para aceder aos seus valores. Para dar nomes aos valores do vetor utiliza-se a função _names()_ 
 ```{r}
 key <- c('batatas','cenoras','tomates')
 values <- c(80,12,20)

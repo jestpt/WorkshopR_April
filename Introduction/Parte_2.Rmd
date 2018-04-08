@@ -1,0 +1,32 @@
+---
+title: "Workshop R"
+author: "JEST"
+date: "29/03/2018"
+output:
+  html_document:
+    df_print: paged
+---
+# Matrizes
+O R permite definir matrizes de uma dforma bastante similar ao conceito de vetor, mas agora com duas dimensões de dados. Uma matriz é uma coleção de elementos do mesmo tipo(numérico, sequencias de caracteres ou logico), organizados por linhas e colunas.
+Para criar uma matriz usamos a função _matrix()_ que toma como argumentos um vector, número de linhas e colunas.
+```{r}
+#Primeiro use a documentação para ver como pode utilizar os argumentos de entrada na função matrix()
+mat <- matrix(1:15,3,5)
+mat
+```
+### Funcções _cbind()_ e _rbind()_ 
+A função _cbind()_ permite-nos juntar vetores ou matrizes por colunas. O mesmo se repete para a função _rbind()_ mas para linhas.
+```{r}
+A <- matrix(1:4,2,2)
+B <- matrix(4:8,2,2)
+cbind(A,B)
+rbind(A,B)
+```
+###Indexação
+```{r}
+procura_elementos <- matrix(1:50,byrow=TRUE,nrow=10)
+procura_elementos
+procura_elementos[5,5]
+procura_elementos[1:3,4]
+procura_elementos[,3:5]
+```
