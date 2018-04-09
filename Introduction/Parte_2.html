@@ -174,7 +174,7 @@ procura_elementos</code></pre>
 <pre><code>## [1] 25</code></pre>
 <pre class="r"><code>procura_elementos[1:3,4]</code></pre>
 <pre><code>## [1]  4  9 14</code></pre>
-<pre class="r"><code>procura_elementos[,3:5]</code></pre>
+<pre class="r"><code>procura_elementos[,3:ncol(procura_elementos)]</code></pre>
 <pre><code>##       [,1] [,2] [,3]
 ##  [1,]    3    4    5
 ##  [2,]    8    9   10
@@ -186,6 +186,29 @@ procura_elementos</code></pre>
 ##  [8,]   38   39   40
 ##  [9,]   43   44   45
 ## [10,]   48   49   50</code></pre>
+</div>
+<div id="funcoes-com-matrizes" class="section level3">
+<h3>Funções com matrizes</h3>
+<pre class="r"><code>dim(procura_elementos)   #retorna as dimensões da matriz</code></pre>
+<pre><code>## [1] 10  5</code></pre>
+<pre class="r"><code>mean(procura_elementos)  #retorna a media de todos os elementos da matriz</code></pre>
+<pre><code>## [1] 25.5</code></pre>
+<pre class="r"><code>sqrt(procura_elementos[1:5,1:5])  #faz a raiz quadrada sobre todos os elementos definidos no intervalo</code></pre>
+<pre><code>##          [,1]     [,2]     [,3]     [,4]     [,5]
+## [1,] 1.000000 1.414214 1.732051 2.000000 2.236068
+## [2,] 2.449490 2.645751 2.828427 3.000000 3.162278
+## [3,] 3.316625 3.464102 3.605551 3.741657 3.872983
+## [4,] 4.000000 4.123106 4.242641 4.358899 4.472136
+## [5,] 4.582576 4.690416 4.795832 4.898979 5.000000</code></pre>
+<pre class="r"><code>apply(procura_elementos,1,sum) #ver documentação</code></pre>
+<pre><code>##  [1]  15  40  65  90 115 140 165 190 215 240</code></pre>
+<pre class="r"><code>mtx &lt;- matrix(1:4,2,2)
+t(mtx) #retorna a transposta da matriz</code></pre>
+<pre><code>##      [,1] [,2]
+## [1,]    1    2
+## [2,]    3    4</code></pre>
+<pre class="r"><code>det(mtx) #retorna o determinante da matriz. Atenção: a matriz deve ser quadrada.</code></pre>
+<pre><code>## [1] -2</code></pre>
 </div>
 </div>
 
