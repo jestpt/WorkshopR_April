@@ -210,6 +210,40 @@ t(mtx) #retorna a transposta da matriz</code></pre>
 <pre class="r"><code>det(mtx) #retorna o determinante da matriz. Atenção: a matriz deve ser quadrada.</code></pre>
 <pre><code>## [1] -2</code></pre>
 </div>
+<div id="exemplo" class="section level3">
+<h3>Exemplo</h3>
+<pre class="r"><code>precos &lt;- c(1200,276,550,126.5,1050,241.5,60,13.8)
+worten &lt;- matrix(precos,byrow=TRUE,nrow=4)
+colnames(worten) &lt;- c(&quot;Produto&quot;,&quot;IVA&quot;)
+rownames(worten) &lt;- c(&quot;Televisão&quot;,&quot;Maquina de lavar&quot;,&quot;Computador&quot;,&quot;Aspirador&quot;)
+worten</code></pre>
+<pre><code>##                  Produto   IVA
+## Televisão           1200 276.0
+## Maquina de lavar     550 126.5
+## Computador          1050 241.5
+## Aspirador             60  13.8</code></pre>
+<pre class="r"><code>Preco_com_IVA &lt;- c(precos[1]+precos[2],precos[3]+precos[4],precos[5]+precos[6],precos[7]+precos[8])
+worten &lt;- cbind(worten,Preco_com_IVA)
+worten</code></pre>
+<pre><code>##                  Produto   IVA Preco_com_IVA
+## Televisão           1200 276.0        1476.0
+## Maquina de lavar     550 126.5         676.5
+## Computador          1050 241.5        1291.5
+## Aspirador             60  13.8          73.8</code></pre>
+</div>
+<div id="multiplicacao-entre-matrizes" class="section level3">
+<h3>Multiplicação entre matrizes</h3>
+<pre class="r"><code>A &lt;- matrix(1:4,2,2)
+B &lt;- matrix(4:1,2,2)
+C &lt;- A%*%B
+C</code></pre>
+<pre><code>##      [,1] [,2]
+## [1,]   13    5
+## [2,]   20    8</code></pre>
+</div>
+</div>
+<div id="arrays" class="section level1">
+<h1>Arrays</h1>
 </div>
 
 

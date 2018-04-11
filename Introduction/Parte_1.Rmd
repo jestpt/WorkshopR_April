@@ -42,7 +42,7 @@ x %/% y   # divisão arredondada por defeito
 # Vetores 
 O R é orientado aos vectores que constituem objectos que permitem guardar uma sequência de valores. Existem vários tipos de vectores: Numéricos, Lógicos e de Strings.
 
-###Vetores Numericos
+### Vetores Numericos
 A função c() permite juntar (concatenar) um vetor com novos elementos (ou com outros vetores).
 ```{r}
 primeiro <- c(1,2,3)
@@ -129,7 +129,7 @@ vBoolean <- v>=18
 v[vBoolean]
 which(vBoolean)
 ```
-###Vetores de Strings
+### Vetores de Strings
 Vetores de strings são um tipo de dados em R que nos permite guardar sequencias de caracteres, também designadas por strings.
 ```{r}
 nomes <- c("Grifo","Joao","Poço","Macario","Bruno","Grifo")
@@ -138,7 +138,7 @@ nomes[1]==tail(nomes,n=1)
 #Poderiamos ter feito nomes[1]==nomes[6] ou nomes[1]==nomes[length(nomes)]
 #A função tail(<vetor>,<n elementos>) vai buscar os n últimos elementos ao vetor indicado
 ```
-####Algumas funções que se podem usar para trabalhar com vetores de strings
+#### Algumas funções que se podem usar para trabalhar com vetores de strings
 ```{r}
 nome <- "Guilherme"
 apelido <- "Cruz"
@@ -153,7 +153,7 @@ strsplit(str,' ') #"Parte" a string original em várias strings de acordo com o 
 grep("ifo",nomes) #Permite identificar a ocurrencia de string/substrings no vetor passado como segundo argumento
 #Explicar a função mapply()
 ```
-###Limpeza de dados
+### Limpeza de dados
 Por vezes quando estamos a trabalhar com dados importados, eles não estão trataveis. Valores omissos são muitas das vezes a causa disso mesmo e temos de aprender a lidar com este problema.
 ```{r}
 v <-  c(1,2,NA,NA,NA,7,2,3,NA,3,NA,4,NA,NA,4,6,2,NA,1)
@@ -161,7 +161,7 @@ v
 v[is.na(v)] #Para mostrar os indices dos valores nulos: which(is.na(v))
 v[!is.na(v)]
 ```
-##Exercicios
+## Exercicios
 1.1) Definir um vetor com uma sequência de números ímpares menores do que 30
 ```{r, echo = FALSE}
 sequencia <- seq(1,29,2)
