@@ -244,6 +244,31 @@ C</code></pre>
 </div>
 <div id="arrays" class="section level1">
 <h1>Arrays</h1>
+<p>Um array é uma estrutura de dados que conseguem armazenar dados em mais do que 2 dimensões. Por exemplo uma Matriz é por outras palavras um array bidimensonal, ou seja é um array com duas dimensões.</p>
+<pre class="r"><code>bidimensional &lt;- array(1:12, c(4,3))
+bidimensional</code></pre>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    5    9
+## [2,]    2    6   10
+## [3,]    3    7   11
+## [4,]    4    8   12</code></pre>
+<pre class="r"><code>tridimensinal &lt;- array(1:12, c(4,3,2))
+tridimensinal</code></pre>
+<pre><code>## , , 1
+## 
+##      [,1] [,2] [,3]
+## [1,]    1    5    9
+## [2,]    2    6   10
+## [3,]    3    7   11
+## [4,]    4    8   12
+## 
+## , , 2
+## 
+##      [,1] [,2] [,3]
+## [1,]    1    5    9
+## [2,]    2    6   10
+## [3,]    3    7   11
+## [4,]    4    8   12</code></pre>
 </div>
 
 
