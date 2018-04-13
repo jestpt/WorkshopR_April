@@ -6,6 +6,30 @@ output:
   html_document:
     df_print: paged
 ---
+# Fatores
+Os fatores são estruturas de dados que são utilizadas para categorizar os dados e armazenalos por niveis.
+```{r}
+qualidade_comida <- c("low", "high", "medium", "high", "low", "medium", "high")
+comida <- factor(qualidade_comida)
+levels(comida);  #Os niveis são por outras palavras os nossos valores distintos.    
+table(comida)  #A função table() mostra-nos os nossos valores distintos e o número de ocorrências de cada um.
+comida <- factor(qualidade_comida, levels = c("low","medium", "high")) # podemos também definir nós quais os niveis que queremos.
+comida
+levels(comida)
+francesinhaEcompanhia <- comida[1]
+atenas <- comida[length(qualidade_comida)]
+#É a qualidade do restaurante Atenas melhor do que a do Francesinhas&Companhia?
+atenas > francesinhaEcompanhia
+```
+Para sabermos qual dos restaurantes tem melhor qualidade temos de primeiro ordenar os _levels_ (niveis). Para isso temos de passar "ordered = TRUE" na função _factor()_(Outra maneira seria utilizar a função ordered que faz o mesmo que a função _factor()_ mas já ordena os niveis por _default_). Ao ativarmos a ordem dos niveis, os niveis serão colocados por uma ordem definida pelo utilizador.
+```{r}
+comida <- factor(qualidade_comida, levels = c( "low","medium", "high"),ordered = TRUE)
+comida
+levels(comida)
+francesinhaEcompanhia <- comida[1]
+atenas <- comida[length(qualidade_comida)]
+atenas > francesinhaEcompanhia
+```
 # Matrizes
 O R permite definir matrizes de uma dforma bastante similar ao conceito de vetor, mas agora com duas dimensões de dados. Uma matriz é uma coleção de elementos do mesmo tipo(numérico, sequencias de caracteres ou logico), organizados por linhas e colunas.
 Para criar uma matriz usamos a função _matrix()_ que toma como argumentos um vector, número de linhas e colunas.
@@ -19,7 +43,7 @@ A função _cbind()_ permite-nos juntar vetores ou matrizes por colunas. O mesmo
 ```{r}
 A <- matrix(1:4,2,2)
 B <- matrix(4:8,2,2)
-cbind(A,B)
+cbind(A,B)    
 rbind(A,B)
 ```
 ### Indexação
@@ -56,19 +80,29 @@ worten
 ```{r}
 A <- matrix(1:4,2,2)
 B <- matrix(4:1,2,2)
-C <- A%*%B
+C <- A%*%B 
 C
 ```
 # Arrays
 Um array é uma estrutura de dados que conseguem armazenar dados em mais do que 2 dimensões. Por exemplo uma Matriz é por outras palavras um array bidimensonal, ou seja é um array com duas dimensões.
 ```{r}
-bidimensional <- array(1:12, c(4,3))
+bidimensional <- array(1:12, c(4,3))  #Array bidimensional
 bidimensional
-tridimensinal <- array(1:12, c(4,3,2))
+tridimensinal <- array(1:12, c(4,3,2)) #Array Tridimensional
 tridimensinal
 ```
 # Listas
 Um objecto do tipo _list_ em R é uma estrutura de dados que nos permite agrupar variaveis de diferentes tipos num mesmo objecto. 
 ```{r}
-
+lista <- list(c("Macario","Grifo","Poço"),TRUE,c(2,5,12.4,23),"Modulo de Introdução")  #Criação de uma lista simples
+lista
+lista_NC <- list(nomes=c("Macario","Grifo","Poço"),trabalhador=TRUE,c(2,5,12.4,23),mensagem="Modulo de Introdução")  #Criação de uma lista com atribuição de nomes aos componentes
+lista_NC  #Lista com nomes nos componentes
+```
+### Acesso a componentes em Listas (Indexação)
+```{r}
+lista_NC[2:3] # retorna os componentes desde o index 2 até ao index 3
+lista_NC[[3]] # retorna todos os elementos ou componentes do componente na posição 3 da lista
+lista_NC$nomes  # retorna 
+lista_NC$nomes[1] #
 ```
