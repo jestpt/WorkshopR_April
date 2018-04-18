@@ -89,7 +89,7 @@ numeros[-2]
 #### Atribuir Nomes a vetores
 O R permite-nos atribuir nomes a cada uma das posições do vector e depois usar esses nomes para aceder aos seus valores. Para dar nomes aos valores do vetor utiliza-se a função _names()_ 
 ```{r}
-key <- c('batatas','cenoras','tomates')
+key <- c('batatas','cenouras','tomates')
 values <- c(80,12,20)
 names(values) <- key
 values
@@ -121,24 +121,36 @@ max(v)#Maior valor do vetor
 which.max(v) #Indice do maior valor do vetor
 which(v>=7) #Indices dos valores maiores ou igual a 7
 ```
+
+
+
+
+## Por aqui exercicios
+
+
+
+
+
+
 ### Vectores Lógicos
 Outro tipo de dados importante no R são os vetores lógicos. Os vetores logicos contêm valores do tipo _boolean_ e em alguns casos são uma exelente abordagem para encontrar determinados valores. Vejamos um exemplo.
 ```{r}
 v <- 10:20
 vBoolean <- v>=18
+vBoolean
 v[vBoolean]
 which(vBoolean)
 ```
 ### Vetores de Strings
 Vetores de strings são um tipo de dados em R que nos permite guardar sequencias de caracteres, também designadas por strings.
 ```{r}
-nomes <- c("Grifo","Joao","Poço","Macario","Bruno","Grifo")
+nomes <- c("Grifo","Joao","Poço","Macario","Leitão","Grifo")
 nomes[4]
 nomes[1]==tail(nomes,n=1)
 #Poderiamos ter feito nomes[1]==nomes[6] ou nomes[1]==nomes[length(nomes)]
 #A função tail(<vetor>,<n elementos>) vai buscar os n últimos elementos ao vetor indicado
 ```
-#### Algumas funções que se podem usar para trabalhar com vetores de strings
+#### Algumas funções que se podem usar para trabalhar com strings
 ```{r}
 nome <- "Guilherme"
 apelido <- "Cruz"
