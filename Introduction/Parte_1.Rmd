@@ -55,7 +55,7 @@ Outra forma de criar um vector numéricos por ser através da geração de uma s
 1:10
 20:10
 seq(1,2,0.2) #por definição a ordem dos argumentos de entrada na função seq é: from, to, by. Se especificarmos estes argumentos podemos trocar a ordem. Exemplo: seq(by=0.1,to=2,from=1). Se não especificarmos o passo (by), por definição é 1.
-v=rep(0,10); #Esta é uma maneira possivel de criar um vetor de zeros. No primeiro argumento indicamos o numeros que queremos repetir e no segundo argumento indicamos quantas vezes queremos repetir.
+v <- rep(0,10); #Esta é uma maneira possivel de criar um vetor de zeros. No primeiro argumento indicamos o numeros que queremos repetir e no segundo argumento indicamos quantas vezes queremos repetir.
 v
 ```
 É possível realizar operações aritméticas sobre vetores de forma bastante simples.
