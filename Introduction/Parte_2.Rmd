@@ -17,7 +17,7 @@ comida <- factor(qualidade_comida, levels = c("low","medium", "high")) # podemos
 comida
 levels(comida)
 francesinhaEcompanhia <- comida[1]
-atenas <- comida[length(qualidade_comida)]
+atenas <- comida[length(qualidade_comida)] #a função length() recebe como entrada, por exemplo, um vector ou um factor e retorna numero de elementos desse mesmo argumento de entrada.
 #É a qualidade do restaurante Atenas melhor do que a do Francesinhas&Companhia?
 atenas > francesinhaEcompanhia
 ```
@@ -42,7 +42,9 @@ mat
 A função _cbind()_ permite-nos juntar vetores ou matrizes por colunas. O mesmo se repete para a função _rbind()_ mas para linhas.
 ```{r}
 A <- matrix(1:4,2,2)
+A
 B <- matrix(4:8,2,2)
+B
 cbind(A,B)    
 rbind(A,B)
 ```
