@@ -125,16 +125,16 @@ $(document).ready(function () {
 </div>
 
 
-<div id="introducao-ao-r" class="section level1">
-<h1>Introdução ao R</h1>
-<p>O R é um sistema de computação científico e estatístico, programável e que permite o tratamento de vários tipos de dados. Esta linguagem contém um conjunto de ferramentas que nos permite efetuar cálculos, armazenamento, processamento, analise e visualização de dados. Hoje em dia os <em>Datasets</em> surgem de várias fontes de informação nos mais diversos formatos e o primeiro passo é tornar essa informação analizável para poder ser processada. O R é uma linguagem bastante poderosa para tratamento estatístico de dados e por isso mesmo é importante consolidar os conceitos básicos para poder seguir para os mais avançados.</p>
-<div id="atribuicao-de-valores-a-um-objecto" class="section level2">
-<h2>Atribuição de valores a um objecto</h2>
-<p>A operação mais básica que se pode realizar sobre um objecto em R é a atribuição. Para esse efeito utiliza-se o operador “&lt;-”</p>
+<div id="introduaao-ao-r" class="section level1">
+<h1>IntroduÃ§Ã£o ao R</h1>
+<p>O R Ã© um sistema de computaÃ§Ã£o cientÃ­fico e estatÃ­stico, programÃ¡vel e que permite o tratamento de vÃ¡rios tipos de dados. Esta linguagem contÃ©m um conjunto de ferramentas que nos permite efetuar cÃ¡lculos, armazenamento, processamento, analise e visualizaÃ§Ã£o de dados. Hoje em dia os <em>Datasets</em> surgem de vÃ¡rias fontes de informaÃ§Ã£o nos mais diversos formatos e o primeiro passo Ã© tornar essa informaÃ§Ã£o analizÃ¡vel para poder ser processada. O R Ã© uma linguagem bastante poderosa para tratamento estatÃ­stico de dados e por isso mesmo Ã© importante consolidar os conceitos bÃ¡sicos para poder seguir para os mais avanÃ§ados.</p>
+<div id="atribuiaao-de-valores-a-um-objecto" class="section level2">
+<h2>AtribuiÃ§Ã£o de valores a um objecto</h2>
+<p>A operaÃ§Ã£o mais bÃ¡sica que se pode realizar sobre um objecto em R Ã© a atribuiÃ§Ã£o. Para esse efeito utiliza-se o operador “&lt;-”</p>
 <pre class="r"><code>x &lt;-  3
 print(x)</code></pre>
 <pre><code>## [1] 3</code></pre>
-<pre class="r"><code>x #podemos também imprimir variaveis sem utilizar a função print();</code></pre>
+<pre class="r"><code>x #podemos tambÃ©m imprimir variaveis sem utilizar a funÃ§Ã£o print();</code></pre>
 <pre><code>## [1] 3</code></pre>
 <pre class="r"><code>y &lt;- 'variavel'
 print(y)</code></pre>
@@ -146,97 +146,121 @@ print(xfloat)</code></pre>
 bol</code></pre>
 <pre><code>## [1] TRUE</code></pre>
 </div>
-<div id="operacoes-aritmeticas" class="section level2">
-<h2>Operações Aritméticas</h2>
+<div id="operaaaes-aritmaticas" class="section level2">
+<h2>OperaÃ§Ãµes AritmÃ©ticas</h2>
 <pre class="r"><code>x &lt;- 9
 y &lt;- 2
-x + y     # adição</code></pre>
+x + y     # adiÃ§Ã£o</code></pre>
 <pre><code>## [1] 11</code></pre>
-<pre class="r"><code>x - y     # subtração</code></pre>
+<pre class="r"><code>x - y     # subtraÃ§Ã£o</code></pre>
 <pre><code>## [1] 7</code></pre>
-<pre class="r"><code>x * y     # multiplicação</code></pre>
+<pre class="r"><code>x * y     # multiplicaÃ§Ã£o</code></pre>
 <pre><code>## [1] 18</code></pre>
-<pre class="r"><code>x / y     # divisção</code></pre>
+<pre class="r"><code>x / y     # divisÃ§Ã£o</code></pre>
 <pre><code>## [1] 4.5</code></pre>
 <pre class="r"><code>x ^ y     # (ou x ** y)     x elevado a y</code></pre>
 <pre><code>## [1] 81</code></pre>
-<pre class="r"><code>x %% y    # resto da divisão</code></pre>
+<pre class="r"><code>x %% y    # resto da divisÃ£o</code></pre>
 <pre><code>## [1] 1</code></pre>
-<pre class="r"><code>x %/% y   # divisão arredondada por defeito</code></pre>
+<pre class="r"><code>x %/% y   # divisÃ£o arredondada por defeito</code></pre>
 <pre><code>## [1] 4</code></pre>
+</div>
+<div id="operadores-logicos" class="section level2">
+<h2>Operadores lógicos</h2>
+<p>O símbolo &amp; performa a operação AND entre os dois operandos.</p>
+<pre class="r"><code>TRUE &amp; TRUE</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>TRUE &amp; FALSE</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<pre class="r"><code>FALSE &amp; TRUE</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<pre class="r"><code>FALSE &amp; FALSE</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<p>O símbolo | performa a operação OR entre os dois operandos.</p>
+<pre class="r"><code>TRUE | TRUE</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>TRUE | FALSE</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>FALSE | TRUE</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>FALSE | FALSE</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<p>O símbolo ! contraria a expressão à sua frente. É a operação NOT.</p>
+<pre class="r"><code>!(FALSE &amp; FALSE)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
 </div>
 </div>
 <div id="vetores" class="section level1">
 <h1>Vetores</h1>
-<p>O R é orientado aos vectores que constituem objectos que permitem guardar uma sequência de valores. Existem vários tipos de vectores: Numéricos, Lógicos e de Strings.</p>
+<p>O R Ã© orientado aos vectores que constituem objectos que permitem guardar uma sequÃªncia de valores. Existem vÃ¡rios tipos de vectores: NumÃ©ricos, LÃ³gicos e de Strings.</p>
 <div id="vetores-numericos" class="section level3">
 <h3>Vetores Numericos</h3>
-<p>A função c() permite juntar (concatenar) um vetor com novos elementos (ou com outros vetores).</p>
+<p>A funÃ§Ã£o c() permite juntar (concatenar) um vetor com novos elementos (ou com outros vetores).</p>
 <pre class="r"><code>primeiro &lt;- c(1,2,3)
 segundo &lt;- c(4,5,6)
 vecFinal &lt;- c(primeiro,segundo)
 vecFinal</code></pre>
 <pre><code>## [1] 1 2 3 4 5 6</code></pre>
-<p>Outra forma de criar um vector numéricos por ser através da geração de uma sequência de números.</p>
+<p>Outra forma de criar um vector numÃ©ricos por ser atravÃ©s da geraÃ§Ã£o de uma sequÃªncia de nÃºmeros.</p>
 <pre class="r"><code>1:10</code></pre>
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
 <pre class="r"><code>20:10</code></pre>
 <pre><code>##  [1] 20 19 18 17 16 15 14 13 12 11 10</code></pre>
-<pre class="r"><code>seq(1,2,0.2) #por definição a ordem dos argumentos de entrada na função seq é: from, to, by. Se especificarmos estes argumentos podemos trocar a ordem. Exemplo: seq(by=0.1,to=2,from=1). Se não especificarmos o passo (by), por definição é 1.</code></pre>
+<pre class="r"><code>seq(1,2,0.2) #por definiÃ§Ã£o a ordem dos argumentos de entrada na funÃ§Ã£o seq Ã©: from, to, by. Se especificarmos estes argumentos podemos trocar a ordem. Exemplo: seq(by=0.1,to=2,from=1). Se nÃ£o especificarmos o passo (by), por definiÃ§Ã£o Ã© 1.</code></pre>
 <pre><code>## [1] 1.0 1.2 1.4 1.6 1.8 2.0</code></pre>
-<pre class="r"><code>v=rep(0,10); #Esta é uma maneira possivel de criar um vetor de zeros. No primeiro argumento indicamos o numeros que queremos repetir e no segundo argumento indicamos quantas vezes queremos repetir.
+<pre class="r"><code>v &lt;- rep(0,10); #Esta Ã© uma maneira possivel de criar um vetor de zeros. No primeiro argumento indicamos o numeros que queremos repetir e no segundo argumento indicamos quantas vezes queremos repetir.
 v</code></pre>
 <pre><code>##  [1] 0 0 0 0 0 0 0 0 0 0</code></pre>
-<p>É possível realizar operações aritméticas sobre vetores de forma bastante simples.</p>
+<p>Ã possÃ­vel realizar operaÃ§Ãµes aritmÃ©ticas sobre vetores de forma bastante simples.</p>
 <pre class="r"><code>contasAritmeticas &lt;- 2:8
-2*contasAritmeticas+3    #As operações são feitas para todos os elementos do vetor</code></pre>
+2*contasAritmeticas+3    #As operaÃ§Ãµes sÃ£o feitas para todos os elementos do vetor</code></pre>
 <pre><code>## [1]  7  9 11 13 15 17 19</code></pre>
-<p>Operações aritméticas entre vetores também é possivel. Um operação aritmética entre dois vectores realiza a operação entre cada par de valores nas mesmas posições de ambos os vetores. Se os vetores não tiverem o mesmo tamanho, o mais pequeno será reciclado, isto é, será repetido enquanto for necessário. Quando o tamanho do vector não for multiplo do menor, deverá aparecer uma mensagem de erro.</p>
+<p>OperaÃ§Ãµes aritmÃ©ticas entre vetores tambÃ©m Ã© possivel. Um operaÃ§Ã£o aritmÃ©tica entre dois vectores realiza a operaÃ§Ã£o entre cada par de valores nas mesmas posiÃ§Ãµes de ambos os vetores. Se os vetores nÃ£o tiverem o mesmo tamanho, o mais pequeno serÃ¡ reciclado, isto Ã©, serÃ¡ repetido enquanto for necessÃ¡rio. Quando o tamanho do vector nÃ£o for multiplo do menor, deverÃ¡ aparecer uma mensagem de erro.</p>
 <pre class="r"><code>maior &lt;- 1:10
 menor &lt;- 1:5
 maior+menor</code></pre>
 <pre><code>##  [1]  2  4  6  8 10  7  9 11 13 15</code></pre>
 <div id="acesso-aos-elementos-de-vectores" class="section level4">
 <h4>Acesso aos elementos de vectores</h4>
-<p>Para consultarmos um elemento de um vetor, escrememos o nome do vector e entre parênteses retos, o indice. Assim se quisermos aceder a um elemtento do vetor X na posiçao i, escrevemos X[i].</p>
+<p>Para consultarmos um elemento de um vetor, escrememos o nome do vector e entre parÃªnteses retos, o indice. Assim se quisermos aceder a um elemtento do vetor X na posiÃ§ao i, escrevemos X[i].</p>
 <pre class="r"><code>X &lt;- 1:10
-X[3]  #aceder ao elemento na posição 3 do vetor</code></pre>
+X[3]  #aceder ao elemento na posiÃ§Ã£o 3 do vetor</code></pre>
 <pre><code>## [1] 3</code></pre>
-<p>É também possível a indexação ser feita com um vetor sendo que, neste caso, é retornado um vector com os valores do vetor original nas posições do vetor indice.</p>
+<p>Ã tambÃ©m possÃ­vel a indexaÃ§Ã£o ser feita com um vetor sendo que, neste caso, Ã© retornado um vector com os valores do vetor original nas posiÃ§Ãµes do vetor indice.</p>
 <pre class="r"><code>#Utilizando o vector X
 X[c(4:9)]</code></pre>
 <pre><code>## [1] 4 5 6 7 8 9</code></pre>
 <pre class="r"><code>X[4:9]  </code></pre>
 <pre><code>## [1] 4 5 6 7 8 9</code></pre>
-<p>Para remover um elemento podemos especificar a posição do elemento que queremos eliminar e adicionar o operador ‘-’ imediatamente antes</p>
+<p>Para remover um elemento podemos especificar a posiÃ§Ã£o do elemento que queremos eliminar e adicionar o operador ‘-’ imediatamente antes</p>
 <pre class="r"><code>numeros &lt;- 1:10
 numeros[-2]</code></pre>
 <pre><code>## [1]  1  3  4  5  6  7  8  9 10</code></pre>
 </div>
 <div id="atribuir-nomes-a-vetores" class="section level4">
 <h4>Atribuir Nomes a vetores</h4>
-<p>O R permite-nos atribuir nomes a cada uma das posições do vector e depois usar esses nomes para aceder aos seus valores. Para dar nomes aos valores do vetor utiliza-se a função <em>names()</em></p>
-<pre class="r"><code>key &lt;- c('batatas','cenoras','tomates')
+<p>O R permite-nos atribuir nomes a cada uma das posiÃ§Ãµes do vector e depois usar esses nomes para aceder aos seus valores. Para dar nomes aos valores do vetor utiliza-se a funÃ§Ã£o <em>names()</em></p>
+<pre class="r"><code>key &lt;- c('batatas','cenouras','tomates')
 values &lt;- c(80,12,20)
 names(values) &lt;- key
 values</code></pre>
-<pre><code>## batatas cenoras tomates 
-##      80      12      20</code></pre>
+<pre><code>##  batatas cenouras  tomates 
+##       80       12       20</code></pre>
 <pre class="r"><code>values['batatas']</code></pre>
 <pre><code>## batatas 
 ##      80</code></pre>
 </div>
-<div id="algumas-funcoes-que-podem-ser-aplicadas-em-vetores-numericos" class="section level4">
-<h4>Algumas funções que podem ser aplicadas em vetores numéricos</h4>
+<div id="algumas-funaaes-que-podem-ser-aplicadas-em-vetores-numaricos" class="section level4">
+<h4>Algumas funÃ§Ãµes que podem ser aplicadas em vetores numÃ©ricos</h4>
 <pre class="r"><code>v &lt;- c(-1,-2,3,4)
-abs(v) #Valor absoluto (Módulo)</code></pre>
+abs(v) #Valor absoluto (MÃ³dulo)</code></pre>
 <pre><code>## [1] 1 2 3 4</code></pre>
 <pre class="r"><code>sqrt(abs(v)) #Raiz quadrada</code></pre>
 <pre><code>## [1] 1.000000 1.414214 1.732051 2.000000</code></pre>
 <pre class="r"><code>sin(pi/2*v) #seno</code></pre>
-<pre><code>## [1] -1.000000e+00 -1.224647e-16 -1.000000e+00 -2.449294e-16</code></pre>
+<pre><code>## [1] -1.000000e+00 -1.224606e-16 -1.000000e+00 -2.449213e-16</code></pre>
 <pre class="r"><code>rnd &lt;- c(3,345,5,2221,4.498628,1.987654321,2.123)
-round(rnd,2) #Arredonda o valor a um deternimado número de casas decimais a definir pelo segundo argumento. Se o número de casas decimais não for indicado, por definição o R arredonda para o número inteiro.</code></pre>
+round(rnd,2) #Arredonda o valor a um deternimado nÃºmero de casas decimais a definir pelo segundo argumento. Se o nÃºmero de casas decimais nÃ£o for indicado, por definiÃ§Ã£o o R arredonda para o nÃºmero inteiro.</code></pre>
 <pre><code>## [1]    3.00  345.00    5.00 2221.00    4.50    1.99    2.12</code></pre>
 <pre class="r"><code>v &lt;- c(4,7,2,3,8,3,3,3,1,9,3,2,4)
 rev(v) #Inverte o vector</code></pre>
@@ -249,7 +273,7 @@ rev(v) #Inverte o vector</code></pre>
 <pre><code>##  [1]  9  3 12  4  6  7  8 11  1 13  2  5 10</code></pre>
 <pre class="r"><code>v[order(v)] #Ao passarmos o vector ordenado por indices, como indice, o resultado vai ser o vector ordenado.</code></pre>
 <pre><code>##  [1] 1 2 2 3 3 3 3 3 4 4 7 8 9</code></pre>
-<pre class="r"><code>unique(v) #Retorna um vetor apenas com os elementos únicos</code></pre>
+<pre class="r"><code>unique(v) #Retorna um vetor apenas com os elementos Ãºnicos</code></pre>
 <pre><code>## [1] 4 7 2 3 8 1 9</code></pre>
 <pre class="r"><code>cumsum(v) #Faz a soma cumulativa</code></pre>
 <pre><code>##  [1]  4 11 13 16 24 27 30 33 34 43 46 48 52</code></pre>
@@ -257,7 +281,7 @@ rev(v) #Inverte o vector</code></pre>
 <pre><code>##  [1]       4      28      56     168    1344    4032   12096   36288
 ##  [9]   36288  326592  979776 1959552 7838208</code></pre>
 <pre class="r"><code>v &lt;- c(7,2,9,3,12)
-sum(v) #Somatório dos valores do vetor</code></pre>
+sum(v) #SomatÃ³rio dos valores do vetor</code></pre>
 <pre><code>## [1] 33</code></pre>
 <pre class="r"><code>mean(v) #media dos valores do vetor</code></pre>
 <pre><code>## [1] 6.6</code></pre>
@@ -273,55 +297,59 @@ sum(v) #Somatório dos valores do vetor</code></pre>
 <pre><code>## [1] 1 3 5</code></pre>
 </div>
 </div>
-<div id="vectores-logicos" class="section level3">
-<h3>Vectores Lógicos</h3>
-<p>Outro tipo de dados importante no R são os vetores lógicos. Os vetores logicos contêm valores do tipo <em>boolean</em> e em alguns casos são uma exelente abordagem para encontrar determinados valores. Vejamos um exemplo.</p>
+<div id="por-aqui-exercicios" class="section level2">
+<h2>Por aqui exercicios</h2>
+<div id="vectores-lagicos" class="section level3">
+<h3>Vectores LÃ³gicos</h3>
+<p>Outro tipo de dados importante no R sÃ£o os vetores lÃ³gicos. Os vetores logicos contÃªm valores do tipo <em>boolean</em> e em alguns casos sÃ£o uma exelente abordagem para encontrar determinados valores. Vejamos um exemplo.</p>
 <pre class="r"><code>v &lt;- 10:20
 vBoolean &lt;- v&gt;=18
-v[vBoolean]</code></pre>
+vBoolean</code></pre>
+<pre><code>##  [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE</code></pre>
+<pre class="r"><code>v[vBoolean]</code></pre>
 <pre><code>## [1] 18 19 20</code></pre>
 <pre class="r"><code>which(vBoolean)</code></pre>
 <pre><code>## [1]  9 10 11</code></pre>
 </div>
 <div id="vetores-de-strings" class="section level3">
 <h3>Vetores de Strings</h3>
-<p>Vetores de strings são um tipo de dados em R que nos permite guardar sequencias de caracteres, também designadas por strings.</p>
-<pre class="r"><code>nomes &lt;- c(&quot;Grifo&quot;,&quot;Joao&quot;,&quot;Poço&quot;,&quot;Macario&quot;,&quot;Bruno&quot;,&quot;Grifo&quot;)
+<p>Vetores de strings sÃ£o um tipo de dados em R que nos permite guardar sequencias de caracteres, tambÃ©m designadas por strings.</p>
+<pre class="r"><code>nomes &lt;- c(&quot;Grifo&quot;,&quot;Joao&quot;,&quot;PoÃ§o&quot;,&quot;Macario&quot;,&quot;LeitÃ£o&quot;,&quot;Grifo&quot;)
 nomes[4]</code></pre>
 <pre><code>## [1] &quot;Macario&quot;</code></pre>
 <pre class="r"><code>nomes[1]==tail(nomes,n=1)</code></pre>
 <pre><code>## [1] TRUE</code></pre>
 <pre class="r"><code>#Poderiamos ter feito nomes[1]==nomes[6] ou nomes[1]==nomes[length(nomes)]
-#A função tail(&lt;vetor&gt;,&lt;n elementos&gt;) vai buscar os n últimos elementos ao vetor indicado</code></pre>
-<div id="algumas-funcoes-que-se-podem-usar-para-trabalhar-com-vetores-de-strings" class="section level4">
-<h4>Algumas funções que se podem usar para trabalhar com vetores de strings</h4>
+#A funÃ§Ã£o tail(&lt;vetor&gt;,&lt;n elementos&gt;) vai buscar os n Ãºltimos elementos ao vetor indicado</code></pre>
+<div id="algumas-funaaes-que-se-podem-usar-para-trabalhar-com-strings" class="section level4">
+<h4>Algumas funÃ§Ãµes que se podem usar para trabalhar com strings</h4>
 <pre class="r"><code>nome &lt;- &quot;Guilherme&quot;
 apelido &lt;- &quot;Cruz&quot;
-toupper(nome)  #Transforma todos os caracteres da string em letras maiúsculas</code></pre>
+toupper(nome)  #Transforma todos os caracteres da string em letras maiÃºsculas</code></pre>
 <pre><code>## [1] &quot;GUILHERME&quot;</code></pre>
-<pre class="r"><code>tolower(nome)  #Transforma todos os caracteres da string em letras minúsculas</code></pre>
+<pre class="r"><code>tolower(nome)  #Transforma todos os caracteres da string em letras minÃºsculas</code></pre>
 <pre><code>## [1] &quot;guilherme&quot;</code></pre>
 <pre class="r"><code>paste(apelido,nomes) #Imprime todas as strings que forem passadas como argumento</code></pre>
-<pre><code>## [1] &quot;Cruz Grifo&quot;   &quot;Cruz Joao&quot;    &quot;Cruz Poço&quot;    &quot;Cruz Macario&quot;
-## [5] &quot;Cruz Bruno&quot;   &quot;Cruz Grifo&quot;</code></pre>
+<pre><code>## [1] &quot;Cruz Grifo&quot;   &quot;Cruz Joao&quot;    &quot;Cruz PoÃ§o&quot;   &quot;Cruz Macario&quot;
+## [5] &quot;Cruz LeitÃ£o&quot; &quot;Cruz Grifo&quot;</code></pre>
 <pre class="r"><code>nchar(apelido) #Retorna o numero de caracteres da strings passada como argumento</code></pre>
 <pre><code>## [1] 4</code></pre>
-<pre class="r"><code>sub(&quot;z&quot;,&quot;zes&quot;,apelido) #Substitui a ocurrência passada no primeiro argumento pela string passada no segundo argumento, apenas uma vez. A função gsub() faz o mesmo mas para todas as ocurrências</code></pre>
+<pre class="r"><code>sub(&quot;z&quot;,&quot;zes&quot;,apelido) #Substitui a ocurrÃªncia passada no primeiro argumento pela string passada no segundo argumento, apenas uma vez. A funÃ§Ã£o gsub() faz o mesmo mas para todas as ocurrÃªncias</code></pre>
 <pre><code>## [1] &quot;Cruzes&quot;</code></pre>
-<pre class="r"><code>substr(nome,4,7) #Retorna um subtring da string passado no primeiro argumento. O recorte é feito desde a posição do caracter passada no segundo argumento até à posição passada no ultimo argumento</code></pre>
+<pre class="r"><code>substr(nome,4,7) #Retorna um subtring da string passado no primeiro argumento. O recorte Ã© feito desde a posiÃ§Ã£o do caracter passada no segundo argumento atÃ© Ã  posiÃ§Ã£o passada no ultimo argumento</code></pre>
 <pre><code>## [1] &quot;lher&quot;</code></pre>
-<pre class="r"><code>str &lt;- &quot;O meu nome é Grifo&quot;
-strsplit(str,' ') #&quot;Parte&quot; a string original em várias strings de acordo com o separador indicado no segundo argumento de entrade.</code></pre>
+<pre class="r"><code>str &lt;- &quot;O meu nome Ã© Grifo&quot;
+strsplit(str,' ') #&quot;Parte&quot; a string original em vÃ¡rias strings de acordo com o separador indicado no segundo argumento de entrade.</code></pre>
 <pre><code>## [[1]]
-## [1] &quot;O&quot;     &quot;meu&quot;   &quot;nome&quot;  &quot;é&quot;     &quot;Grifo&quot;</code></pre>
+## [1] &quot;O&quot;     &quot;meu&quot;   &quot;nome&quot;  &quot;Ã©&quot;    &quot;Grifo&quot;</code></pre>
 <pre class="r"><code>grep(&quot;ifo&quot;,nomes) #Permite identificar a ocurrencia de string/substrings no vetor passado como segundo argumento</code></pre>
 <pre><code>## [1] 1 6</code></pre>
-<pre class="r"><code>#Explicar a função mapply()</code></pre>
+<pre class="r"><code>#Explicar a funÃ§Ã£o mapply()</code></pre>
 </div>
 </div>
 <div id="limpeza-de-dados" class="section level3">
 <h3>Limpeza de dados</h3>
-<p>Por vezes quando estamos a trabalhar com dados importados, eles não estão trataveis. Valores omissos são muitas das vezes a causa disso mesmo e temos de aprender a lidar com este problema.</p>
+<p>Por vezes quando estamos a trabalhar com dados importados, eles nÃ£o estÃ£o trataveis. Valores omissos sÃ£o muitas das vezes a causa disso mesmo e temos de aprender a lidar com este problema.</p>
 <pre class="r"><code>v &lt;-  c(1,2,NA,NA,NA,7,2,3,NA,3,NA,4,NA,NA,4,6,2,NA,1)
 v</code></pre>
 <pre><code>##  [1]  1  2 NA NA NA  7  2  3 NA  3 NA  4 NA NA  4  6  2 NA  1</code></pre>
@@ -330,13 +358,14 @@ v</code></pre>
 <pre class="r"><code>v[!is.na(v)]</code></pre>
 <pre><code>##  [1] 1 2 7 2 3 3 4 4 6 2 1</code></pre>
 </div>
+</div>
 <div id="exercicios" class="section level2">
 <h2>Exercicios</h2>
-<p>1.1) Definir um vetor com uma sequência de números ímpares menores do que 30</p>
+<p>1.1) Definir um vetor com uma sequÃªncia de nÃºmeros Ã­mpares menores do que 30</p>
 <pre><code>##  [1]  1  3  5  7  9 11 13 15 17 19 21 23 25 27 29</code></pre>
 <p>1.2) Calcular a soma de todos os valores do vetor anteriormente definido</p>
 <pre><code>## [1] 225</code></pre>
-<p>1.3) Selecionar os elementos do vetor múltiplos de 3</p>
+<p>1.3) Selecionar os elementos do vetor mÃºltiplos de 3</p>
 <pre><code>## [1]  3  9 15 21 27</code></pre>
 </div>
 </div>

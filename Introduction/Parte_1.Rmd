@@ -39,6 +39,25 @@ x %% y 	  # resto da divisÃ£o
 x %/% y   # divisÃ£o arredondada por defeito
 ```
 
+## Operadores lógicos
+O símbolo & performa a operação AND entre os dois operandos.
+```{r}
+TRUE & TRUE
+TRUE & FALSE
+FALSE & TRUE
+FALSE & FALSE
+```
+O símbolo | performa a operação OR entre os dois operandos.
+```{r}
+TRUE | TRUE
+TRUE | FALSE
+FALSE | TRUE
+FALSE | FALSE
+```
+O símbolo ! contraria a expressão à sua frente. É a operação NOT.
+```{r}
+!(FALSE & FALSE)
+```
 # Vetores 
 O R Ã© orientado aos vectores que constituem objectos que permitem guardar uma sequÃªncia de valores. Existem vÃ¡rios tipos de vectores: NumÃ©ricos, LÃ³gicos e de Strings.
 
@@ -123,11 +142,7 @@ which(v>=7) #Indices dos valores maiores ou igual a 7
 ```
 
 
-
-
 ## Por aqui exercicios
-
-
 
 
 

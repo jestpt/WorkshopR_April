@@ -30,25 +30,6 @@ logico
 matriz = matrix(1:10,5,2)
 matriz <= 5
 ```
-## Operadores lógicos
-O símbolo & performa a operação AND entre os dois operandos.
-```{r}
-TRUE & TRUE
-TRUE & FALSE
-FALSE & TRUE
-FALSE & FALSE
-```
-O símbolo | performa a operação OR entre os dois operandos.
-```{r}
-TRUE | TRUE
-TRUE | FALSE
-FALSE | TRUE
-FALSE | FALSE
-```
-O símbolo ! contraria a expressão à sua frente. É a operação NOT.
-```{r}
-!(FALSE & FALSE)
-```
 
 ## Condicionais
 As declarações condicionais servem para direcionar o fluxo do código, ou seja, para onde o programa vai. Uma condicional inicia-se com a palavra 'if' e a sua estrutura é: if(condição){statement}. Se a condição for TRUE, o programa corre o que estiver dentro das chavetas. 
