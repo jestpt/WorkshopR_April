@@ -1,0 +1,23 @@
+### Solução 1:
+b) read.csv
+
+###Solução 2:
+solucao2 <- filter(subset1, Age<23 & Gender=="Male)
+solucao2
+
+###Solução 3:
+subset1[2,4] <- "Canada"
+Ver subset1.
+
+###Solucao 4:
+
+cores <- c("vermelho","azul","preto","branco")
+idades <- c(23,46,73,90)
+meu.data.frame1 <-data.frame(cores,idades)
+cidades <- c("Porto","Coimbra","Algarve","Aveiro")
+meu.data.frame1$cidades <- cidades
+meu.data.frame1
+
+###Solução Extra:
+
+subset1$Country[subset1$Country=="United States"] <- "Canada"

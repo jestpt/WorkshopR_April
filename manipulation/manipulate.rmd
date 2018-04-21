@@ -2,43 +2,46 @@
 title: "workshopR_ler_tratar_ficheiros"
 author: "Xavier Pinho"
 date: "21 de Marco de 2018"
-output: pdf_document
+output:
+  html_document:
+    df_print: paged
 ---
 
+```{r}
+#O comando library faz o loading das packages.
 library(dplyr)
 library(tidyr)
 
-###Criar uma directoria para este ficheiro
-```{r}
+#Criar uma directoria para este ficheiro
 home <- 'C:/Users/Xavier/Documents/R/workshopR_jest'
 setwd(home)
 ```
 
-###Ler e tratar ficheiros
+##Ler e tratar ficheiros
 
 data.frames forma mais comum de armazenar e manipular dados no R.
 data.frames são listas de vetores todos com o mesmo comprimento.
+Os data.frames são matrizes que permitem ter objetos de diferentes tipos.
+Existem muitos comandos exclusivamente para manipular data.frames, desta forma trabalhar com data.frames torna-se muito vantajoso para ler e tratar ficheiros.
 
 As funções mais importantes para ler ficheiros são:
 ```{r}
-read.table()
-read.csv()
-read.csv2()
-read.delim()
+#read.table()
+#read.csv()
+#read.csv2()
+#read.delim()
 ```
-entre outras
+entre outras.
 Todas estas funções lêm um ficheiro e criam um data frame.
 
 Argumentos:
 file -> url completo, nome.formato, entre aspas
-Header = TRUE -> primeira linha contem os titulos
+header = TRUE -> primeira linha contem os titulos
 sep = "" -> de que forma os dados est?o separados
 fill = TRUE -> caso haja linhas de diferentes tamanhos adiciona espacos brancos
 dec -> caracter usado nos numeros decimais
 
-Principais diferenças:
-
-O read.table() é o formato mais comum para importar ficheiros, a função já tem os argumentos definidos por definição, contudo é possível alterá-los da forma que nós quisermos.
+Estas funções já tem os argumentos por definição:
 
 ```{r}
 df1 <- read.table("survey.csv", header = FALSE, sep = "", fill = TRUE , dec = ".")
@@ -48,117 +51,151 @@ df2 <- read.csv("survey.csv", header = T , sep = ",", fill = TRUE , dec = ".")
 
 df3 <- read.csv2("survey.csv", header = TRUE, sep = ";", fill = TRUE , dec = ",")
 
-df4 <- read.delim("file", header = TRUE, sep = "\t", fill = TRUE , dec = ".")
+df4 <- read.delim("survey.csv", header = TRUE, sep = "\t", fill = TRUE , dec = ".")
 ```
 ______________________________________________________________________________________________
-#Exercício 1:
-Depois de observar a base de dados indique qual destas funções é a mais apropriada para ler o ficheiro?
+
+###Exercício 1:
+Depois de observar a base de dados indique qual destas funções é a mais apropriada para ler o ficheiro survey.csv?
 a) read.table
 b) read.csv
 c) read.csv2
 d) read.delim
 
-Solução 1: b) read.csv
+
 _____________________________________________________________________________________________
 
 Depois do data frame estar criado é possível alterá-lo da maneira como quisermos.
+Observar que na coluna self_employed tem muitos elementos como NA que são valores em falta.
 
-Caso o data frame nao tenha titulos nas colunas, e possivel adicionar um vetor com os titulos, atraves de col.names.
-Podemos tambem definir o tipo de variaveis de cada coluna atraves de colClasses.
+Por exemplo:
+Caso o data frame nao tenha titulos nas colunas, e possivel adicionar um vetor com os titulos, atraves da função col.names.
 
 ```{r}
 df5 <- read.csv2("survey.csv", header = T, col.names = c("coluna1"))
-
-df6 <- read.csv2("survey.csv", header = FALSE, colClasses = c("factor", "NULL", "numeric"))
-#A coluna a que corresponde o "NULL" desaparece.
 ```
 
 #Representacao do data frame
+
 ```{r}
+#Informacao sobre a estrutura do objeto
 str(df2)
-#informacao sobre a estrutura do objeto
+
+#Informacao estatistica sobre todas as variaveis do data frame
 summary(df2)
-#informacao estatistica sobre todas as variaveis do data frame
+
+#Exibe a parte superior do objeto
 head(df2)
-#exibe a parte superior do objeto
+
+#Exibe a parte inferior do objeto
 tail(df2)
-#exibe a parte inferior do objeto
+
 
 ```
 
 Agora que já temos uma noção da estrutura e da forma como o nosso data frame está organizado, podemos organizá-lo da maneira mais conveniente.
+Podemos ver também que existem colunas que possuem NA, ou seja, Missing Values, iremos ver como podemos lidar com este tipo de objeto.
 
 ```{r}
-low_to_high <- arrange(df2, Age)
 #subset da coluna Age do menor valor para o maior
+low_to_high <- arrange(df2, Age)
+low_to_high
 
-high_to_low <- arrange(df2, desc(Age))
 #subset da coluna Age do maior valor para o menor
+high_to_low <- arrange(df2, desc(Age))
+high_to_low
 
-subset1 <- filter(df2, Age>0 & Age<200)
 #subset que contém apenas as linhas onde a idade é superior a 0 e menor que 200
+subset1 <- filter(df2, Age>0 & Age<200)
+subset1
 
-subset2 <- select(df2, Age, Gender, state)
 #subset que agrupa as colunas Age, gender, state
+subset2 <- select(df2, Age, Gender, state)
+subset2
 
-subset3 <- select(df2, contains("f"))
 #subset que contem as colunas em que o nome tem um f
+subset3 <- select(df2, contains("work"))
+subset3
 
 #Funções
-primeiro <- first(df2$Age)
+primeiro <- first(subset1$Age)
+primeiro
 
-ultimo <- last(df2$Age)
+ultimo <- last(subset1$Age)
+ultimo
 
-minimo <- min(df2$Age)
-#ou
-df2[which.min(df2$Age), ]
+#Valor minimo de idade
+minimo1 <- min(subset1$Age)
+minimo1
+#ou linha que contém o valor minimo de idade
+minimo2 <- subset1[which.min(subset1$Age), ]
+minimo2
 
-maximo <- max(df2$Age)
-#ou
-df2[which.max(df2$Age), ]
+#Valor máximo de idade
+maximo1 <- max(subset1$Age)
+maximo1
+#ou linha que contém o valor máximo da idade
+maximo2 <- subset1[which.max(subset1$Age), ]
+maximo2
 
-media <- mean(subset1$Age) #Média das idades
+#Média das idades
+media <- mean(subset1$Age) 
+media
 
-variancia <- var(df2$Age) #Variância das idades
+#Variância das idades
+variancia <- var(subset1$Age) 
+variancia
 
-desvio_padrao <- sd(df2$Age) #Desvio Padrão das idades
+#Desvio Padrão das idades
+desvio_padrao <- sd(subset1$Age) 
+desvio_padrao
+
+#Missing Values
+#A função na.omit elimina todas as linhas que contêm pelo menos 1 NA, por default faz o scan em todas as colunas, mas é possível escolher em que colunas queremos fazer o scan.
+no_missing_values <- na.omit(subset1, invert=FALSE)
 
 ```
 _____________________________________________________________________________________________
-#Exercicio 2:
-Criar um vetor com apenas as linhas que tenham idades compreendidas inferiores a 18 anos,
+###Exercicio 2:
+Criar um vetor com apenas as linhas que tenham idades inferiores a 23 anos,
 e que tenham Genero como "Male":
 
-SOLUÇÃO 2:
-solucao2 <- filter(df2, Age<18 & Gender == "Male"")
+
 _____________________________________________________________________________________________
 
 
 ```{r}
 #Aceder a uma coluna por Nome
 coluna1 <- subset1$Gender
+coluna1
+
 #Aceder a uma coluna por Numero
 coluna2 <- subset1[, 2]
+coluna2
+
 #Aceder a uma linha (todas as colunas)
 linha1 <- subset1[1,]
-#Aceder a um elemento específico
+linha1
+
+#Aceder a um elemento específico (linha 100, coluna 4)
 elemento1 <- subset1[100,4]
+elemento1
+
 #Substituir um elemento específico
 subset1[1,1] <- "2014-08-27 11:30:22"
 
-
 ```
 _____________________________________________________________________________________________
-Exercício 3:
+###Exercício 3:
 Substitua o elemento da linha 2 e coluna 4 por "Canada" no subset1.
 
-solucao 3
-subset1[2,4] <- "Canada"
+
 
 _____________________________________________________________________________________________
 
 ```{r}
-#Criar um data frame de raiz
+#Criar um data fram de raiz
+
 nomes <- c("Coelho","Socrates","Portas","Barroso")
 ano.nascimento <- c(1936,1936,1941,1934)
 cabelo <- c("S","S","N","N")
@@ -166,26 +203,28 @@ meu.data.frame <- data.frame(nomes,ano.nascimento,cabelo)
 #2 maneiras de adicionar colunas ao data frame
 meu.data.frame$Index <- c(1,2,3,4)
 meu.data.frame["MY_NEW_COLUMN"] <- NA
+meu.data.frame
+
 
 ```
 _____________________________________________________________________________________________
-Exercicio 4:
+###Exercicio 4:
 
 Criar um data frame com 2 colunas de 4 entradas:
+
 1 coluna -> Cores
+
 2 coluna -> idade
 
 Quando o data frame estiver pronto, adicione uma nova coluna:
+
 3 coluna -> cidade
-
-Solucao 4:
-cores <- c("vermelho","azul","preto","branco")
-idades <- c(23,46,73,90)
-meu.data.frame1 <-data.frame(cores,idades)
-
-cidades <- c("Porto","Coimbra","Algarve","Aveiro")
-meu.data.frame1$cidades <- cidades
-
 
 _____________________________________________________________________________________________
 
+
+###Exercício Extra:
+
+No subset1 substituir todos os "Estados Unidos" por "Canada".
+
+_____________________________________________________________________________________________
