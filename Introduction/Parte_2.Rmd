@@ -30,6 +30,21 @@ francesinhaEcompanhia <- comida[1]
 atenas <- comida[length(qualidade_comida)]
 atenas > francesinhaEcompanhia
 ```
+# Listas
+Um objecto do tipo _list_ em R é uma estrutura de dados que nos permite agrupar variaveis de diferentes tipos num mesmo objecto. 
+```{r}
+lista <- list(c("Macario","Grifo","Poço"),TRUE,c(2,5,12.4,23),"Modulo de Introdução")  #Criação de uma lista simples
+lista
+lista_NC <- list(nomes=c("Macario","Grifo","Poço"),trabalhador=TRUE,c(2,5,12.4,23),mensagem="Modulo de Introdução")  #Criação de uma lista com atribuição de nomes aos componentes
+lista_NC  #Lista com nomes nos componentes
+```
+### Acesso a componentes em Listas (Indexação)
+```{r}
+lista_NC[2:3] # retorna os componentes desde o index 2 até ao index 3
+lista_NC[[3]] # retorna todos os elementos ou componentes do componente na posição 3 da lista
+lista_NC$nomes  # retorna 
+lista_NC$nomes[1] 
+```
 # Matrizes
 O R permite definir matrizes de uma forma bastante similar ao conceito de vetor, mas agora com duas dimensões de dados. Uma matriz é uma coleção de elementos do mesmo tipo(numérico, sequencias de caracteres ou lógico), organizados por linhas e colunas.
 Para criar uma matriz usamos a função _matrix()_ que toma como argumentos um vector, número de linhas e colunas.
@@ -92,19 +107,4 @@ bidimensional <- array(1:12, c(4,3))  #Array bidimensional
 bidimensional
 tridimensinal <- array(1:12, c(4,3,2)) #Array Tridimensional
 tridimensinal
-```
-# Listas
-Um objecto do tipo _list_ em R é uma estrutura de dados que nos permite agrupar variaveis de diferentes tipos num mesmo objecto. 
-```{r}
-lista <- list(c("Macario","Grifo","Poço"),TRUE,c(2,5,12.4,23),"Modulo de Introdução")  #Criação de uma lista simples
-lista
-lista_NC <- list(nomes=c("Macario","Grifo","Poço"),trabalhador=TRUE,c(2,5,12.4,23),mensagem="Modulo de Introdução")  #Criação de uma lista com atribuição de nomes aos componentes
-lista_NC  #Lista com nomes nos componentes
-```
-### Acesso a componentes em Listas (Indexação)
-```{r}
-lista_NC[2:3] # retorna os componentes desde o index 2 até ao index 3
-lista_NC[[3]] # retorna todos os elementos ou componentes do componente na posição 3 da lista
-lista_NC$nomes  # retorna 
-lista_NC$nomes[1] 
 ```

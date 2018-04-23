@@ -163,6 +163,51 @@ atenas &lt;- comida[length(qualidade_comida)]
 atenas &gt; francesinhaEcompanhia</code></pre>
 <pre><code>## [1] TRUE</code></pre>
 </div>
+<div id="listas" class="section level1">
+<h1>Listas</h1>
+<p>Um objecto do tipo <em>list</em> em R é uma estrutura de dados que nos permite agrupar variaveis de diferentes tipos num mesmo objecto.</p>
+<pre class="r"><code>lista &lt;- list(c(&quot;Macario&quot;,&quot;Grifo&quot;,&quot;Poço&quot;),TRUE,c(2,5,12.4,23),&quot;Modulo de Introdução&quot;)  #Criação de uma lista simples
+lista</code></pre>
+<pre><code>## [[1]]
+## [1] &quot;Macario&quot; &quot;Grifo&quot;   &quot;Poço&quot;   
+## 
+## [[2]]
+## [1] TRUE
+## 
+## [[3]]
+## [1]  2.0  5.0 12.4 23.0
+## 
+## [[4]]
+## [1] &quot;Modulo de Introdução&quot;</code></pre>
+<pre class="r"><code>lista_NC &lt;- list(nomes=c(&quot;Macario&quot;,&quot;Grifo&quot;,&quot;Poço&quot;),trabalhador=TRUE,c(2,5,12.4,23),mensagem=&quot;Modulo de Introdução&quot;)  #Criação de uma lista com atribuição de nomes aos componentes
+lista_NC  #Lista com nomes nos componentes</code></pre>
+<pre><code>## $nomes
+## [1] &quot;Macario&quot; &quot;Grifo&quot;   &quot;Poço&quot;   
+## 
+## $trabalhador
+## [1] TRUE
+## 
+## [[3]]
+## [1]  2.0  5.0 12.4 23.0
+## 
+## $mensagem
+## [1] &quot;Modulo de Introdução&quot;</code></pre>
+<div id="acesso-a-componentes-em-listas-indexacao" class="section level3">
+<h3>Acesso a componentes em Listas (Indexação)</h3>
+<pre class="r"><code>lista_NC[2:3] # retorna os componentes desde o index 2 até ao index 3</code></pre>
+<pre><code>## $trabalhador
+## [1] TRUE
+## 
+## [[2]]
+## [1]  2.0  5.0 12.4 23.0</code></pre>
+<pre class="r"><code>lista_NC[[3]] # retorna todos os elementos ou componentes do componente na posição 3 da lista</code></pre>
+<pre><code>## [1]  2.0  5.0 12.4 23.0</code></pre>
+<pre class="r"><code>lista_NC$nomes  # retorna </code></pre>
+<pre><code>## [1] &quot;Macario&quot; &quot;Grifo&quot;   &quot;Poço&quot;</code></pre>
+<pre class="r"><code>lista_NC$nomes[1] </code></pre>
+<pre><code>## [1] &quot;Macario&quot;</code></pre>
+</div>
+</div>
 <div id="matrizes" class="section level1">
 <h1>Matrizes</h1>
 <p>O R permite definir matrizes de uma forma bastante similar ao conceito de vetor, mas agora com duas dimensões de dados. Uma matriz é uma coleção de elementos do mesmo tipo(numérico, sequencias de caracteres ou lógico), organizados por linhas e colunas. Para criar uma matriz usamos a função <em>matrix()</em> que toma como argumentos um vector, número de linhas e colunas.</p>
@@ -313,51 +358,6 @@ tridimensinal</code></pre>
 ## [2,]    2    6   10
 ## [3,]    3    7   11
 ## [4,]    4    8   12</code></pre>
-</div>
-<div id="listas" class="section level1">
-<h1>Listas</h1>
-<p>Um objecto do tipo <em>list</em> em R é uma estrutura de dados que nos permite agrupar variaveis de diferentes tipos num mesmo objecto.</p>
-<pre class="r"><code>lista &lt;- list(c(&quot;Macario&quot;,&quot;Grifo&quot;,&quot;Poço&quot;),TRUE,c(2,5,12.4,23),&quot;Modulo de Introdução&quot;)  #Criação de uma lista simples
-lista</code></pre>
-<pre><code>## [[1]]
-## [1] &quot;Macario&quot; &quot;Grifo&quot;   &quot;Poço&quot;   
-## 
-## [[2]]
-## [1] TRUE
-## 
-## [[3]]
-## [1]  2.0  5.0 12.4 23.0
-## 
-## [[4]]
-## [1] &quot;Modulo de Introdução&quot;</code></pre>
-<pre class="r"><code>lista_NC &lt;- list(nomes=c(&quot;Macario&quot;,&quot;Grifo&quot;,&quot;Poço&quot;),trabalhador=TRUE,c(2,5,12.4,23),mensagem=&quot;Modulo de Introdução&quot;)  #Criação de uma lista com atribuição de nomes aos componentes
-lista_NC  #Lista com nomes nos componentes</code></pre>
-<pre><code>## $nomes
-## [1] &quot;Macario&quot; &quot;Grifo&quot;   &quot;Poço&quot;   
-## 
-## $trabalhador
-## [1] TRUE
-## 
-## [[3]]
-## [1]  2.0  5.0 12.4 23.0
-## 
-## $mensagem
-## [1] &quot;Modulo de Introdução&quot;</code></pre>
-<div id="acesso-a-componentes-em-listas-indexacao" class="section level3">
-<h3>Acesso a componentes em Listas (Indexação)</h3>
-<pre class="r"><code>lista_NC[2:3] # retorna os componentes desde o index 2 até ao index 3</code></pre>
-<pre><code>## $trabalhador
-## [1] TRUE
-## 
-## [[2]]
-## [1]  2.0  5.0 12.4 23.0</code></pre>
-<pre class="r"><code>lista_NC[[3]] # retorna todos os elementos ou componentes do componente na posição 3 da lista</code></pre>
-<pre><code>## [1]  2.0  5.0 12.4 23.0</code></pre>
-<pre class="r"><code>lista_NC$nomes  # retorna </code></pre>
-<pre><code>## [1] &quot;Macario&quot; &quot;Grifo&quot;   &quot;Poço&quot;</code></pre>
-<pre class="r"><code>lista_NC$nomes[1] </code></pre>
-<pre><code>## [1] &quot;Macario&quot;</code></pre>
-</div>
 </div>
 
 
