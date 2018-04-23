@@ -3,6 +3,7 @@ title: "Workshop R"
 author: "JEST"
 date: "29/03/2018"
 output:
+  pdf_document: default
   html_document:
     df_print: paged
 ---
@@ -42,9 +43,21 @@ lista_NC  #Lista com nomes nos componentes
 ```{r}
 lista_NC[2:3] # retorna os componentes desde o index 2 até ao index 3
 lista_NC[[3]] # retorna todos os elementos ou componentes do componente na posição 3 da lista
-lista_NC$nomes  # retorna 
+lista_NC$nomes  # retorna todos os elementos ou componentes do campo "nomes"
 lista_NC$nomes[1] 
 ```
+## Exercicios
+1) Dedifir uma variavel x como uma _list_ com dois campos: nome="Grifo" e idade="21".
+```{r, echo = FALSE}
+x <- list(nome="Grifo",idade=21)
+x
+```
+2) Ver o conteúdo de x, acedendo ao campo idade com "$" e "[[]]";
+```{r, echo = FALSE}
+x$idade
+x[2]
+```
+
 # Matrizes
 O R permite definir matrizes de uma forma bastante similar ao conceito de vetor, mas agora com duas dimensões de dados. Uma matriz é uma coleção de elementos do mesmo tipo(numérico, sequencias de caracteres ou lógico), organizados por linhas e colunas.
 Para criar uma matriz usamos a função _matrix()_ que toma como argumentos um vector, número de linhas e colunas.
@@ -108,3 +121,44 @@ bidimensional
 tridimensinal <- array(1:12, c(4,3,2)) #Array Tridimensional
 tridimensinal
 ```
+
+## Exercicios
+
+2.1) Criar um vetor com valores de 1 a 6.
+```{r, echo = FALSE}
+vetor <- 1:6
+vetor
+```
+2.2) Traformar o vetor anterior numa matriz de dimensões 2x3.
+```{r, echo = FALSE}
+dim(vetor) <- c(2,3)
+vetor
+```
+2.3) Verificar dimensões da matriz
+```{r, echo = FALSE}
+dim(vetor)
+```
+2.4) Identificar o elemento que se encontra na linha 2, coluna 1.
+```{r, echo = FALSE}
+vetor[2,1]
+```
+2.5) Calcular a soma dos elementos da linha 1
+```{r, echo = FALSE}
+sum(vetor[1,])
+```
+2.6) Criar um vector cujos elementos sejam as médias dos valores de cada coluna
+```{r, echo = FALSE}
+medias <- c(mean(vetor[,1]),mean(vetor[,2]),mean(vetor[,3]))
+medias
+```
+
+3.1) Criar um array tridimensinal com as dimensões 4, 3, 3 e os primeiros 36 numeros inteiros por ordem decrescente.
+```{r, echo = FALSE}
+A <- array(rev(c(1:36)),c(4,3,3))
+```
+3.2) Calcular todos os elementos do array, cujo valor da segunda dimensão é 2.
+```{r, echo = FALSE}
+sum(A[,2,])
+```
+
+

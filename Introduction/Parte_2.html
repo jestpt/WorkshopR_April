@@ -202,10 +202,27 @@ lista_NC  #Lista com nomes nos componentes</code></pre>
 ## [1]  2.0  5.0 12.4 23.0</code></pre>
 <pre class="r"><code>lista_NC[[3]] # retorna todos os elementos ou componentes do componente na posição 3 da lista</code></pre>
 <pre><code>## [1]  2.0  5.0 12.4 23.0</code></pre>
-<pre class="r"><code>lista_NC$nomes  # retorna </code></pre>
+<pre class="r"><code>lista_NC$nomes  # retorna todos os elementos ou componentes do campo &quot;nomes&quot;</code></pre>
 <pre><code>## [1] &quot;Macario&quot; &quot;Grifo&quot;   &quot;Poço&quot;</code></pre>
 <pre class="r"><code>lista_NC$nomes[1] </code></pre>
 <pre><code>## [1] &quot;Macario&quot;</code></pre>
+</div>
+<div id="exercicios" class="section level2">
+<h2>Exercicios</h2>
+<ol style="list-style-type: decimal">
+<li>Dedifir uma variavel x como uma <em>list</em> com dois campos: nome=“Grifo” e idade=“21”.</li>
+</ol>
+<pre><code>## $nome
+## [1] &quot;Grifo&quot;
+## 
+## $idade
+## [1] 21</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Ver o conteúdo de x, acedendo ao campo idade com “$” e “[[]]”;</li>
+</ol>
+<pre><code>## [1] 21</code></pre>
+<pre><code>## $idade
+## [1] 21</code></pre>
 </div>
 </div>
 <div id="matrizes" class="section level1">
@@ -358,6 +375,26 @@ tridimensinal</code></pre>
 ## [2,]    2    6   10
 ## [3,]    3    7   11
 ## [4,]    4    8   12</code></pre>
+<div id="exercicios-1" class="section level2">
+<h2>Exercicios</h2>
+<p>2.1) Criar um vetor com valores de 1 a 6.</p>
+<pre><code>## [1] 1 2 3 4 5 6</code></pre>
+<p>2.2) Traformar o vetor anterior numa matriz de dimensões 2x3.</p>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    3    5
+## [2,]    2    4    6</code></pre>
+<p>2.3) Verificar dimensões da matriz</p>
+<pre><code>## [1] 2 3</code></pre>
+<p>2.4) Identificar o elemento que se encontra na linha 2, coluna 1.</p>
+<pre><code>## [1] 2</code></pre>
+<p>2.5) Calcular a soma dos elementos da linha 1</p>
+<pre><code>## [1] 9</code></pre>
+<p>2.6) Criar um vector cujos elementos sejam as médias dos valores de cada coluna</p>
+<pre><code>## [1] 1.5 3.5 5.5</code></pre>
+<p>3.1) Criar um array tridimensinal com as dimensões 4, 3, 3 e os primeiros 36 numeros inteiros por ordem decrescente.</p>
+<p>3.2) Calcular todos os elementos do array, cujo valor da segunda dimensão é 2.</p>
+<pre><code>## [1] 222</code></pre>
+</div>
 </div>
 
 

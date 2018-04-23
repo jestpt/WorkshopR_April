@@ -3,6 +3,7 @@ title: "Workshop R"
 author: "JEST"
 date: "29/03/2018"
 output:
+  pdf_document: default
   html_document: default
 ---
 
@@ -224,7 +225,7 @@ v[!is.na(v)]
 ```
 ## Exercicios
 
-3) Supondo que os consumos de energia eléctrica do Diogo Poço em 2017 foi: 230, 210, 198, 160, 150, 153, 149, 149, 151, 169, 195, 223 KWh's. Analise os dados e determine:
+3) Supondo que os consumos de energia eléctrica do Diogo Poço em 2017 foi: 230, 210, 198, 160, 150, 153, 149, 149, 151, 169, 195, 223 KWh's. Analisar os dados e determinar:
 3.1) O consumo total do Diogo em 2017
 ```{r, echo = FALSE}
 energia <- c(230, 210, 198, 160, 150, 153, 149, 149, 151, 169, 195, 223)
@@ -235,13 +236,13 @@ sum(energia)
 min(energia)
 max(energia)
 ```
-4) Atribua um nome(letras minúsculas) a uma variavél e de seguida substitua a primeira letra no nome de minúscula para maiúscula.
+4) Atribuir um nome(letras minúsculas) a uma variavél e de seguida substitua a primeira letra no nome de minúscula para maiúscula.
 ```{r, echo = FALSE}
 nome <- "macario"
 sprintf("Nome: %s",nome)
 sprintf("Resultado: %s",sub(substr(nome,1,1),toupper(substr(nome,1,1)),nome)) #paste(toupper(substr(nome,1,1)),substr(nome,2,nchar(nome)),sep="")   --> Outra forma possivel de resolver o problema.
 ```
-5) Crie três vectores, um para as idades, outro para os nomes e o ultimo para os pesos e de seguida crie um vetor de _strings_ com os elementos na seguinte forma: "idade - nome - peso".
+5) Criar três vectores, um para as idades, outro para os nomes e o ultimo para os pesos e de seguida crie um vetor de _strings_ com os elementos na seguinte forma: "idade - nome - peso". Para tal utilize a função _paste()_ (Nota: Utilizar a documentação se necessário).
 ```{r, echo = FALSE}
 idades <- c(23,28,21)
 nomes <- c("Pedrosa","Navega","Poço")
