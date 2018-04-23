@@ -1,8 +1,9 @@
 
 Em primeiro lugar, o R da para aprender a fazer umas apresentações engraçadas
 
-Porque vale a pena aprender testes estatisticos? Metodos estatisticos asseguram-nos que os dados sao interpretados de um modo correcto e que relações aparentes são de facto significantes.
+Porque vale a pena aprender testes estatisticos? Metodos estatisticos asseguram-nos que os dados sao interpretados de um modo correcto e que relações aparentes são de facto significantes. No entanto, é necessário ter cuidado, pois correlacao não implica causalidade.
 Embora isto seja um workshop, e o objectivo principal e que aprendam a realizar testes estatisticos, e necessario aprender as bases de como e quando os aplicar
+
 
 #Tipos de variáveis:
 
@@ -29,9 +30,13 @@ E importante diferenciar entre tipos de variáveis, pois estas requerem uma anal
 
 # Amostras emparelhadas / independentes
 
+Emparelhadas - medidas que estao associadas a medicoes sobre os mesmos sujeitos
+Independente - medidas que nao dependem de valores de outras observacoes
 
 
 #Ensinar a hipótese nula
+
+Esta e uma hipotese apresentada, cuja falsidade se tenta
 
 
 # Testes paramétricos / não paramétricos

@@ -3,10 +3,18 @@ statistical_tests.R
 author: JEST
 date: 25/04/2018
 autosize: true
+<style>
+body {
+    overflow: scroll;
+}
+</style>
 
 Porque?
 =======================================================
 ![some caption](imagens/chart.png)
+
+  Correlacao não implica causalidade
+
 http://www.tylervigen.com/spurious-correlations
 
 Tipos de Variaveis 
@@ -20,6 +28,7 @@ Tipos de Variaveis
   - Nominais - Ex: sexo, cor dos olhos...
   - Ordinais - Ex: escolaridade, mes...
   
+  
 Dataset
 ========================================================
 
@@ -30,7 +39,39 @@ summary(dataset)
 
 ```
 
+Exercicio 1
+======================================================
+
+
+
 Tipos de Amostras
 ========================================================
 
+- Emparelhadas
+  - Variaveis emparelhadas sao aquelas que estao associadas a medicoes sobre os mesmos sujeitos (p.e. medicoes ao longo do tempo)
+- Independentes
+  - Variaveis independentes sao aquelas que nao dependem de valores de outras observacoes (p.e. testes ao sangue a dois grupos de pessoas diferentes)
 
+
+  
+Hipotese Nula
+=======================================================
+
+Esta e uma hipotese apresentada, cuja falsidade se tenta provar atraves do teste estatistico adequado para as variaveis presentes.
+
+Exemplo:
+- 
+
+
+
+
+======================================================
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+
+for(i=0;i<$("section").length;i++) {
+if(i==0) continue
+$("section").eq(i).append("<p style='font-size:medium;position:fixed;right:10px;bottom:10px;'>" + i + "</p>")
+}
+
+</script>
