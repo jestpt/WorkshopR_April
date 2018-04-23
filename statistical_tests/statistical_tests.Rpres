@@ -1,27 +1,36 @@
-statistical_tests
+statistical_tests.R
 ========================================================
 author: JEST
 date: 25/04/2018
 autosize: true
 
-Tipos de Variáveis
+Porque?
+=======================================================
+![some caption](imagens/chart.png)
+http://www.tylervigen.com/spurious-correlations
+
+Tipos de Variaveis 
 ========================================================
 
 
-- Bullet 1
-- Bullet 2
-- Bullet 3
-
-Slide With Code
+- Quantitativas - representam variaveis que podem ser medidas numa escala quantitativa
+  - Discretas - Ex: numero de filhos, idade...
+  - Continuas - EX: peso, altura...
+- Qualitativas - representam variaveis definidas por varias categorias
+  - Nominais - Ex: sexo, cor dos olhos...
+  - Ordinais - Ex: escolaridade, mes...
+  
+Dataset
 ========================================================
 
 ```{r}
-summary(cars)
+# https://www.kaggle.com/osmi/mental-health-in-tech-survey
+dataset <- read.csv2("survey.csv", header = T)
+summary(dataset)
+
 ```
 
-Slide With Plot
+Tipos de Amostras
 ========================================================
 
-```{r, echo=FALSE}
-plot(cars)
-```
+
