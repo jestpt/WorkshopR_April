@@ -129,29 +129,29 @@ $(document).ready(function () {
 
 <div id="fatores" class="section level1">
 <h1>Fatores</h1>
-<p>Os fatores sÃ£o estruturas de dados que sÃ£o utilizadas para categorizar os dados e armazenalos por niveis.</p>
+<p>Os fatores são estruturas de dados que são utilizadas para categorizar os dados e armazená-los por níveis.</p>
 <pre class="r"><code>qualidade_comida &lt;- c(&quot;low&quot;, &quot;high&quot;, &quot;medium&quot;, &quot;high&quot;, &quot;low&quot;, &quot;medium&quot;, &quot;high&quot;)
 comida &lt;- factor(qualidade_comida)
-levels(comida);  #Os niveis sÃ£o por outras palavras os nossos valores distintos.    </code></pre>
+levels(comida);  #Os niveis são por outras palavras os nossos valores distintos.    </code></pre>
 <pre><code>## [1] &quot;high&quot;   &quot;low&quot;    &quot;medium&quot;</code></pre>
-<pre class="r"><code>table(comida)  #A funÃ§Ã£o table() mostra-nos os nossos valores distintos e o nÃºmero de ocorrÃªncias de cada um.</code></pre>
+<pre class="r"><code>table(comida)  #A função table() mostra-nos os nossos valores distintos e o número de ocorrências de cada um.</code></pre>
 <pre><code>## comida
 ##   high    low medium 
 ##      3      2      2</code></pre>
-<pre class="r"><code>comida &lt;- factor(qualidade_comida, levels = c(&quot;low&quot;,&quot;medium&quot;, &quot;high&quot;)) # podemos tambÃ©m definir nÃ³s quais os niveis que queremos.
+<pre class="r"><code>comida &lt;- factor(qualidade_comida, levels = c(&quot;low&quot;,&quot;medium&quot;, &quot;high&quot;)) # podemos também definir nós quais os níveis que queremos.
 comida</code></pre>
 <pre><code>## [1] low    high   medium high   low    medium high  
 ## Levels: low medium high</code></pre>
 <pre class="r"><code>levels(comida)</code></pre>
 <pre><code>## [1] &quot;low&quot;    &quot;medium&quot; &quot;high&quot;</code></pre>
 <pre class="r"><code>francesinhaEcompanhia &lt;- comida[1]
-atenas &lt;- comida[length(qualidade_comida)] #a funÃ§Ã£o length() recebe como entrada, por exemplo, um vector ou um factor e retorna numero de elementos desse mesmo argumento de entrada.
-#Ã a qualidade do restaurante Atenas melhor do que a do Francesinhas&amp;Companhia?
+atenas &lt;- comida[length(qualidade_comida)] #a função length() recebe como entrada, por exemplo, um vector ou um factor e retorna número de elementos desse mesmo argumento de entrada.
+#É a qualidade do restaurante Atenas é melhor do que a do Francesinhas&amp;Companhia?
 atenas &gt; francesinhaEcompanhia</code></pre>
 <pre><code>## Warning in Ops.factor(atenas, francesinhaEcompanhia): '&gt;' not meaningful
 ## for factors</code></pre>
 <pre><code>## [1] NA</code></pre>
-<p>Para sabermos qual dos restaurantes tem melhor qualidade temos de primeiro ordenar os <em>levels</em> (niveis). Para isso temos de passar “ordered = TRUE” na funÃ§Ã£o <em>factor()</em>(Outra maneira seria utilizar a funÃ§Ã£o ordered que faz o mesmo que a funÃ§Ã£o <em>factor()</em> mas jÃ¡ ordena os niveis por <em>default</em>). Ao ativarmos a ordem dos niveis, os niveis serÃ£o colocados por uma ordem definida pelo utilizador.</p>
+<p>Para sabermos qual dos restaurantes tem melhor qualidade, temos de primeiro ordenar os <em>levels</em> (níveis). Para isso temos de passar “ordered = TRUE” na função <em>factor()</em>(Outra maneira seria utilizar a função ordered que faz o mesmo que a função <em>factor()</em> mas já ordena os niveis por <em>default</em>). Ao ativarmos a ordem dos níveis, estes serão colocados por uma ordem definida pelo utilizador.</p>
 <pre class="r"><code>comida &lt;- factor(qualidade_comida, levels = c( &quot;low&quot;,&quot;medium&quot;, &quot;high&quot;),ordered = TRUE)
 comida</code></pre>
 <pre><code>## [1] low    high   medium high   low    medium high  
@@ -165,17 +165,17 @@ atenas &gt; francesinhaEcompanhia</code></pre>
 </div>
 <div id="matrizes" class="section level1">
 <h1>Matrizes</h1>
-<p>O R permite definir matrizes de uma forma bastante similar ao conceito de vetor, mas agora com duas dimensÃµes de dados. Uma matriz Ã© uma coleÃ§Ã£o de elementos do mesmo tipo(numÃ©rico, sequencias de caracteres ou logico), organizados por linhas e colunas. Para criar uma matriz usamos a funÃ§Ã£o <em>matrix()</em> que toma como argumentos um vector, nÃºmero de linhas e colunas.</p>
-<pre class="r"><code>#Primeiro use a documentaÃ§Ã£o para ver como pode utilizar os argumentos de entrada na funÃ§Ã£o matrix()
+<p>O R permite definir matrizes de uma forma bastante similar ao conceito de vetor, mas agora com duas dimensões de dados. Uma matriz é uma coleção de elementos do mesmo tipo(numérico, sequencias de caracteres ou lógico), organizados por linhas e colunas. Para criar uma matriz usamos a função <em>matrix()</em> que toma como argumentos um vector, número de linhas e colunas.</p>
+<pre class="r"><code>#Primeiro utilize a documentação para ver como pode utilizar os argumentos de entrada na função matrix()
 mat &lt;- matrix(1:15,3,5)
 mat</code></pre>
 <pre><code>##      [,1] [,2] [,3] [,4] [,5]
 ## [1,]    1    4    7   10   13
 ## [2,]    2    5    8   11   14
 ## [3,]    3    6    9   12   15</code></pre>
-<div id="funcaaes-cbind-e-rbind" class="section level3">
-<h3>FuncÃ§Ãµes <em>cbind()</em> e <em>rbind()</em></h3>
-<p>A funÃ§Ã£o <em>cbind()</em> permite-nos juntar vetores ou matrizes por colunas. O mesmo se repete para a funÃ§Ã£o <em>rbind()</em> mas para linhas.</p>
+<div id="funccoes-cbind-e-rbind" class="section level3">
+<h3>Funcções <em>cbind()</em> e <em>rbind()</em></h3>
+<p>A função <em>cbind()</em> permite-nos juntar vetores ou matrizes por colunas. O mesmo se repete para a função <em>rbind()</em> mas para linhas.</p>
 <pre class="r"><code>A &lt;- matrix(1:4,2,2)
 A</code></pre>
 <pre><code>##      [,1] [,2]
@@ -199,8 +199,8 @@ A</code></pre>
 ## [3,]    4    6
 ## [4,]    5    7</code></pre>
 </div>
-<div id="indexaaao" class="section level3">
-<h3>IndexaÃ§Ã£o</h3>
+<div id="indexacao" class="section level3">
+<h3>Indexação</h3>
 <pre class="r"><code>procura_elementos &lt;- matrix(1:50,byrow=TRUE,nrow=10)
 procura_elementos</code></pre>
 <pre><code>##       [,1] [,2] [,3] [,4] [,5]
@@ -231,9 +231,9 @@ procura_elementos</code></pre>
 ##  [9,]   43   44   45
 ## [10,]   48   49   50</code></pre>
 </div>
-<div id="funaaes-com-matrizes" class="section level3">
-<h3>FunÃ§Ãµes com matrizes</h3>
-<pre class="r"><code>dim(procura_elementos)   #retorna as dimensÃµes da matriz</code></pre>
+<div id="funcoes-com-matrizes" class="section level3">
+<h3>Funções com matrizes</h3>
+<pre class="r"><code>dim(procura_elementos)   #retorna as dimensões da matriz</code></pre>
 <pre><code>## [1] 10  5</code></pre>
 <pre class="r"><code>mean(procura_elementos)  #retorna a media de todos os elementos da matriz</code></pre>
 <pre><code>## [1] 25.5</code></pre>
@@ -244,14 +244,14 @@ procura_elementos</code></pre>
 ## [3,] 3.316625 3.464102 3.605551 3.741657 3.872983
 ## [4,] 4.000000 4.123106 4.242641 4.358899 4.472136
 ## [5,] 4.582576 4.690416 4.795832 4.898979 5.000000</code></pre>
-<pre class="r"><code>apply(procura_elementos,1,sum) #ver documentaÃ§Ã£o</code></pre>
+<pre class="r"><code>apply(procura_elementos,1,sum) #ver documentação</code></pre>
 <pre><code>##  [1]  15  40  65  90 115 140 165 190 215 240</code></pre>
 <pre class="r"><code>mtx &lt;- matrix(1:4,2,2)
 t(mtx) #retorna a transposta da matriz</code></pre>
 <pre><code>##      [,1] [,2]
 ## [1,]    1    2
 ## [2,]    3    4</code></pre>
-<pre class="r"><code>det(mtx) #retorna o determinante da matriz. AtenÃ§Ã£o: a matriz deve ser quadrada.</code></pre>
+<pre class="r"><code>det(mtx) #retorna o determinante da matriz. Atenção: a matriz deve ser quadrada.</code></pre>
 <pre><code>## [1] -2</code></pre>
 </div>
 <div id="exemplo" class="section level3">
@@ -259,10 +259,10 @@ t(mtx) #retorna a transposta da matriz</code></pre>
 <pre class="r"><code>precos &lt;- c(1200,276,550,126.5,1050,241.5,60,13.8)
 worten &lt;- matrix(precos,byrow=TRUE,nrow=4)
 colnames(worten) &lt;- c(&quot;Produto&quot;,&quot;IVA&quot;)
-rownames(worten) &lt;- c(&quot;TelevisÃ£o&quot;,&quot;Maquina de lavar&quot;,&quot;Computador&quot;,&quot;Aspirador&quot;)
+rownames(worten) &lt;- c(&quot;Televisão&quot;,&quot;Maquina de lavar&quot;,&quot;Computador&quot;,&quot;Aspirador&quot;)
 worten</code></pre>
 <pre><code>##                  Produto   IVA
-## TelevisÃ£o          1200 276.0
+## Televisão           1200 276.0
 ## Maquina de lavar     550 126.5
 ## Computador          1050 241.5
 ## Aspirador             60  13.8</code></pre>
@@ -270,13 +270,13 @@ worten</code></pre>
 worten &lt;- cbind(worten,Preco_com_IVA)
 worten</code></pre>
 <pre><code>##                  Produto   IVA Preco_com_IVA
-## TelevisÃ£o          1200 276.0        1476.0
+## Televisão           1200 276.0        1476.0
 ## Maquina de lavar     550 126.5         676.5
 ## Computador          1050 241.5        1291.5
 ## Aspirador             60  13.8          73.8</code></pre>
 </div>
-<div id="multiplicaaao-entre-matrizes" class="section level3">
-<h3>MultiplicaÃ§Ã£o entre matrizes</h3>
+<div id="multiplicacao-entre-matrizes" class="section level3">
+<h3>Multiplicação entre matrizes</h3>
 <pre class="r"><code>A &lt;- matrix(1:4,2,2)
 B &lt;- matrix(4:1,2,2)
 C &lt;- A%*%B 
@@ -288,7 +288,7 @@ C</code></pre>
 </div>
 <div id="arrays" class="section level1">
 <h1>Arrays</h1>
-<p>Um array Ã© uma estrutura de dados que conseguem armazenar dados em mais do que 2 dimensÃµes. Por exemplo uma Matriz Ã© por outras palavras um array bidimensonal, ou seja Ã© um array com duas dimensÃµes.</p>
+<p>Um array é uma estrutura de dados que consegue armazenar dados em mais do que 2 dimensões. Por exemplo uma Matriz é por outras palavras um array bidimensonal, ou seja é um array com duas dimensões.</p>
 <pre class="r"><code>bidimensional &lt;- array(1:12, c(4,3))  #Array bidimensional
 bidimensional</code></pre>
 <pre><code>##      [,1] [,2] [,3]
@@ -316,11 +316,11 @@ tridimensinal</code></pre>
 </div>
 <div id="listas" class="section level1">
 <h1>Listas</h1>
-<p>Um objecto do tipo <em>list</em> em R Ã© uma estrutura de dados que nos permite agrupar variaveis de diferentes tipos num mesmo objecto.</p>
-<pre class="r"><code>lista &lt;- list(c(&quot;Macario&quot;,&quot;Grifo&quot;,&quot;PoÃ§o&quot;),TRUE,c(2,5,12.4,23),&quot;Modulo de IntroduÃ§Ã£o&quot;)  #CriaÃ§Ã£o de uma lista simples
+<p>Um objecto do tipo <em>list</em> em R é uma estrutura de dados que nos permite agrupar variaveis de diferentes tipos num mesmo objecto.</p>
+<pre class="r"><code>lista &lt;- list(c(&quot;Macario&quot;,&quot;Grifo&quot;,&quot;Poço&quot;),TRUE,c(2,5,12.4,23),&quot;Modulo de Introdução&quot;)  #Criação de uma lista simples
 lista</code></pre>
 <pre><code>## [[1]]
-## [1] &quot;Macario&quot; &quot;Grifo&quot;   &quot;PoÃ§o&quot;  
+## [1] &quot;Macario&quot; &quot;Grifo&quot;   &quot;Poço&quot;   
 ## 
 ## [[2]]
 ## [1] TRUE
@@ -329,11 +329,11 @@ lista</code></pre>
 ## [1]  2.0  5.0 12.4 23.0
 ## 
 ## [[4]]
-## [1] &quot;Modulo de IntroduÃ§Ã£o&quot;</code></pre>
-<pre class="r"><code>lista_NC &lt;- list(nomes=c(&quot;Macario&quot;,&quot;Grifo&quot;,&quot;PoÃ§o&quot;),trabalhador=TRUE,c(2,5,12.4,23),mensagem=&quot;Modulo de IntroduÃ§Ã£o&quot;)  #CriaÃ§Ã£o de uma lista com atribuiÃ§Ã£o de nomes aos componentes
+## [1] &quot;Modulo de Introdução&quot;</code></pre>
+<pre class="r"><code>lista_NC &lt;- list(nomes=c(&quot;Macario&quot;,&quot;Grifo&quot;,&quot;Poço&quot;),trabalhador=TRUE,c(2,5,12.4,23),mensagem=&quot;Modulo de Introdução&quot;)  #Criação de uma lista com atribuição de nomes aos componentes
 lista_NC  #Lista com nomes nos componentes</code></pre>
 <pre><code>## $nomes
-## [1] &quot;Macario&quot; &quot;Grifo&quot;   &quot;PoÃ§o&quot;  
+## [1] &quot;Macario&quot; &quot;Grifo&quot;   &quot;Poço&quot;   
 ## 
 ## $trabalhador
 ## [1] TRUE
@@ -342,20 +342,20 @@ lista_NC  #Lista com nomes nos componentes</code></pre>
 ## [1]  2.0  5.0 12.4 23.0
 ## 
 ## $mensagem
-## [1] &quot;Modulo de IntroduÃ§Ã£o&quot;</code></pre>
-<div id="acesso-a-componentes-em-listas-indexaaao" class="section level3">
-<h3>Acesso a componentes em Listas (IndexaÃ§Ã£o)</h3>
-<pre class="r"><code>lista_NC[2:3] # retorna os componentes desde o index 2 atÃ© ao index 3</code></pre>
+## [1] &quot;Modulo de Introdução&quot;</code></pre>
+<div id="acesso-a-componentes-em-listas-indexacao" class="section level3">
+<h3>Acesso a componentes em Listas (Indexação)</h3>
+<pre class="r"><code>lista_NC[2:3] # retorna os componentes desde o index 2 até ao index 3</code></pre>
 <pre><code>## $trabalhador
 ## [1] TRUE
 ## 
 ## [[2]]
 ## [1]  2.0  5.0 12.4 23.0</code></pre>
-<pre class="r"><code>lista_NC[[3]] # retorna todos os elementos ou componentes do componente na posiÃ§Ã£o 3 da lista</code></pre>
+<pre class="r"><code>lista_NC[[3]] # retorna todos os elementos ou componentes do componente na posição 3 da lista</code></pre>
 <pre><code>## [1]  2.0  5.0 12.4 23.0</code></pre>
 <pre class="r"><code>lista_NC$nomes  # retorna </code></pre>
-<pre><code>## [1] &quot;Macario&quot; &quot;Grifo&quot;   &quot;PoÃ§o&quot;</code></pre>
-<pre class="r"><code>lista_NC$nomes[1] #</code></pre>
+<pre><code>## [1] &quot;Macario&quot; &quot;Grifo&quot;   &quot;Poço&quot;</code></pre>
+<pre class="r"><code>lista_NC$nomes[1] </code></pre>
 <pre><code>## [1] &quot;Macario&quot;</code></pre>
 </div>
 </div>

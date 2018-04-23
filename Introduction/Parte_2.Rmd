@@ -7,21 +7,21 @@ output:
     df_print: paged
 ---
 # Fatores
-Os fatores são estruturas de dados que são utilizadas para categorizar os dados e armazen�-los por n�veis.
+Os fatores são estruturas de dados que são utilizadas para categorizar os dados e armazená-los por níveis.
 ```{r}
 qualidade_comida <- c("low", "high", "medium", "high", "low", "medium", "high")
 comida <- factor(qualidade_comida)
 levels(comida);  #Os niveis são por outras palavras os nossos valores distintos.    
 table(comida)  #A função table() mostra-nos os nossos valores distintos e o número de ocorrências de cada um.
-comida <- factor(qualidade_comida, levels = c("low","medium", "high")) # podemos também definir nós quais os n�veis que queremos.
+comida <- factor(qualidade_comida, levels = c("low","medium", "high")) # podemos também definir nós quais os níveis que queremos.
 comida
 levels(comida)
 francesinhaEcompanhia <- comida[1]
-atenas <- comida[length(qualidade_comida)] #a função length() recebe como entrada, por exemplo, um vector ou um factor e retorna n�mero de elementos desse mesmo argumento de entrada.
-#É a qualidade do restaurante Atenas � melhor do que a do Francesinhas&Companhia?
+atenas <- comida[length(qualidade_comida)] #a função length() recebe como entrada, por exemplo, um vector ou um factor e retorna número de elementos desse mesmo argumento de entrada.
+#É a qualidade do restaurante Atenas é melhor do que a do Francesinhas&Companhia?
 atenas > francesinhaEcompanhia
 ```
-Para sabermos qual dos restaurantes tem melhor qualidade, temos de primeiro ordenar os _levels_ (n�veis). Para isso temos de passar "ordered = TRUE" na função _factor()_(Outra maneira seria utilizar a função ordered que faz o mesmo que a função _factor()_ mas já ordena os niveis por _default_). Ao ativarmos a ordem dos n�veis, estes serão colocados por uma ordem definida pelo utilizador.
+Para sabermos qual dos restaurantes tem melhor qualidade, temos de primeiro ordenar os _levels_ (níveis). Para isso temos de passar "ordered = TRUE" na função _factor()_(Outra maneira seria utilizar a função ordered que faz o mesmo que a função _factor()_ mas já ordena os niveis por _default_). Ao ativarmos a ordem dos níveis, estes serão colocados por uma ordem definida pelo utilizador.
 ```{r}
 comida <- factor(qualidade_comida, levels = c( "low","medium", "high"),ordered = TRUE)
 comida
@@ -31,7 +31,7 @@ atenas <- comida[length(qualidade_comida)]
 atenas > francesinhaEcompanhia
 ```
 # Matrizes
-O R permite definir matrizes de uma forma bastante similar ao conceito de vetor, mas agora com duas dimensões de dados. Uma matriz é uma coleção de elementos do mesmo tipo(numérico, sequencias de caracteres ou l�gico), organizados por linhas e colunas.
+O R permite definir matrizes de uma forma bastante similar ao conceito de vetor, mas agora com duas dimensões de dados. Uma matriz é uma coleção de elementos do mesmo tipo(numérico, sequencias de caracteres ou lógico), organizados por linhas e colunas.
 Para criar uma matriz usamos a função _matrix()_ que toma como argumentos um vector, número de linhas e colunas.
 ```{r}
 #Primeiro utilize a documentação para ver como pode utilizar os argumentos de entrada na função matrix()

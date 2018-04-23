@@ -39,22 +39,22 @@ x %% y 	  # resto da divis√£o
 x %/% y   # divis√£o arredondada por defeito
 ```
 
-## Operadores lÛgicos
-O sÌmbolo & performa a operaÁ„o AND entre os dois operandos.
+## Operadores l√≥gicos
+O s√≠mbolo & performa a opera√ß√£o AND entre os dois operandos.
 ```{r}
 TRUE & TRUE
 TRUE & FALSE
 FALSE & TRUE
 FALSE & FALSE
 ```
-O sÌmbolo | performa a operaÁ„o OR entre os dois operandos.
+O s√≠mbolo | performa a opera√ß√£o OR entre os dois operandos.
 ```{r}
 TRUE | TRUE
 TRUE | FALSE
 FALSE | TRUE
 FALSE | FALSE
 ```
-O sÌmbolo ! contraria a express„o ‡ sua frente. … a operaÁ„o NOT.
+O s√≠mbolo "!" contraria a express√ßo √† sua frente.
 ```{r}
 !(FALSE & FALSE)
 ```

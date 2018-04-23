@@ -6,22 +6,22 @@ output: html_document
 ---
 
 # Logica
-Em programaÁ„o o uso da lÛgica È imperativo. Existem apenas dois valores lÛgicos, TRUE e FALSE. 
+Em programa√ß√£o o uso da l√≥gica √© imperativo. Existem apenas dois valores l√≥gicos, TRUE e FALSE. 
  
 ## Operadores relacionais
-Para comparar dois valores faz-se uso dos operadores relacionais. Esta operaÁ„o devolve como output um dos valores lÛgicos, TRUE se È verdadeira, ou FALSE se È falsa.
+Para comparar dois valores faz-se uso dos operadores relacionais. Esta opera√ß√£o devolve como output um dos valores l√≥gicos, TRUE se √© verdadeira, ou FALSE se √© falsa.
 ```{r}
 x <- 12 
 y <- 24
-x == y #para ver se os valores s„o iguais
-x != y #para ver se s„o diferentes
-x < y  #para ver se x È menor que y
-x > y  #para ver se x È maior que y
-x <= y #para ver se x È menor ou igual a y
-x >= y #para ver se x È maior ou igual a y
+x == y #para ver se os valores s√£o iguais
+x != y #para ver se s√£o diferentes
+x < y  #para ver se x √© menor que y
+x > y  #para ver se x √© maior que y
+x <= y #para ver se x √© menor ou igual a y
+x >= y #para ver se x √© maior ou igual a y
 
 ```
-TambÈm se pode comparar vetores e matrizes.
+Tamb√©m se pode comparar vetores e matrizes.
 ```{r}
 vetor = 1:10
 logico = vetor < 5
@@ -32,42 +32,42 @@ matriz <= 5
 ```
 
 ## Condicionais
-As declaraÁıes condicionais servem para direcionar o fluxo do cÛdigo, ou seja, para onde o programa vai. Uma condicional inicia-se com a palavra 'if' e a sua estrutura È: if(condiÁ„o){statement}. Se a condiÁ„o for TRUE, o programa corre o que estiver dentro das chavetas. 
+As declara√ß√µes condicionais servem para direcionar o fluxo do c√≥digo, ou seja, para onde o programa vai. Uma condicional inicia-se com a palavra 'if' e a sua estrutura √©: if(condi√ß√£o){statement}. Se a condi√ß√£o for TRUE, o programa corre o que estiver dentro das chavetas. 
 ```{r}
 vetor = c(2, 123, 35)
 if (vetor[2]<200){
-  print("È menor que 200")
+  print("√© menor que 200")
 }
 ```
 
-Se for FALSE, n„o corre o statement e passa para a prÛxima condiÁ„o, se existir.
-Podemos adicionar mais condiÁıes com a palavra 'else if'.
+Se for FALSE, n√£o corre o statement e passa para a pr√≥xima condi√ß√£o, se existir.
+Podemos adicionar mais condi√ß√µes com a palavra 'else if'.
 
 ```{r}
 vetor = c(2, 123, 35)
 if (vetor[2]<200){
-  print("È menor que 200")
+  print("√© menor que 200")
 } else if(vetor[2]==123){
-  print("È igual a 123")
+  print("√© igual a 123")
 }
 ```
-Para acabar o condicional pode usar-se a condiÁ„o final com a palavra 'else'. Esta corre se todas as condiÁıes anteriores forem FALSE.
+Para acabar o condicional pode usar-se a condi√ß√£o final com a palavra 'else'. Esta corre se todas as condi√ß√µes anteriores forem FALSE.
 
 ```{r}
 vetor = c(2, 123, 35)
 if (vetor[1]<-100){
-  print("È menor que -100")
+  print("√© menor que -100")
 } else if(vetor[2]==25){
-  print("È igual a 25")
+  print("√© igual a 25")
 } else{
-  print("n„o È nada disso")
+  print("n√£o √© nada disso")
 }
 ```
 # Loops
-Os loops servem para automatizar um processo, organizando sequÍncias de aÁıes que v„o ser repetidas.    
+Os loops servem para automatizar um processo, organizando sequ√™ncias de a√ß√µes que v√£o ser repetidas.    
 
 ## While Loop
-O while executa tudo o que estiver dentro de si, enquanto a condiÁ„o for verdadeira.
+O while executa tudo o que estiver dentro de si, enquanto a condi√ß√£o for verdadeira.
 ```{r}
 i = 1
 while(i<10){
@@ -102,7 +102,7 @@ repeat{
   }
 }
 ```
-# FunÁıes
+# Fun√ß√µes
 
 ```{r}
 fnc <- function(x1,x2){
