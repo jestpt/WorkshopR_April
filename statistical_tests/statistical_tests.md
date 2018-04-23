@@ -68,11 +68,19 @@ Tipos de Amostras
 Hipotese Nula
 =======================================================
 
-Esta e uma hipotese apresentada, cuja falsidade se tenta provar atraves do teste estatistico adequado para as variaveis presentes.
+Esta e uma hipotese apresentada, cuja falsidade se tenta provar atraves do teste estatistico adequado para as variaveis presentes. Esta pode ser rejeitada atraves do p-value.
 
 Exemplo:
 - 
 
+
+Testes Parametricos / Nao - Parametricos
+======================================================
+
+
+
+Testes de Normalidade
+======================================================
 
 
 

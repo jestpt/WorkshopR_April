@@ -3,8 +3,8 @@ title: "Workshop R"
 author: "JEST"
 date: "29/03/2018"
 output:
-  html_document: default
   pdf_document: default
+  html_document: default
 ---
 
 # Introdução ao R
@@ -41,21 +41,21 @@ x %/% y   # divisão arredondada por defeito
 ```
 
 ## Operadores lógicos
-O símbolo & performa a operação AND entre os dois operandos.
+O símbolo & realiza a operação AND entre os dois operandos.
 ```{r}
 TRUE & TRUE
 TRUE & FALSE
 FALSE & TRUE
 FALSE & FALSE
 ```
-O símbolo | performa a operação OR entre os dois operandos.
+O símbolo | realiza a operação OR entre os dois operandos.
 ```{r}
 TRUE | TRUE
 TRUE | FALSE
 FALSE | TRUE
 FALSE | FALSE
 ```
-O símbolo "!" contraria a expressço à sua frente.
+O símbolo "!" contraria a expressão à sua frente.
 ```{r}
 !(FALSE & FALSE)
 ```
@@ -73,7 +73,7 @@ x >= y #para ver se x é maior ou igual a y
 # Vetores 
 O R é orientado aos vectores que constituem objectos que permitem guardar uma sequência de valores. Existem vários tipos de vectores: Numéricos, Lógicos e de Strings.
 
-### Vetores Numericos
+### Vetores Numéricos
 A função c() permite juntar (concatenar) um vetor com novos elementos (ou com outros vetores).
 ```{r}
 primeiro <- c(1,2,3)
@@ -94,14 +94,14 @@ v
 contasAritmeticas <- 2:8
 2*contasAritmeticas+3    #As operações são feitas para todos os elementos do vetor
 ```
-Operações aritméticas entre vetores também é possivel. Um operação aritmética entre dois vectores realiza a operação entre cada par de valores nas mesmas posições de ambos os vetores. Se os vetores não tiverem o mesmo tamanho, o mais pequeno será reciclado, isto é, será repetido enquanto for necessário. Quando o tamanho do vector não for multiplo do menor, deverá aparecer uma mensagem de erro.
+Operações aritméticas entre vetores também é possivel. Um operação aritmética entre dois vectores realiza a operação entre cada par de valores nas mesmas posições de ambos os vetores. Se os vetores não tiverem o mesmo tamanho, o mais pequeno será reciclado, isto é, será repetido enquanto for necessário. Quando o tamanho do vector não for multiplo do menor, deverá aparecer uma mensagem de aviso.
 ```{r}
 maior <- 1:10
 menor <- 1:5
 maior+menor
 ```
 #### Acesso aos elementos de vectores
-Para consultarmos um elemento de um vetor, escrememos o nome do vector e entre parênteses retos, o indice. Assim se quisermos aceder a um elemtento do vetor X na posiçao i, escrevemos X[i].
+Para consultarmos um elemento de um vetor, escrevemos o nome do vector, e entre parênteses retos, o índice. Assim, se quisermos aceder a um elemtento do vetor X na posiçao i, escrevemos X[i].
 ```{r}
 X <- 1:10
 X[3]  #aceder ao elemento na posição 3 do vetor
@@ -153,7 +153,7 @@ which.max(v) #Indice do maior valor do vetor
 which(v>=7) #Indices dos valores maiores ou igual a 7
 ```
 
-## Exercicios
+## Exercícios
 
 1.1) Defenir um vetor v com os primeiros 30 numeros naturais
 ```{r, echo = FALSE}
@@ -198,7 +198,7 @@ v[vBoolean]
 which(vBoolean)
 ```
 ### Vetores de Strings
-Vetores de strings são um tipo de dados em R que nos permite guardar sequencias de caracteres, também designadas por strings.
+Vetores de strings são um tipo de dados em R que nos permite guardar sequências de caracteres, também designadas por strings.
 ```{r}
 nomes <- c("Grifo","Joao","Poço","Macario","Leitão","Grifo")
 nomes[4]
@@ -224,14 +224,14 @@ grep("ifo",nomes) #Permite identificar a ocurrencia de string/substrings no veto
 #Explicar a função mapply()
 ```
 ### Limpeza de dados
-Por vezes quando estamos a trabalhar com dados importados, eles não estão trataveis. Valores omissos são muitas das vezes a causa disso mesmo e temos de aprender a lidar com este problema.
+Por vezes quando estamos a trabalhar com dados importados, eles não estão tratáveis. Valores omissos são muitas das vezes a causa disso mesmo e temos de aprender a lidar com este problema.
 ```{r}
 v <-  c(1,2,NA,NA,NA,7,2,3,NA,3,NA,4,NA,NA,4,6,2,NA,1)
 v
 v[is.na(v)] #Para mostrar os indices dos valores nulos: which(is.na(v))
 v[!is.na(v)]
 ```
-## Exercicios
+## Exercícios
 
 3) Supondo que os consumos de energia eléctrica do Diogo Poço em 2017 foi: 230, 210, 198, 160, 150, 153, 149, 149, 151, 169, 195, 223 KWh's. Analisar os dados e determinar:
 3.1) O consumo total do Diogo em 2017

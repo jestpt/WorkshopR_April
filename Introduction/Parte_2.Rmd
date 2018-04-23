@@ -46,8 +46,8 @@ lista_NC[[3]] # retorna todos os elementos ou componentes do componente na posi�
 lista_NC$nomes  # retorna todos os elementos ou componentes do campo "nomes"
 lista_NC$nomes[1] 
 ```
-## Exercicios
-1) Dedifir uma variavel x como uma _list_ com dois campos: nome="Grifo" e idade="21".
+## Exercícios
+1) Dedifir uma variável x como uma _list_ com dois campos: nome="Grifo" e idade="21".
 ```{r, echo = FALSE}
 x <- list(nome="Grifo",idade=21)
 x
@@ -59,7 +59,7 @@ x[2]
 ```
 
 # Matrizes
-O R permite definir matrizes de uma forma bastante similar ao conceito de vetor, mas agora com duas dimensões de dados. Uma matriz é uma coleção de elementos do mesmo tipo(numérico, sequencias de caracteres ou lógico), organizados por linhas e colunas.
+O R permite definir matrizes de uma forma bastante similar ao conceito de vetor, mas agora com duas dimensões de dados. Uma matriz é uma coleção de elementos do mesmo tipo (numérico, sequencias de caracteres ou lógico), organizados por linhas e colunas.
 Para criar uma matriz usamos a função _matrix()_ que toma como argumentos um vector, número de linhas e colunas.
 ```{r}
 #Primeiro utilize a documentação para ver como pode utilizar os argumentos de entrada na função matrix()
@@ -122,7 +122,7 @@ tridimensinal <- array(1:12, c(4,3,2)) #Array Tridimensional
 tridimensinal
 ```
 
-## Exercicios
+## Exercícios
 
 2.1) Criar um vetor com valores de 1 a 6.
 ```{r, echo = FALSE}
