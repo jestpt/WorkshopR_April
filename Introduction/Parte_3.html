@@ -146,11 +146,11 @@ x == y #para ver se os valores são iguais</code></pre>
 <pre class="r"><code>x &gt;= y #para ver se x é maior ou igual a y</code></pre>
 <pre><code>## [1] FALSE</code></pre>
 <p>Também se pode comparar vetores e matrizes.</p>
-<pre class="r"><code>vetor = 1:10
-logico = vetor &lt; 5
+<pre class="r"><code>vetor &lt;-  1:10
+logico &lt;-  vetor &lt; 5
 logico</code></pre>
 <pre><code>##  [1]  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE</code></pre>
-<pre class="r"><code>matriz = matrix(1:10,5,2)
+<pre class="r"><code>matriz &lt;-  matrix(1:10,5,2)
 matriz &lt;= 5</code></pre>
 <pre><code>##      [,1]  [,2]
 ## [1,] TRUE FALSE
@@ -162,13 +162,13 @@ matriz &lt;= 5</code></pre>
 <div id="condicionais" class="section level2">
 <h2>Condicionais</h2>
 <p>As declarações condicionais servem para direcionar o fluxo do código, ou seja, para onde o programa vai. Uma condicional inicia-se com a palavra ‘if’ e a sua estrutura é: if(condição){statement}. Se a condição for TRUE, o programa corre o que estiver dentro das chavetas.</p>
-<pre class="r"><code>vetor = c(2, 123, 35)
+<pre class="r"><code>vetor &lt;-  c(2, 123, 35)
 if (vetor[2]&lt;200){
-  print(&quot;é menor que 200&quot;)
+  print(&quot;é menor que 200&quot;)   #instrução ou bloco de instruções
 }</code></pre>
 <pre><code>## [1] &quot;é menor que 200&quot;</code></pre>
 <p>Se for FALSE, não corre o statement e passa para a próxima condição, se existir. Podemos adicionar mais condições com a palavra ‘else if’.</p>
-<pre class="r"><code>vetor = c(2, 123, 35)
+<pre class="r"><code>vetor &lt;-  c(2, 123, 35)
 if (vetor[2]&lt;200){
   print(&quot;é menor que 200&quot;)
 } else if(vetor[2]==123){
@@ -176,7 +176,7 @@ if (vetor[2]&lt;200){
 }</code></pre>
 <pre><code>## [1] &quot;é menor que 200&quot;</code></pre>
 <p>Para acabar o condicional pode usar-se a condição final com a palavra ‘else’. Esta corre se todas as condições anteriores forem FALSE.</p>
-<pre class="r"><code>vetor = c(2, 123, 35)
+<pre class="r"><code>vetor &lt;-  c(2, 123, 35)
 if (vetor[1]&lt;-100){
   print(&quot;é menor que -100&quot;)
 } else if(vetor[2]==25){
@@ -193,10 +193,10 @@ if (vetor[1]&lt;-100){
 <div id="while-loop" class="section level2">
 <h2>While Loop</h2>
 <p>O while executa tudo o que estiver dentro de si, enquanto a condição for verdadeira.</p>
-<pre class="r"><code>i = 1
+<pre class="r"><code>i &lt;-  1
 while(i&lt;10){
   print(&quot;Workshop de R&quot;)
-  i = i + 1
+  i &lt;-  i + 1
 }</code></pre>
 <pre><code>## [1] &quot;Workshop de R&quot;
 ## [1] &quot;Workshop de R&quot;
@@ -209,9 +209,21 @@ while(i&lt;10){
 ## [1] &quot;Workshop de R&quot;</code></pre>
 </div>
 <div id="for-loop" class="section level2">
-<h2>For Loop</h2>
-<p>O for permite iterar segundo um vetor.</p>
-<pre class="r"><code>v = c(1,3,4,5,8,9)
+<h2><em>For Loop</em></h2>
+<p>A intrução for permite realizar uma operação(ou bloco de operações) um determinado número de vezes.</p>
+<pre class="r"><code>v &lt;-  c(1,3,4,5,8,9)
+
+for(i in 1:length(v)){
+  print(v[i])
+}</code></pre>
+<pre><code>## [1] 1
+## [1] 3
+## [1] 4
+## [1] 5
+## [1] 8
+## [1] 9</code></pre>
+<p>Uma forma mais simples de percorrer o vector seria:</p>
+<pre class="r"><code>v &lt;-  c(1,3,4,5,8,9)
 
 for(i in v){
   print(i)
@@ -252,11 +264,21 @@ repeat{
 <div id="funcoes" class="section level1">
 <h1>Funções</h1>
 <pre class="r"><code>fnc &lt;- function(x1,x2){
-  sum = x1 + x2
+  sum &lt;-  x1 + x2
   return(sum)
 }
 fnc(123434,143435)</code></pre>
 <pre><code>## [1] 266869</code></pre>
+</div>
+<div id="exercicios" class="section level1">
+<h1>Exercícios</h1>
+<ol style="list-style-type: decimal">
+<li>Calcule o factorial do número 50 através de um <em>for loop</em> e um <em>while loop</em><br />
+for loop</li>
+</ol>
+<pre><code>## [1] 720</code></pre>
+<p>while loop</p>
+<pre><code>## [1] 720</code></pre>
 </div>
 
 

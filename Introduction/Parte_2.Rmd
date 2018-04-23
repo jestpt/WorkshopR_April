@@ -3,9 +3,9 @@ title: "Workshop R"
 author: "JEST"
 date: "29/03/2018"
 output:
-  pdf_document: default
   html_document:
     df_print: paged
+  pdf_document: default
 ---
 # Fatores
 Os fatores são estruturas de dados que são utilizadas para categorizar os dados e armazená-los por níveis.
