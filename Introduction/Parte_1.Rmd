@@ -3,8 +3,8 @@ title: "Workshop R"
 author: "JEST"
 date: "29/03/2018"
 output:
-  pdf_document: default
   html_document: default
+  pdf_document: default
 ---
 
 # Introdução ao R
@@ -162,7 +162,7 @@ v
 ```
 1.2) Calcular o vetor resultante da soma da constante 5 com cada elemento do vetor v.
 ```{r, echo = FALSE}
-v+3
+v+5
 ```
 1.3) Calcular o vetor 1/v.
 ```{r, echo = FALSE}
@@ -181,6 +181,12 @@ sum(sequencia)
 ```{r, echo = FALSE}
 sequencia[sequencia%%3==0]
 ```
+2.4) Retirar o ultimo elemento do vetor
+```{r, echo = FALSE}
+sequencia[-15]
+# sequencia[-length(sequencia)]
+```
+
 
 ### Vectores Lógicos
 Outro tipo de dados importante no R são os vetores lógicos. Os vetores logicos contêm valores do tipo _boolean_ e em alguns casos são uma exelente abordagem para encontrar determinados valores. Vejamos um exemplo.
@@ -197,8 +203,10 @@ Vetores de strings são um tipo de dados em R que nos permite guardar sequencias
 nomes <- c("Grifo","Joao","Poço","Macario","Leitão","Grifo")
 nomes[4]
 nomes[1]==tail(nomes,n=1)
-#Poderiamos ter feito nomes[1]==nomes[6] ou nomes[1]==nomes[length(nomes)]
 #A função tail(<vetor>,<n elementos>) vai buscar os n últimos elementos ao vetor indicado
+#Poderiamos ter feito nomes[1]==nomes[6] ou nomes[1]==nomes[length(nomes)]
+#A função length() recebe como entrada, por exemplo, um vector ou um factor e retorna número de elementos desse mesmo argumento de entrada.
+
 ```
 #### Algumas funções que se podem usar para trabalhar com strings
 ```{r}
@@ -247,6 +255,11 @@ sprintf("Resultado: %s",sub(substr(nome,1,1),toupper(substr(nome,1,1)),nome)) #p
 idades <- c(23,28,21)
 nomes <- c("Pedrosa","Navega","Poço")
 pesos <- c(70,80,63)
-paste(idades,nomes,pesos,sep=" - ")
+novo <- paste(idades,nomes,pesos,sep=" - ")
+```
+5.2) Adicione outro elemento na segunda posição do vetor com o mesmo formato que os restantes.
+```{r, echo = FALSE}
+novo <- c(novo[1],"24 - António - 70",novo[1:length(novo)])
+novo
 ```
   
