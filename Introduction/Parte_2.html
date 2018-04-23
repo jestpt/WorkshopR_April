@@ -127,10 +127,108 @@ $(document).ready(function () {
 </div>
 
 
+<div id="fatores" class="section level1">
+<h1>Fatores</h1>
+<p>Os fatores são estruturas de dados que são utilizadas para categorizar os dados e armazená-los por níveis.</p>
+<pre class="r"><code>qualidade_comida &lt;- c(&quot;low&quot;, &quot;high&quot;, &quot;medium&quot;, &quot;high&quot;, &quot;low&quot;, &quot;medium&quot;, &quot;high&quot;)
+comida &lt;- factor(qualidade_comida)
+levels(comida);  #Os niveis são por outras palavras os nossos valores distintos.    </code></pre>
+<pre><code>## [1] &quot;high&quot;   &quot;low&quot;    &quot;medium&quot;</code></pre>
+<pre class="r"><code>table(comida)  #A função table() mostra-nos os nossos valores distintos e o número de ocorrências de cada um.</code></pre>
+<pre><code>## comida
+##   high    low medium 
+##      3      2      2</code></pre>
+<pre class="r"><code>comida &lt;- factor(qualidade_comida, levels = c(&quot;low&quot;,&quot;medium&quot;, &quot;high&quot;)) # podemos também definir nós quais os níveis que queremos.
+comida</code></pre>
+<pre><code>## [1] low    high   medium high   low    medium high  
+## Levels: low medium high</code></pre>
+<pre class="r"><code>levels(comida)</code></pre>
+<pre><code>## [1] &quot;low&quot;    &quot;medium&quot; &quot;high&quot;</code></pre>
+<pre class="r"><code>francesinhaEcompanhia &lt;- comida[1]
+atenas &lt;- comida[length(qualidade_comida)] #a função length() recebe como entrada, por exemplo, um vector ou um factor e retorna número de elementos desse mesmo argumento de entrada.
+#É a qualidade do restaurante Atenas é melhor do que a do Francesinhas&amp;Companhia?
+atenas &gt; francesinhaEcompanhia</code></pre>
+<pre><code>## Warning in Ops.factor(atenas, francesinhaEcompanhia): '&gt;' not meaningful
+## for factors</code></pre>
+<pre><code>## [1] NA</code></pre>
+<p>Para sabermos qual dos restaurantes tem melhor qualidade, temos de primeiro ordenar os <em>levels</em> (níveis). Para isso temos de passar “ordered = TRUE” na função <em>factor()</em>(Outra maneira seria utilizar a função ordered que faz o mesmo que a função <em>factor()</em> mas já ordena os niveis por <em>default</em>). Ao ativarmos a ordem dos níveis, estes serão colocados por uma ordem definida pelo utilizador.</p>
+<pre class="r"><code>comida &lt;- factor(qualidade_comida, levels = c( &quot;low&quot;,&quot;medium&quot;, &quot;high&quot;),ordered = TRUE)
+comida</code></pre>
+<pre><code>## [1] low    high   medium high   low    medium high  
+## Levels: low &lt; medium &lt; high</code></pre>
+<pre class="r"><code>levels(comida)</code></pre>
+<pre><code>## [1] &quot;low&quot;    &quot;medium&quot; &quot;high&quot;</code></pre>
+<pre class="r"><code>francesinhaEcompanhia &lt;- comida[1]
+atenas &lt;- comida[length(qualidade_comida)]
+atenas &gt; francesinhaEcompanhia</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+</div>
+<div id="listas" class="section level1">
+<h1>Listas</h1>
+<p>Um objecto do tipo <em>list</em> em R é uma estrutura de dados que nos permite agrupar variaveis de diferentes tipos num mesmo objecto.</p>
+<pre class="r"><code>lista &lt;- list(c(&quot;Macario&quot;,&quot;Grifo&quot;,&quot;Poço&quot;),TRUE,c(2,5,12.4,23),&quot;Modulo de Introdução&quot;)  #Criação de uma lista simples
+lista</code></pre>
+<pre><code>## [[1]]
+## [1] &quot;Macario&quot; &quot;Grifo&quot;   &quot;Poço&quot;   
+## 
+## [[2]]
+## [1] TRUE
+## 
+## [[3]]
+## [1]  2.0  5.0 12.4 23.0
+## 
+## [[4]]
+## [1] &quot;Modulo de Introdução&quot;</code></pre>
+<pre class="r"><code>lista_NC &lt;- list(nomes=c(&quot;Macario&quot;,&quot;Grifo&quot;,&quot;Poço&quot;),trabalhador=TRUE,c(2,5,12.4,23),mensagem=&quot;Modulo de Introdução&quot;)  #Criação de uma lista com atribuição de nomes aos componentes
+lista_NC  #Lista com nomes nos componentes</code></pre>
+<pre><code>## $nomes
+## [1] &quot;Macario&quot; &quot;Grifo&quot;   &quot;Poço&quot;   
+## 
+## $trabalhador
+## [1] TRUE
+## 
+## [[3]]
+## [1]  2.0  5.0 12.4 23.0
+## 
+## $mensagem
+## [1] &quot;Modulo de Introdução&quot;</code></pre>
+<div id="acesso-a-componentes-em-listas-indexacao" class="section level3">
+<h3>Acesso a componentes em Listas (Indexação)</h3>
+<pre class="r"><code>lista_NC[2:3] # retorna os componentes desde o index 2 até ao index 3</code></pre>
+<pre><code>## $trabalhador
+## [1] TRUE
+## 
+## [[2]]
+## [1]  2.0  5.0 12.4 23.0</code></pre>
+<pre class="r"><code>lista_NC[[3]] # retorna todos os elementos ou componentes do componente na posição 3 da lista</code></pre>
+<pre><code>## [1]  2.0  5.0 12.4 23.0</code></pre>
+<pre class="r"><code>lista_NC$nomes  # retorna todos os elementos ou componentes do campo &quot;nomes&quot;</code></pre>
+<pre><code>## [1] &quot;Macario&quot; &quot;Grifo&quot;   &quot;Poço&quot;</code></pre>
+<pre class="r"><code>lista_NC$nomes[1] </code></pre>
+<pre><code>## [1] &quot;Macario&quot;</code></pre>
+</div>
+<div id="exercicios" class="section level2">
+<h2>Exercicios</h2>
+<ol style="list-style-type: decimal">
+<li>Dedifir uma variavel x como uma <em>list</em> com dois campos: nome=“Grifo” e idade=“21”.</li>
+</ol>
+<pre><code>## $nome
+## [1] &quot;Grifo&quot;
+## 
+## $idade
+## [1] 21</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Ver o conteúdo de x, acedendo ao campo idade com “$” e “[[]]”;</li>
+</ol>
+<pre><code>## [1] 21</code></pre>
+<pre><code>## $idade
+## [1] 21</code></pre>
+</div>
+</div>
 <div id="matrizes" class="section level1">
 <h1>Matrizes</h1>
-<p>O R permite definir matrizes de uma dforma bastante similar ao conceito de vetor, mas agora com duas dimensões de dados. Uma matriz é uma coleção de elementos do mesmo tipo(numérico, sequencias de caracteres ou logico), organizados por linhas e colunas. Para criar uma matriz usamos a função <em>matrix()</em> que toma como argumentos um vector, número de linhas e colunas.</p>
-<pre class="r"><code>#Primeiro use a documentação para ver como pode utilizar os argumentos de entrada na função matrix()
+<p>O R permite definir matrizes de uma forma bastante similar ao conceito de vetor, mas agora com duas dimensões de dados. Uma matriz é uma coleção de elementos do mesmo tipo(numérico, sequencias de caracteres ou lógico), organizados por linhas e colunas. Para criar uma matriz usamos a função <em>matrix()</em> que toma como argumentos um vector, número de linhas e colunas.</p>
+<pre class="r"><code>#Primeiro utilize a documentação para ver como pode utilizar os argumentos de entrada na função matrix()
 mat &lt;- matrix(1:15,3,5)
 mat</code></pre>
 <pre><code>##      [,1] [,2] [,3] [,4] [,5]
@@ -141,10 +239,18 @@ mat</code></pre>
 <h3>Funcções <em>cbind()</em> e <em>rbind()</em></h3>
 <p>A função <em>cbind()</em> permite-nos juntar vetores ou matrizes por colunas. O mesmo se repete para a função <em>rbind()</em> mas para linhas.</p>
 <pre class="r"><code>A &lt;- matrix(1:4,2,2)
-B &lt;- matrix(4:8,2,2)</code></pre>
+A</code></pre>
+<pre><code>##      [,1] [,2]
+## [1,]    1    3
+## [2,]    2    4</code></pre>
+<pre class="r"><code>B &lt;- matrix(4:8,2,2)</code></pre>
 <pre><code>## Warning in matrix(4:8, 2, 2): data length [5] is not a sub-multiple or
 ## multiple of the number of rows [2]</code></pre>
-<pre class="r"><code>cbind(A,B)</code></pre>
+<pre class="r"><code>B</code></pre>
+<pre><code>##      [,1] [,2]
+## [1,]    4    6
+## [2,]    5    7</code></pre>
+<pre class="r"><code>cbind(A,B)    </code></pre>
 <pre><code>##      [,1] [,2] [,3] [,4]
 ## [1,]    1    3    4    6
 ## [2,]    2    4    5    7</code></pre>
@@ -174,7 +280,7 @@ procura_elementos</code></pre>
 <pre><code>## [1] 25</code></pre>
 <pre class="r"><code>procura_elementos[1:3,4]</code></pre>
 <pre><code>## [1]  4  9 14</code></pre>
-<pre class="r"><code>procura_elementos[,3:5]</code></pre>
+<pre class="r"><code>procura_elementos[,3:ncol(procura_elementos)]</code></pre>
 <pre><code>##       [,1] [,2] [,3]
 ##  [1,]    3    4    5
 ##  [2,]    8    9   10
@@ -186,6 +292,108 @@ procura_elementos</code></pre>
 ##  [8,]   38   39   40
 ##  [9,]   43   44   45
 ## [10,]   48   49   50</code></pre>
+</div>
+<div id="funcoes-com-matrizes" class="section level3">
+<h3>Funções com matrizes</h3>
+<pre class="r"><code>dim(procura_elementos)   #retorna as dimensões da matriz</code></pre>
+<pre><code>## [1] 10  5</code></pre>
+<pre class="r"><code>mean(procura_elementos)  #retorna a media de todos os elementos da matriz</code></pre>
+<pre><code>## [1] 25.5</code></pre>
+<pre class="r"><code>sqrt(procura_elementos[1:5,1:5])  #faz a raiz quadrada sobre todos os elementos definidos no intervalo</code></pre>
+<pre><code>##          [,1]     [,2]     [,3]     [,4]     [,5]
+## [1,] 1.000000 1.414214 1.732051 2.000000 2.236068
+## [2,] 2.449490 2.645751 2.828427 3.000000 3.162278
+## [3,] 3.316625 3.464102 3.605551 3.741657 3.872983
+## [4,] 4.000000 4.123106 4.242641 4.358899 4.472136
+## [5,] 4.582576 4.690416 4.795832 4.898979 5.000000</code></pre>
+<pre class="r"><code>apply(procura_elementos,1,sum) #ver documentação</code></pre>
+<pre><code>##  [1]  15  40  65  90 115 140 165 190 215 240</code></pre>
+<pre class="r"><code>mtx &lt;- matrix(1:4,2,2)
+t(mtx) #retorna a transposta da matriz</code></pre>
+<pre><code>##      [,1] [,2]
+## [1,]    1    2
+## [2,]    3    4</code></pre>
+<pre class="r"><code>det(mtx) #retorna o determinante da matriz. Atenção: a matriz deve ser quadrada.</code></pre>
+<pre><code>## [1] -2</code></pre>
+</div>
+<div id="exemplo" class="section level3">
+<h3>Exemplo</h3>
+<pre class="r"><code>precos &lt;- c(1200,276,550,126.5,1050,241.5,60,13.8)
+worten &lt;- matrix(precos,byrow=TRUE,nrow=4)
+colnames(worten) &lt;- c(&quot;Produto&quot;,&quot;IVA&quot;)
+rownames(worten) &lt;- c(&quot;Televisão&quot;,&quot;Maquina de lavar&quot;,&quot;Computador&quot;,&quot;Aspirador&quot;)
+worten</code></pre>
+<pre><code>##                  Produto   IVA
+## Televisão           1200 276.0
+## Maquina de lavar     550 126.5
+## Computador          1050 241.5
+## Aspirador             60  13.8</code></pre>
+<pre class="r"><code>Preco_com_IVA &lt;- c(precos[1]+precos[2],precos[3]+precos[4],precos[5]+precos[6],precos[7]+precos[8])
+worten &lt;- cbind(worten,Preco_com_IVA)
+worten</code></pre>
+<pre><code>##                  Produto   IVA Preco_com_IVA
+## Televisão           1200 276.0        1476.0
+## Maquina de lavar     550 126.5         676.5
+## Computador          1050 241.5        1291.5
+## Aspirador             60  13.8          73.8</code></pre>
+</div>
+<div id="multiplicacao-entre-matrizes" class="section level3">
+<h3>Multiplicação entre matrizes</h3>
+<pre class="r"><code>A &lt;- matrix(1:4,2,2)
+B &lt;- matrix(4:1,2,2)
+C &lt;- A%*%B 
+C</code></pre>
+<pre><code>##      [,1] [,2]
+## [1,]   13    5
+## [2,]   20    8</code></pre>
+</div>
+</div>
+<div id="arrays" class="section level1">
+<h1>Arrays</h1>
+<p>Um array é uma estrutura de dados que consegue armazenar dados em mais do que 2 dimensões. Por exemplo uma Matriz é por outras palavras um array bidimensonal, ou seja é um array com duas dimensões.</p>
+<pre class="r"><code>bidimensional &lt;- array(1:12, c(4,3))  #Array bidimensional
+bidimensional</code></pre>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    5    9
+## [2,]    2    6   10
+## [3,]    3    7   11
+## [4,]    4    8   12</code></pre>
+<pre class="r"><code>tridimensinal &lt;- array(1:12, c(4,3,2)) #Array Tridimensional
+tridimensinal</code></pre>
+<pre><code>## , , 1
+## 
+##      [,1] [,2] [,3]
+## [1,]    1    5    9
+## [2,]    2    6   10
+## [3,]    3    7   11
+## [4,]    4    8   12
+## 
+## , , 2
+## 
+##      [,1] [,2] [,3]
+## [1,]    1    5    9
+## [2,]    2    6   10
+## [3,]    3    7   11
+## [4,]    4    8   12</code></pre>
+<div id="exercicios-1" class="section level2">
+<h2>Exercicios</h2>
+<p>2.1) Criar um vetor com valores de 1 a 6.</p>
+<pre><code>## [1] 1 2 3 4 5 6</code></pre>
+<p>2.2) Traformar o vetor anterior numa matriz de dimensões 2x3.</p>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    3    5
+## [2,]    2    4    6</code></pre>
+<p>2.3) Verificar dimensões da matriz</p>
+<pre><code>## [1] 2 3</code></pre>
+<p>2.4) Identificar o elemento que se encontra na linha 2, coluna 1.</p>
+<pre><code>## [1] 2</code></pre>
+<p>2.5) Calcular a soma dos elementos da linha 1</p>
+<pre><code>## [1] 9</code></pre>
+<p>2.6) Criar um vector cujos elementos sejam as médias dos valores de cada coluna</p>
+<pre><code>## [1] 1.5 3.5 5.5</code></pre>
+<p>3.1) Criar um array tridimensinal com as dimensões 4, 3, 3 e os primeiros 36 numeros inteiros por ordem decrescente.</p>
+<p>3.2) Calcular todos os elementos do array, cujo valor da segunda dimensão é 2.</p>
+<pre><code>## [1] 222</code></pre>
 </div>
 </div>
 

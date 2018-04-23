@@ -1,0 +1,85 @@
+statistical_tests.R
+========================================================
+author: JEST
+date: 25/04/2018
+autosize: true
+<style>
+body {
+    overflow: scroll;
+}
+</style>
+
+Porque?
+=======================================================
+![some caption](imagens/chart.png)
+
+  Correlacao não implica causalidade
+
+http://www.tylervigen.com/spurious-correlations
+
+Tipos de Variaveis 
+========================================================
+
+
+- Quantitativas - representam variaveis que podem ser medidas numa escala quantitativa
+  - Discretas - Ex: numero de filhos, idade...
+  - Continuas - EX: peso, altura...
+- Qualitativas - representam variaveis definidas por varias categorias
+  - Nominais - Ex: sexo, cor dos olhos...
+  - Ordinais - Ex: escolaridade, mes...
+  
+  
+Dataset
+========================================================
+
+```{r}
+# https://www.kaggle.com/osmi/mental-health-in-tech-survey
+dataset <- read.csv2("survey.csv", header = T)
+summary(dataset)
+
+```
+
+Exercicio 1
+======================================================
+
+
+
+Tipos de Amostras
+========================================================
+
+- Emparelhadas
+  - Variaveis emparelhadas sao aquelas que estao associadas a medicoes sobre os mesmos sujeitos (p.e. medicoes ao longo do tempo)
+- Independentes
+  - Variaveis independentes sao aquelas que nao dependem de valores de outras observacoes (p.e. testes ao sangue a dois grupos de pessoas diferentes)
+
+
+  
+Hipotese Nula
+=======================================================
+
+Esta e uma hipotese apresentada, cuja falsidade se tenta provar atraves do teste estatistico adequado para as variaveis presentes. Esta pode ser rejeitada atraves do p-value.
+
+Exemplo:
+- 
+
+
+Testes Parametricos / Nao - Parametricos
+======================================================
+
+
+
+Testes de Normalidade
+======================================================
+
+
+
+======================================================
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+
+for(i=0;i<$("section").length;i++) {
+if(i==0) continue
+$("section").eq(i).append("<p style='font-size:medium;position:fixed;right:10px;bottom:10px;'>" + i + "</p>")
+}
+
+</script>

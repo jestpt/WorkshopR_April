@@ -3,14 +3,66 @@ title: "Workshop R"
 author: "JEST"
 date: "29/03/2018"
 output:
+  pdf_document: default
   html_document:
     df_print: paged
 ---
+# Fatores
+Os fatores são estruturas de dados que são utilizadas para categorizar os dados e armazená-los por níveis.
+```{r}
+qualidade_comida <- c("low", "high", "medium", "high", "low", "medium", "high")
+comida <- factor(qualidade_comida)
+levels(comida);  #Os niveis são por outras palavras os nossos valores distintos.    
+table(comida)  #A função table() mostra-nos os nossos valores distintos e o número de ocorrências de cada um.
+comida <- factor(qualidade_comida, levels = c("low","medium", "high")) # podemos também definir nós quais os níveis que queremos.
+comida
+levels(comida)
+francesinhaEcompanhia <- comida[1]
+atenas <- comida[length(qualidade_comida)] #a função length() recebe como entrada, por exemplo, um vector ou um factor e retorna número de elementos desse mesmo argumento de entrada.
+#É a qualidade do restaurante Atenas é melhor do que a do Francesinhas&Companhia?
+atenas > francesinhaEcompanhia
+```
+Para sabermos qual dos restaurantes tem melhor qualidade, temos de primeiro ordenar os _levels_ (níveis). Para isso temos de passar "ordered = TRUE" na função _factor()_(Outra maneira seria utilizar a função ordered que faz o mesmo que a função _factor()_ mas já ordena os niveis por _default_). Ao ativarmos a ordem dos níveis, estes serão colocados por uma ordem definida pelo utilizador.
+```{r}
+comida <- factor(qualidade_comida, levels = c( "low","medium", "high"),ordered = TRUE)
+comida
+levels(comida)
+francesinhaEcompanhia <- comida[1]
+atenas <- comida[length(qualidade_comida)]
+atenas > francesinhaEcompanhia
+```
+# Listas
+Um objecto do tipo _list_ em R é uma estrutura de dados que nos permite agrupar variaveis de diferentes tipos num mesmo objecto. 
+```{r}
+lista <- list(c("Macario","Grifo","Poço"),TRUE,c(2,5,12.4,23),"Modulo de Introdução")  #Criação de uma lista simples
+lista
+lista_NC <- list(nomes=c("Macario","Grifo","Poço"),trabalhador=TRUE,c(2,5,12.4,23),mensagem="Modulo de Introdução")  #Criação de uma lista com atribuição de nomes aos componentes
+lista_NC  #Lista com nomes nos componentes
+```
+### Acesso a componentes em Listas (Indexação)
+```{r}
+lista_NC[2:3] # retorna os componentes desde o index 2 até ao index 3
+lista_NC[[3]] # retorna todos os elementos ou componentes do componente na posição 3 da lista
+lista_NC$nomes  # retorna todos os elementos ou componentes do campo "nomes"
+lista_NC$nomes[1] 
+```
+## Exercícios
+1) Dedifir uma variável x como uma _list_ com dois campos: nome="Grifo" e idade="21".
+```{r, echo = FALSE}
+x <- list(nome="Grifo",idade=21)
+x
+```
+2) Ver o conteúdo de x, acedendo ao campo idade com "$" e "[[]]";
+```{r, echo = FALSE}
+x$idade
+x[2]
+```
+
 # Matrizes
-O R permite definir matrizes de uma dforma bastante similar ao conceito de vetor, mas agora com duas dimensões de dados. Uma matriz é uma coleção de elementos do mesmo tipo(numérico, sequencias de caracteres ou logico), organizados por linhas e colunas.
+O R permite definir matrizes de uma forma bastante similar ao conceito de vetor, mas agora com duas dimensões de dados. Uma matriz é uma coleção de elementos do mesmo tipo (numérico, sequencias de caracteres ou lógico), organizados por linhas e colunas.
 Para criar uma matriz usamos a função _matrix()_ que toma como argumentos um vector, número de linhas e colunas.
 ```{r}
-#Primeiro use a documentação para ver como pode utilizar os argumentos de entrada na função matrix()
+#Primeiro utilize a documentação para ver como pode utilizar os argumentos de entrada na função matrix()
 mat <- matrix(1:15,3,5)
 mat
 ```
@@ -18,15 +70,95 @@ mat
 A função _cbind()_ permite-nos juntar vetores ou matrizes por colunas. O mesmo se repete para a função _rbind()_ mas para linhas.
 ```{r}
 A <- matrix(1:4,2,2)
+A
 B <- matrix(4:8,2,2)
-cbind(A,B)
+B
+cbind(A,B)    
 rbind(A,B)
 ```
-###Indexação
+### Indexação
 ```{r}
 procura_elementos <- matrix(1:50,byrow=TRUE,nrow=10)
 procura_elementos
 procura_elementos[5,5]
 procura_elementos[1:3,4]
-procura_elementos[,3:5]
+procura_elementos[,3:ncol(procura_elementos)]
 ```
+### Funções com matrizes
+```{r}
+dim(procura_elementos)   #retorna as dimensões da matriz
+mean(procura_elementos)  #retorna a media de todos os elementos da matriz
+sqrt(procura_elementos[1:5,1:5])  #faz a raiz quadrada sobre todos os elementos definidos no intervalo
+apply(procura_elementos,1,sum) #ver documentação
+mtx <- matrix(1:4,2,2)
+t(mtx) #retorna a transposta da matriz
+det(mtx) #retorna o determinante da matriz. Atenção: a matriz deve ser quadrada.
+```
+### Exemplo
+```{r}
+precos <- c(1200,276,550,126.5,1050,241.5,60,13.8)
+worten <- matrix(precos,byrow=TRUE,nrow=4)
+colnames(worten) <- c("Produto","IVA")
+rownames(worten) <- c("Televisão","Maquina de lavar","Computador","Aspirador")
+worten
+Preco_com_IVA <- c(precos[1]+precos[2],precos[3]+precos[4],precos[5]+precos[6],precos[7]+precos[8])
+worten <- cbind(worten,Preco_com_IVA)
+worten
+
+```
+### Multiplicação entre matrizes
+```{r}
+A <- matrix(1:4,2,2)
+B <- matrix(4:1,2,2)
+C <- A%*%B 
+C
+```
+# Arrays
+Um array é uma estrutura de dados que consegue armazenar dados em mais do que 2 dimensões. Por exemplo uma Matriz é por outras palavras um array bidimensonal, ou seja é um array com duas dimensões.
+```{r}
+bidimensional <- array(1:12, c(4,3))  #Array bidimensional
+bidimensional
+tridimensinal <- array(1:12, c(4,3,2)) #Array Tridimensional
+tridimensinal
+```
+
+## Exercícios
+
+2.1) Criar um vetor com valores de 1 a 6.
+```{r, echo = FALSE}
+vetor <- 1:6
+vetor
+```
+2.2) Traformar o vetor anterior numa matriz de dimensões 2x3.
+```{r, echo = FALSE}
+dim(vetor) <- c(2,3)
+vetor
+```
+2.3) Verificar dimensões da matriz
+```{r, echo = FALSE}
+dim(vetor)
+```
+2.4) Identificar o elemento que se encontra na linha 2, coluna 1.
+```{r, echo = FALSE}
+vetor[2,1]
+```
+2.5) Calcular a soma dos elementos da linha 1
+```{r, echo = FALSE}
+sum(vetor[1,])
+```
+2.6) Criar um vector cujos elementos sejam as médias dos valores de cada coluna
+```{r, echo = FALSE}
+medias <- c(mean(vetor[,1]),mean(vetor[,2]),mean(vetor[,3]))
+medias
+```
+
+3.1) Criar um array tridimensinal com as dimensões 4, 3, 3 e os primeiros 36 numeros inteiros por ordem decrescente.
+```{r, echo = FALSE}
+A <- array(rev(c(1:36)),c(4,3,3))
+```
+3.2) Calcular todos os elementos do array, cujo valor da segunda dimensão é 2.
+```{r, echo = FALSE}
+sum(A[,2,])
+```
+
+

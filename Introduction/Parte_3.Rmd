@@ -1,0 +1,113 @@
+---
+title: "Workshop R"
+author: "JEST"
+date: "11 de Abril de 2018"
+output: html_document
+---
+
+# Logica
+Em programação o uso da lógica é imperativo. Existem apenas dois valores lógicos, TRUE e FALSE. 
+ 
+## Operadores relacionais
+Para comparar dois valores faz-se uso dos operadores relacionais. Esta operação devolve como output um dos valores lógicos, TRUE se é verdadeira, ou FALSE se é falsa.
+```{r}
+x <- 12 
+y <- 24
+x == y #para ver se os valores são iguais
+x != y #para ver se são diferentes
+x < y  #para ver se x é menor que y
+x > y  #para ver se x é maior que y
+x <= y #para ver se x é menor ou igual a y
+x >= y #para ver se x é maior ou igual a y
+
+```
+Também se pode comparar vetores e matrizes.
+```{r}
+vetor = 1:10
+logico = vetor < 5
+logico
+
+matriz = matrix(1:10,5,2)
+matriz <= 5
+```
+
+## Condicionais
+As declarações condicionais servem para direcionar o fluxo do código, ou seja, para onde o programa vai. Uma condicional inicia-se com a palavra 'if' e a sua estrutura é: if(condição){statement}. Se a condição for TRUE, o programa corre o que estiver dentro das chavetas.
+```{r}
+vetor = c(2, 123, 35)
+if (vetor[2]<200){
+  print("é menor que 200")   #instrução ou bloco de instruções
+}
+```
+
+Se for FALSE, não corre o statement e passa para a próxima condição, se existir.
+Podemos adicionar mais condições com a palavra 'else if'.
+
+```{r}
+vetor = c(2, 123, 35)
+if (vetor[2]<200){
+  print("é menor que 200")
+} else if(vetor[2]==123){
+  print("é igual a 123")
+}
+```
+Para acabar o condicional pode usar-se a condição final com a palavra 'else'. Esta corre se todas as condições anteriores forem FALSE.
+
+```{r}
+vetor = c(2, 123, 35)
+if (vetor[1]<-100){
+  print("é menor que -100")
+} else if(vetor[2]==25){
+  print("é igual a 25")
+} else{
+  print("não é nada disso")
+}
+```
+# Loops
+Os loops servem para automatizar um processo, organizando sequências de ações que vão ser repetidas.    
+
+## While Loop
+O while executa tudo o que estiver dentro de si, enquanto a condição for verdadeira.
+```{r}
+i = 1
+while(i<10){
+  print("Workshop de R")
+  i = i + 1
+}
+```
+
+## For Loop
+O for permite iterar segundo um vetor. 
+```{r}
+v = c(1,3,4,5,8,9)
+
+for(i in v){
+  print(i)
+}
+```
+
+## Repeat Loop
+
+```{r}
+x <- 1
+repeat{
+  x <- x + 1
+  if (x%%2==0){
+    next
+  }else {
+    print(x)
+  }
+  if (x == 21){
+    break
+  }
+}
+```
+# Funções
+
+```{r}
+fnc <- function(x1,x2){
+  sum = x1 + x2
+  return(sum)
+}
+fnc(123434,143435)
+```

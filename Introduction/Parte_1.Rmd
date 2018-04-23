@@ -3,6 +3,7 @@ title: "Workshop R"
 author: "JEST"
 date: "29/03/2018"
 output:
+  pdf_document: default
   html_document: default
 ---
 
@@ -39,10 +40,40 @@ x %% y 	  # resto da divisão
 x %/% y   # divisão arredondada por defeito
 ```
 
+## Operadores lógicos
+O símbolo & realiza a operação AND entre os dois operandos.
+```{r}
+TRUE & TRUE
+TRUE & FALSE
+FALSE & TRUE
+FALSE & FALSE
+```
+O símbolo | realiza a operação OR entre os dois operandos.
+```{r}
+TRUE | TRUE
+TRUE | FALSE
+FALSE | TRUE
+FALSE | FALSE
+```
+O símbolo "!" contraria a expressão à sua frente.
+```{r}
+!(FALSE & FALSE)
+```
+## Operadores relacionais
+Para comparar dois valores faz-se uso dos operadores relacionais. Esta operação devolve como output um dos valores lógicos, TRUE se é verdadeira, ou FALSE se é falsa.
+```{r}
+x == y #para ver se os valores são iguais
+x != y #para ver se são diferentes
+x < y  #para ver se x é menor que y
+x > y  #para ver se x é maior que y
+x <= y #para ver se x é menor ou igual a y
+x >= y #para ver se x é maior ou igual a y
+
+```
 # Vetores 
 O R é orientado aos vectores que constituem objectos que permitem guardar uma sequência de valores. Existem vários tipos de vectores: Numéricos, Lógicos e de Strings.
 
-###Vetores Numericos
+### Vetores Numéricos
 A função c() permite juntar (concatenar) um vetor com novos elementos (ou com outros vetores).
 ```{r}
 primeiro <- c(1,2,3)
@@ -55,7 +86,7 @@ Outra forma de criar um vector numéricos por ser através da geração de uma s
 1:10
 20:10
 seq(1,2,0.2) #por definição a ordem dos argumentos de entrada na função seq é: from, to, by. Se especificarmos estes argumentos podemos trocar a ordem. Exemplo: seq(by=0.1,to=2,from=1). Se não especificarmos o passo (by), por definição é 1.
-v=rep(0,10); #Esta é uma maneira possivel de criar um vetor de zeros. No primeiro argumento indicamos o numeros que queremos repetir e no segundo argumento indicamos quantas vezes queremos repetir.
+v <- rep(0,10); #Esta é uma maneira possivel de criar um vetor de zeros. No primeiro argumento indicamos o numeros que queremos repetir e no segundo argumento indicamos quantas vezes queremos repetir.
 v
 ```
 É possível realizar operações aritméticas sobre vetores de forma bastante simples.
@@ -63,14 +94,14 @@ v
 contasAritmeticas <- 2:8
 2*contasAritmeticas+3    #As operações são feitas para todos os elementos do vetor
 ```
-Operações aritméticas entre vetores também é possivel. Um operação aritmética entre dois vectores realiza a operação entre cada par de valores nas mesmas posições de ambos os vetores. Se os vetores não tiverem o mesmo tamanho, o mais pequeno será reciclado, isto é, será repetido enquanto for necessário. Quando o tamanho do vector não for multiplo do menor, deverá aparecer uma mensagem de erro.
+Operações aritméticas entre vetores também é possivel. Um operação aritmética entre dois vectores realiza a operação entre cada par de valores nas mesmas posições de ambos os vetores. Se os vetores não tiverem o mesmo tamanho, o mais pequeno será reciclado, isto é, será repetido enquanto for necessário. Quando o tamanho do vector não for multiplo do menor, deverá aparecer uma mensagem de aviso.
 ```{r}
 maior <- 1:10
 menor <- 1:5
 maior+menor
 ```
 #### Acesso aos elementos de vectores
-Para consultarmos um elemento de um vetor, escrememos o nome do vector e entre parênteses retos, o indice. Assim se quisermos aceder a um elemtento do vetor X na posiçao i, escrevemos X[i].
+Para consultarmos um elemento de um vetor, escrevemos o nome do vector, e entre parênteses retos, o índice. Assim, se quisermos aceder a um elemtento do vetor X na posiçao i, escrevemos X[i].
 ```{r}
 X <- 1:10
 X[3]  #aceder ao elemento na posição 3 do vetor
@@ -89,7 +120,7 @@ numeros[-2]
 #### Atribuir Nomes a vetores
 O R permite-nos atribuir nomes a cada uma das posições do vector e depois usar esses nomes para aceder aos seus valores. Para dar nomes aos valores do vetor utiliza-se a função _names()_ 
 ```{r}
-key <- c('batatas','cenoras','tomates')
+key <- c('batatas','cenouras','tomates')
 values <- c(80,12,20)
 names(values) <- key
 values
@@ -121,24 +152,63 @@ max(v)#Maior valor do vetor
 which.max(v) #Indice do maior valor do vetor
 which(v>=7) #Indices dos valores maiores ou igual a 7
 ```
+
+## Exercícios
+
+1.1) Defenir um vetor v com os primeiros 30 numeros naturais
+```{r, echo = FALSE}
+v <- 1:30
+v
+```
+1.2) Calcular o vetor resultante da soma da constante 5 com cada elemento do vetor v.
+```{r, echo = FALSE}
+v+5
+```
+1.3) Calcular o vetor 1/v.
+```{r, echo = FALSE}
+1/v
+```
+2.1) Definir um vetor com uma sequência de números ímpares menores do que 30
+```{r, echo = FALSE}
+sequencia <- seq(1,29,2)
+sequencia
+```
+2.2) Calcular a soma de todos os valores do vetor anteriormente definido
+```{r, echo = FALSE}
+sum(sequencia)
+```
+2.3) Selecionar os elementos do vetor múltiplos de 3
+```{r, echo = FALSE}
+sequencia[sequencia%%3==0]
+```
+2.4) Retirar o ultimo elemento do vetor
+```{r, echo = FALSE}
+sequencia[-15]
+# sequencia[-length(sequencia)]
+```
+
+
 ### Vectores Lógicos
 Outro tipo de dados importante no R são os vetores lógicos. Os vetores logicos contêm valores do tipo _boolean_ e em alguns casos são uma exelente abordagem para encontrar determinados valores. Vejamos um exemplo.
 ```{r}
 v <- 10:20
 vBoolean <- v>=18
+vBoolean
 v[vBoolean]
 which(vBoolean)
 ```
-###Vetores de Strings
-Vetores de strings são um tipo de dados em R que nos permite guardar sequencias de caracteres, também designadas por strings.
+### Vetores de Strings
+Vetores de strings são um tipo de dados em R que nos permite guardar sequências de caracteres, também designadas por strings.
 ```{r}
-nomes <- c("Grifo","Joao","Poço","Macario","Bruno","Grifo")
+nomes <- c("Grifo","Joao","Poço","Macario","Leitão","Grifo")
 nomes[4]
 nomes[1]==tail(nomes,n=1)
-#Poderiamos ter feito nomes[1]==nomes[6] ou nomes[1]==nomes[length(nomes)]
 #A função tail(<vetor>,<n elementos>) vai buscar os n últimos elementos ao vetor indicado
+#Poderiamos ter feito nomes[1]==nomes[6] ou nomes[1]==nomes[length(nomes)]
+#A função length() recebe como entrada, por exemplo, um vector ou um factor e retorna número de elementos desse mesmo argumento de entrada.
+
 ```
-####Algumas funções que se podem usar para trabalhar com vetores de strings
+#### Algumas funções que se podem usar para trabalhar com strings
 ```{r}
 nome <- "Guilherme"
 apelido <- "Cruz"
@@ -153,28 +223,43 @@ strsplit(str,' ') #"Parte" a string original em várias strings de acordo com o 
 grep("ifo",nomes) #Permite identificar a ocurrencia de string/substrings no vetor passado como segundo argumento
 #Explicar a função mapply()
 ```
-###Limpeza de dados
-Por vezes quando estamos a trabalhar com dados importados, eles não estão trataveis. Valores omissos são muitas das vezes a causa disso mesmo e temos de aprender a lidar com este problema.
+### Limpeza de dados
+Por vezes quando estamos a trabalhar com dados importados, eles não estão tratáveis. Valores omissos são muitas das vezes a causa disso mesmo e temos de aprender a lidar com este problema.
 ```{r}
 v <-  c(1,2,NA,NA,NA,7,2,3,NA,3,NA,4,NA,NA,4,6,2,NA,1)
 v
 v[is.na(v)] #Para mostrar os indices dos valores nulos: which(is.na(v))
 v[!is.na(v)]
 ```
-##Exercicios
-1.1) Definir um vetor com uma sequência de números ímpares menores do que 30
-```{r, echo = FALSE}
-sequencia <- seq(1,29,2)
-sequencia
-```
-1.2) Calcular a soma de todos os valores do vetor anteriormente definido
-```{r, echo = FALSE}
-sum(sequencia)
-```
-1.3) Selecionar os elementos do vetor múltiplos de 3
-```{r, echo = FALSE}
-sequencia[sequencia%%3==0]
-```
+## Exercícios
 
-
+3) Supondo que os consumos de energia eléctrica do Diogo Poço em 2017 foi: 230, 210, 198, 160, 150, 153, 149, 149, 151, 169, 195, 223 KWh's. Analisar os dados e determinar:
+3.1) O consumo total do Diogo em 2017
+```{r, echo = FALSE}
+energia <- c(230, 210, 198, 160, 150, 153, 149, 149, 151, 169, 195, 223)
+sum(energia)
+```
+3.2) O valor mínimo e o valor máximo dos consumos de energia do Diogo. Para o valor máximo calcule o mês em que ocorreu esse gasto.
+```{r, echo = FALSE}
+min(energia)
+max(energia)
+```
+4) Atribuir um nome(letras minúsculas) a uma variavél e de seguida substitua a primeira letra no nome de minúscula para maiúscula.
+```{r, echo = FALSE}
+nome <- "macario"
+sprintf("Nome: %s",nome)
+sprintf("Resultado: %s",sub(substr(nome,1,1),toupper(substr(nome,1,1)),nome)) #paste(toupper(substr(nome,1,1)),substr(nome,2,nchar(nome)),sep="")   --> Outra forma possivel de resolver o problema.
+```
+5) Criar três vectores, um para as idades, outro para os nomes e o ultimo para os pesos e de seguida crie um vetor de _strings_ com os elementos na seguinte forma: "idade - nome - peso". Para tal utilize a função _paste()_ (Nota: Utilizar a documentação se necessário).
+```{r, echo = FALSE}
+idades <- c(23,28,21)
+nomes <- c("Pedrosa","Navega","Poço")
+pesos <- c(70,80,63)
+novo <- paste(idades,nomes,pesos,sep=" - ")
+```
+5.2) Adicione outro elemento na segunda posição do vetor com o mesmo formato que os restantes.
+```{r, echo = FALSE}
+novo <- c(novo[1],"24 - António - 70",novo[1:length(novo)])
+novo
+```
   

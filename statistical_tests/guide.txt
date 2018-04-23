@@ -1,25 +1,55 @@
+
+Em primeiro lugar, o R da para aprender a fazer umas apresentações engraçadas
+
+Porque vale a pena aprender testes estatisticos? Metodos estatisticos asseguram-nos que os dados sao interpretados de um modo correcto e que relações aparentes são de facto significantes. No entanto, é necessário ter cuidado, pois correlacao não implica causalidade.
+Embora isto seja um workshop, e o objectivo principal e que aprendam a realizar testes estatisticos, e necessario aprender as bases de como e quando os aplicar
+
+
 #Tipos de variáveis:
 
 
     Variáveis Quantitativas: são as características que podem ser medidas numa escala quantitativa, ou seja, apresentam valores numéricos que fazem sentido. Podem ser contínuas ou discretas.
 
-        Variáveis discretas: características mensuráveis que podem assumir apenas um número finito ou infinito contável de valores e, assim, somente fazem sentido valores inteiros. Geralmente são o resultado de contagens. Exemplos: número de filhos, número de bactérias por litro de leite, número de cigarros fumados por dia.
+       * Variáveis discretas: características mensuráveis que podem assumir apenas um número finito ou infinito contável de valores e, assim, somente fazem sentido valores inteiros. Geralmente são o resultado de contagens. Exemplos: número de filhos, número de bactérias por litro de leite, número de cigarros fumados por dia, idade.
 
-        Variáveis contínuas, características mensuráveis que assumem valores em uma escala contínua (na reta real), para as quais valores fracionais fazem sentido. Usualmente devem ser medidas através de algum instrumento. Exemplos: peso (balança), altura (régua), tempo (relógio), pressão arterial, idade.
+       * Variáveis contínuas, características mensuráveis que assumem valores em uma escala contínua (na reta real), para as quais valores fracionais fazem sentido. Usualmente devem ser medidas através de algum instrumento. Exemplos: peso (balança), altura (régua), tempo (relógio), pressão arterial.
 
     Variáveis Qualitativas (ou categóricas): são as características que não possuem valores quantitativos, mas, ao contrário, são definidas por várias categorias, ou seja, representam uma classificação dos indivíduos. Podem ser nominais ou ordinais.
 
-        Variáveis nominais: não existe ordenação dentre as categorias. Exemplos: sexo, cor dos olhos, fumante/não fumante, doente/sadio.
-        Variáveis ordinais: existe uma ordenação entre as categorias. Exemplos: escolaridade (1o, 2o, 3o graus), estágio da doença (inicial, intermediário, terminal), mês de observação (janeiro, fevereiro,..., dezembro).
+        * Variáveis nominais: não existe ordenação dentre as categorias. Exemplos: sexo, cor dos olhos, fumante/não fumante, doente/sadio.
+
+        * Variáveis ordinais: existe uma ordenação entre as categorias. Exemplos: escolaridade (1o, 2o, 3o graus), estágio da doença (inicial, intermediário, terminal), mês de observação (janeiro, fevereiro,..., dezembro).
 
 
 #Mostrar dataset (questionar os tipos de variáveis)
 
+Discutir um pouco o dataset, fazer a análise de algumas variáveis.
+Time pode tanto ser continua ou discreta, dependendo do modo que é apresentada (infinitesimal ou standart 10:30 p.e.)
+E importante diferenciar entre tipos de variáveis, pois estas requerem uma analise diferente. Um modo facil de entender isto e:
+ * Faz sentido aplicar uma media a várias amostras quantitativas continuas, mas não a uma variavel qualitativa nominal. 
+
+# Amostras emparelhadas / independentes
+
+Emparelhadas - medidas que estao associadas a medicoes sobre os mesmos sujeitos
+Independente - medidas que nao dependem de valores de outras observacoes
+
 
 #Ensinar a hipótese nula
 
+Esta e uma hipotese apresentada, cuja falsidade se tenta
+
+
+# Testes paramétricos / não paramétricos
+ * Referir p-value
+
+
+# Testes de Normalidade
+n>20 - kolmogorov smirnov
+n<=20 - Shapiro wilk
+
 
 #Dentro dessas variáveis estes são os teste utilizados
+
 
 
 #EXERCÍCIOS

@@ -165,6 +165,46 @@ x + y     # adição</code></pre>
 <pre class="r"><code>x %/% y   # divisão arredondada por defeito</code></pre>
 <pre><code>## [1] 4</code></pre>
 </div>
+<div id="operadores-logicos" class="section level2">
+<h2>Operadores lógicos</h2>
+<p>O símbolo &amp; performa a operação AND entre os dois operandos.</p>
+<pre class="r"><code>TRUE &amp; TRUE</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>TRUE &amp; FALSE</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<pre class="r"><code>FALSE &amp; TRUE</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<pre class="r"><code>FALSE &amp; FALSE</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<p>O símbolo | performa a operação OR entre os dois operandos.</p>
+<pre class="r"><code>TRUE | TRUE</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>TRUE | FALSE</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>FALSE | TRUE</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>FALSE | FALSE</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<p>O símbolo “!” contraria a expressço à sua frente.</p>
+<pre class="r"><code>!(FALSE &amp; FALSE)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+</div>
+<div id="operadores-relacionais" class="section level2">
+<h2>Operadores relacionais</h2>
+<p>Para comparar dois valores faz-se uso dos operadores relacionais. Esta operação devolve como output um dos valores lógicos, TRUE se é verdadeira, ou FALSE se é falsa.</p>
+<pre class="r"><code>x == y #para ver se os valores são iguais</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<pre class="r"><code>x != y #para ver se são diferentes</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>x &lt; y  #para ver se x é menor que y</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<pre class="r"><code>x &gt; y  #para ver se x é maior que y</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>x &lt;= y #para ver se x é menor ou igual a y</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<pre class="r"><code>x &gt;= y #para ver se x é maior ou igual a y</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+</div>
 </div>
 <div id="vetores" class="section level1">
 <h1>Vetores</h1>
@@ -184,7 +224,7 @@ vecFinal</code></pre>
 <pre><code>##  [1] 20 19 18 17 16 15 14 13 12 11 10</code></pre>
 <pre class="r"><code>seq(1,2,0.2) #por definição a ordem dos argumentos de entrada na função seq é: from, to, by. Se especificarmos estes argumentos podemos trocar a ordem. Exemplo: seq(by=0.1,to=2,from=1). Se não especificarmos o passo (by), por definição é 1.</code></pre>
 <pre><code>## [1] 1.0 1.2 1.4 1.6 1.8 2.0</code></pre>
-<pre class="r"><code>v=rep(0,10); #Esta é uma maneira possivel de criar um vetor de zeros. No primeiro argumento indicamos o numeros que queremos repetir e no segundo argumento indicamos quantas vezes queremos repetir.
+<pre class="r"><code>v &lt;- rep(0,10); #Esta é uma maneira possivel de criar um vetor de zeros. No primeiro argumento indicamos o numeros que queremos repetir e no segundo argumento indicamos quantas vezes queremos repetir.
 v</code></pre>
 <pre><code>##  [1] 0 0 0 0 0 0 0 0 0 0</code></pre>
 <p>É possível realizar operações aritméticas sobre vetores de forma bastante simples.</p>
@@ -215,13 +255,13 @@ numeros[-2]</code></pre>
 </div>
 <div id="atribuir-nomes-a-vetores" class="section level4">
 <h4>Atribuir Nomes a vetores</h4>
-<p>O R permite-nos atribuir nomes a cada uma das posições do vector e depois usar esses nomes para aceder aos seus valores. Para dar nomes aos valores do vetor utiliza-se a função “names()”</p>
-<pre class="r"><code>key &lt;- c('batatas','cenoras','tomates')
+<p>O R permite-nos atribuir nomes a cada uma das posições do vector e depois usar esses nomes para aceder aos seus valores. Para dar nomes aos valores do vetor utiliza-se a função <em>names()</em></p>
+<pre class="r"><code>key &lt;- c('batatas','cenouras','tomates')
 values &lt;- c(80,12,20)
 names(values) &lt;- key
 values</code></pre>
-<pre><code>## batatas cenoras tomates 
-##      80      12      20</code></pre>
+<pre><code>##  batatas cenouras  tomates 
+##       80       12       20</code></pre>
 <pre class="r"><code>values['batatas']</code></pre>
 <pre><code>## batatas 
 ##      80</code></pre>
@@ -273,12 +313,36 @@ sum(v) #Somatório dos valores do vetor</code></pre>
 <pre><code>## [1] 1 3 5</code></pre>
 </div>
 </div>
+<div id="exercicios" class="section level2">
+<h2>Exercicios</h2>
+<p>1.1) Defenir um vetor v com os primeiros 30 numeros naturais</p>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23
+## [24] 24 25 26 27 28 29 30</code></pre>
+<p>1.2) Calcular o vetor resultante da soma da constante 5 com cada elemento do vetor v.</p>
+<pre><code>##  [1]  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28
+## [24] 29 30 31 32 33 34 35</code></pre>
+<p>1.3) Calcular o vetor 1/v.</p>
+<pre><code>##  [1] 1.00000000 0.50000000 0.33333333 0.25000000 0.20000000 0.16666667
+##  [7] 0.14285714 0.12500000 0.11111111 0.10000000 0.09090909 0.08333333
+## [13] 0.07692308 0.07142857 0.06666667 0.06250000 0.05882353 0.05555556
+## [19] 0.05263158 0.05000000 0.04761905 0.04545455 0.04347826 0.04166667
+## [25] 0.04000000 0.03846154 0.03703704 0.03571429 0.03448276 0.03333333</code></pre>
+<p>2.1) Definir um vetor com uma sequência de números ímpares menores do que 30</p>
+<pre><code>##  [1]  1  3  5  7  9 11 13 15 17 19 21 23 25 27 29</code></pre>
+<p>2.2) Calcular a soma de todos os valores do vetor anteriormente definido</p>
+<pre><code>## [1] 225</code></pre>
+<p>2.3) Selecionar os elementos do vetor múltiplos de 3</p>
+<pre><code>## [1]  3  9 15 21 27</code></pre>
+<p>2.4) Retirar o ultimo elemento do vetor</p>
+<pre><code>##  [1]  1  3  5  7  9 11 13 15 17 19 21 23 25 27</code></pre>
 <div id="vectores-logicos" class="section level3">
 <h3>Vectores Lógicos</h3>
 <p>Outro tipo de dados importante no R são os vetores lógicos. Os vetores logicos contêm valores do tipo <em>boolean</em> e em alguns casos são uma exelente abordagem para encontrar determinados valores. Vejamos um exemplo.</p>
 <pre class="r"><code>v &lt;- 10:20
 vBoolean &lt;- v&gt;=18
-v[vBoolean]</code></pre>
+vBoolean</code></pre>
+<pre><code>##  [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE</code></pre>
+<pre class="r"><code>v[vBoolean]</code></pre>
 <pre><code>## [1] 18 19 20</code></pre>
 <pre class="r"><code>which(vBoolean)</code></pre>
 <pre><code>## [1]  9 10 11</code></pre>
@@ -286,15 +350,16 @@ v[vBoolean]</code></pre>
 <div id="vetores-de-strings" class="section level3">
 <h3>Vetores de Strings</h3>
 <p>Vetores de strings são um tipo de dados em R que nos permite guardar sequencias de caracteres, também designadas por strings.</p>
-<pre class="r"><code>nomes &lt;- c(&quot;Grifo&quot;,&quot;Joao&quot;,&quot;Poço&quot;,&quot;Macario&quot;,&quot;Bruno&quot;,&quot;Grifo&quot;)
+<pre class="r"><code>nomes &lt;- c(&quot;Grifo&quot;,&quot;Joao&quot;,&quot;Poço&quot;,&quot;Macario&quot;,&quot;Leitão&quot;,&quot;Grifo&quot;)
 nomes[4]</code></pre>
 <pre><code>## [1] &quot;Macario&quot;</code></pre>
 <pre class="r"><code>nomes[1]==tail(nomes,n=1)</code></pre>
 <pre><code>## [1] TRUE</code></pre>
-<pre class="r"><code>#Poderiamos ter feito nomes[1]==nomes[6] ou nomes[1]==nomes[length(nomes)]
-#A função tail(&lt;vetor&gt;,&lt;n elementos&gt;) vai buscar os n últimos elementos ao vetor indicado</code></pre>
-<div id="algumas-funcoes-que-se-podem-usar-para-trabalhar-com-vetores-de-strings" class="section level4">
-<h4>Algumas funções que se podem usar para trabalhar com vetores de strings</h4>
+<pre class="r"><code>#A função tail(&lt;vetor&gt;,&lt;n elementos&gt;) vai buscar os n últimos elementos ao vetor indicado
+#Poderiamos ter feito nomes[1]==nomes[6] ou nomes[1]==nomes[length(nomes)]
+#A função length() recebe como entrada, por exemplo, um vector ou um factor e retorna número de elementos desse mesmo argumento de entrada.</code></pre>
+<div id="algumas-funcoes-que-se-podem-usar-para-trabalhar-com-strings" class="section level4">
+<h4>Algumas funções que se podem usar para trabalhar com strings</h4>
 <pre class="r"><code>nome &lt;- &quot;Guilherme&quot;
 apelido &lt;- &quot;Cruz&quot;
 toupper(nome)  #Transforma todos os caracteres da string em letras maiúsculas</code></pre>
@@ -303,7 +368,7 @@ toupper(nome)  #Transforma todos os caracteres da string em letras maiúsculas</
 <pre><code>## [1] &quot;guilherme&quot;</code></pre>
 <pre class="r"><code>paste(apelido,nomes) #Imprime todas as strings que forem passadas como argumento</code></pre>
 <pre><code>## [1] &quot;Cruz Grifo&quot;   &quot;Cruz Joao&quot;    &quot;Cruz Poço&quot;    &quot;Cruz Macario&quot;
-## [5] &quot;Cruz Bruno&quot;   &quot;Cruz Grifo&quot;</code></pre>
+## [5] &quot;Cruz Leitão&quot;  &quot;Cruz Grifo&quot;</code></pre>
 <pre class="r"><code>nchar(apelido) #Retorna o numero de caracteres da strings passada como argumento</code></pre>
 <pre><code>## [1] 4</code></pre>
 <pre class="r"><code>sub(&quot;z&quot;,&quot;zes&quot;,apelido) #Substitui a ocurrência passada no primeiro argumento pela string passada no segundo argumento, apenas uma vez. A função gsub() faz o mesmo mas para todas as ocurrências</code></pre>
@@ -330,14 +395,27 @@ v</code></pre>
 <pre class="r"><code>v[!is.na(v)]</code></pre>
 <pre><code>##  [1] 1 2 7 2 3 3 4 4 6 2 1</code></pre>
 </div>
-<div id="exercicios" class="section level2">
+</div>
+<div id="exercicios-1" class="section level2">
 <h2>Exercicios</h2>
-<p>1.1) Definir um vetor com uma sequência de números ímpares menores do que 30</p>
-<pre><code>##  [1]  1  3  5  7  9 11 13 15 17 19 21 23 25 27 29</code></pre>
-<p>1.2) Calcular a soma de todos os valores do vetor anteriormente definido</p>
-<pre><code>## [1] 225</code></pre>
-<p>1.3) Selecionar os elementos do vetor múltiplos de 3</p>
-<pre><code>## [1]  3  9 15 21 27</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>Supondo que os consumos de energia eléctrica do Diogo Poço em 2017 foi: 230, 210, 198, 160, 150, 153, 149, 149, 151, 169, 195, 223 KWh’s. Analisar os dados e determinar: 3.1) O consumo total do Diogo em 2017</li>
+</ol>
+<pre><code>## [1] 2137</code></pre>
+<p>3.2) O valor mínimo e o valor máximo dos consumos de energia do Diogo. Para o valor máximo calcule o mês em que ocorreu esse gasto.</p>
+<pre><code>## [1] 149</code></pre>
+<pre><code>## [1] 230</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>Atribuir um nome(letras minúsculas) a uma variavél e de seguida substitua a primeira letra no nome de minúscula para maiúscula.</li>
+</ol>
+<pre><code>## [1] &quot;Nome: macario&quot;</code></pre>
+<pre><code>## [1] &quot;Resultado: Macario&quot;</code></pre>
+<ol start="5" style="list-style-type: decimal">
+<li>Criar três vectores, um para as idades, outro para os nomes e o ultimo para os pesos e de seguida crie um vetor de <em>strings</em> com os elementos na seguinte forma: “idade - nome - peso”. Para tal utilize a função <em>paste()</em> (Nota: Utilizar a documentação se necessário).</li>
+</ol>
+<p>5.2) Adicione outro elemento na segunda posição do vetor com o mesmo formato que os restantes.</p>
+<pre><code>## [1] &quot;23 - Pedrosa - 70&quot; &quot;25 - António - 70&quot; &quot;23 - Pedrosa - 70&quot;
+## [4] &quot;28 - Navega - 80&quot;  &quot;21 - Poço - 63&quot;</code></pre>
 </div>
 </div>
 
