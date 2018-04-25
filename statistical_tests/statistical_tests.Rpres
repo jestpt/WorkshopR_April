@@ -9,68 +9,97 @@ body {
 }
 </style>
 
-Porque?
+Porquê testes estatísticos?
 =======================================================
-![some caption](imagens/chart.png)
+![causalidade](imagens/chart.png)
 
-  Correlacao não implica causalidade
+  Correlação não implica causalidade!
 
 http://www.tylervigen.com/spurious-correlations
 
-Tipos de Variaveis 
+Tipos de Variáveis 
 ========================================================
 
-
-- Quantitativas - representam variaveis que podem ser medidas numa escala quantitativa
-  - Discretas - Ex: numero de filhos, idade...
-  - Continuas - EX: peso, altura...
-- Qualitativas - representam variaveis definidas por varias categorias
+- Quantitativas - representam variáveis que podem ser medidas numa escala quantitativa
+  - Discretas - Ex: número de filhos, idade...
+  - Contínuas - EX: peso, altura...
+- Qualitativas - representam variáveis definidas por várias categorias
   - Nominais - Ex: sexo, cor dos olhos...
-  - Ordinais - Ex: escolaridade, mes...
+  - Ordinais - Ex: escolaridade, mês...
   
-  
-Dataset
-========================================================
-
-```{r}
-# https://www.kaggle.com/osmi/mental-health-in-tech-survey
-dataset <- read.csv2("survey.csv", header = T)
-summary(dataset)
-
-```
-
-Exercicio 1
-======================================================
-
-
 
 Tipos de Amostras
 ========================================================
 
 - Emparelhadas
-  - Variaveis emparelhadas sao aquelas que estao associadas a medicoes sobre os mesmos sujeitos (p.e. medicoes ao longo do tempo)
+  - Variáveis emparelhadas sao aquelas que estao associadas a medições sobre os mesmos sujeitos (p.e. medições ao longo do tempo)
 - Independentes
-  - Variaveis independentes sao aquelas que nao dependem de valores de outras observacoes (p.e. testes ao sangue a dois grupos de pessoas diferentes)
+  - Variáveis independentes sao aquelas que nao dependem de valores de outras observações (p.e. testes ao sangue a dois grupos de pessoas diferentes)
 
 
-  
-Hipotese Nula
-=======================================================
+Dataset
+========================================================
 
-Esta e uma hipotese apresentada, cuja falsidade se tenta provar atraves do teste estatistico adequado para as variaveis presentes. Esta pode ser rejeitada atraves do p-value.
+```{r}
+# https://www.kaggle.com/osmi/mental-health-in-tech-survey
+library(dplyr)
+library(tidyr)
+dataset <- read.csv("survey.csv", header = T)
+summary(dataset)
 
-Exemplo:
-- 
+```
 
-
-Testes Parametricos / Nao - Parametricos
+Exercício 1
 ======================================================
 
+Faça load do dataset como visto no módulo prévio, e indique qual o tipo das variáveis:
+- "Country"
+- "no_employees"
+- "tech_company"
 
+
+Hipótese Nula
+=======================================================
+
+Esta e uma hipótese apresentada, cuja falsidade se tenta provar através do teste estatístico adequado para as variáveis presentes. Esta pode ser rejeitada atraves do p-value.
+
+Exemplo:
+- H<sub>0</sub> - A terra não é redonda
+
+
+p-value
+======================================================
+
+- Este é utilizado para determinar a significância dos resultados.
+- Se o p-value for menor do que $\alpha$, a hipótese nula é rejeitada.
+
+<div align="center">
+<img src="imagens/Curva_de_gauss.png" width=700 height=400>
+</div>
 
 Testes de Normalidade
 ======================================================
+Entre os vários testes estatísticos que iremos aprender mais à frente, alguns exigem a normalidade dos dados, isto é, que estes apresentem uma distribuição normal.
 
+<div align="center">
+<img src="imagens/normal.png" width=700 height=400>
+</div>
+
+Testes de Normalidade
+=====================================================
+
+- n>20 - Teste Kolmogorov-Smirnov
+A hipótese nula deste teste 
+```{r}
+ks.test(dataset$Age, "pnorm")
+```
+
+Testes de Normalidade
+====================================================
+- n<=20 - Teste Shapiro-Wilk
+```{r}
+shapiro.test(dataset$Age)
+```
 
 
 ======================================================

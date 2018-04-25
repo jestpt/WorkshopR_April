@@ -1,0 +1,70 @@
+---
+title: "manipulation_solutions"
+output: html_document
+---
+
+
+```{r cars}
+library(dplyr)
+library(tidyr)
+```
+##Exercício 1
+Depois de observar a base de dados indique qual destas funções é a mais apropriada para ler o ficheiro survey.csv?
+a) read.table
+b) read.csv
+c) read.csv2
+d) read.delim
+
+###Solução: b) read.csv
+_____________________________________________________________________________________________
+##Exercício 2
+Criar um vetor com apenas as linhas que tenham idades inferiores a 23 anos,
+e que tenham Genero como "Male":
+
+###Solução 2:
+```{r}
+solucao2 <- filter(subset1, Age<23 & Gender=="Male")
+solucao2
+```
+
+##Exercício 3:
+Substitua o elemento da linha 2 e coluna 4 por "Canada" no subset1.
+### Solução 3
+```{r}
+subset1[2,4] <- "Canada"
+#(Observar subset1)
+```
+
+
+##Exercício 4
+Criar um data frame com 2 colunas de 4 entradas:
+
+1 coluna -> Cores
+
+2 coluna -> idade
+
+Quando o data frame estiver pronto, adicione uma nova coluna:
+
+3 coluna -> cidade
+
+
+###Solução 4:
+```{r}
+cores <- c("vermelho","azul","preto","branco")
+idades <- c(23,46,73,90)
+meu.data.frame1 <-data.frame(cores,idades)
+cidades <- c("Porto","Coimbra","Algarve","Aveiro")
+meu.data.frame1$cidades <- cidades
+meu.data.frame1
+```
+
+##Exercício Extra:
+
+No subset1 substituir todos os "Estados Unidos" por "Canada".
+
+
+###Solução Extra:
+```{r}
+subset1$Country[subset1$Country=="United States"] <- "Canada"
+
+```

@@ -36,11 +36,12 @@ Independente - medidas que nao dependem de valores de outras observacoes
 
 #Ensinar a hipótese nula
 
-Esta e uma hipotese apresentada, cuja falsidade se tenta
-
+Esta e uma hipotese apresentada, cuja falsidade se tenta provar atraves do teste estatistico adequado para as varaiveis presentes
+* Referir p-value
+Para mudar o modo de pensamento das pessoas, temos primeiro de provar o porquê do racaciocinio delas estar errado
 
 # Testes paramétricos / não paramétricos
- * Referir p-value
+ 
 
 
 # Testes de Normalidade
