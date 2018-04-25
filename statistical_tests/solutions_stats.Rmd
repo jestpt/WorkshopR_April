@@ -20,3 +20,16 @@ shapiro.test(dataset$Age)
 
 ```
 
+##Exercício 3
+```{r}
+# Testar normalidade 
+shapiro.test(dataset[dataset$tech_company == "Yes",]$Age)
+shapiro.test(dataset[dataset$tech_company == "No",]$Age)
+
+# Não se verifica a normalidade, mas podemos aplicar o test t-student na mesma
+
+t.test(Age ~ tech_company, data = dataset)
+
+wilcox.test(Age ~ tech_company, data = dataset)
+```
+

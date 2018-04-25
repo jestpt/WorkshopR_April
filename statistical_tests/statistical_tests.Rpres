@@ -55,7 +55,8 @@ Esta e uma hipótese apresentada, cuja falsidade se tenta provar através do tes
 Exemplo:
 - H<sub>0</sub> - A terra não é redonda.
 
-Normalmente a hipótese nula é formulada na forma negativa, de modo a que se a rejeitarmos, podemos aceitar a hipótese alternativa, que é neste caso:
+Normalmente a hipótese nula é formulada na forma negativa. No entanto, mesmo que esta seja rejeitada, não significa necessariamente que aceitamos a hipótese alternativa, apenas que não a podemos rejeitar.
+
 - H<sub>1</sub> - A terra é redonda.
 
 p-value
@@ -133,19 +134,89 @@ Testes Estatísticos
 =====================================================
 
 <div align="center">
-<img src="imagens/testes1.png" width=1300 height=370>
+<img src="imagens/testes1.png" width=1400 height=400>
 </div>
 
 - Um teste paramétrico assume que as amostras seguem uma distribuição específica 
 - Um teste paramétrico não assume nenhuma distribuição das amostras.
 
 Testes Estatísticos
+===================================================
+<div align="center">
+<img src="imagens/testes.png" width=1300 height=600>
+</div>
+
+
+
+Testes Estatísticos - ANOVA
 ====================================================
 
-Falar de mais em específico e colocar imagem (testes)
+Começando pelo teste ANOVA. Aplica-se a variáveis independentes e quantitativas, e que sigam uma distribuição normal. No entanto, este teste é bastante robusto a violações de normalidade.
+
+- H<sub>0</sub> - As médias populacionais são iguais.
+
+```{r}
+
+resultados_anova <- aov(Sepal.Width + Sepal.Length ~ Species  , data = iris)
+summary(resultados_anova)
 
 
-======================================================
+```
+
+Testes Estatísticos - Student's T-test
+=====================================================
+
+Utilizado para determinar se as médias de dois grupos são iguais entre si. Assume-se normalidade para ambos os grupos.
+
+- H<sub>0</sub> - As médias populacionais são iguais.
+
+```{r}
+
+subset_iris = iris[iris$Species == "setosa" | iris$Species == "virginica",]
+
+t.test(Petal.Length ~ Species , data = subset_iris)
+
+```
+
+
+Testes Estatísticos - Vários casos
+====================================================
+
+Como existem imensos testes, todos diferentes e aplicáveis a casos diferentes apenas alguns serão mostrados:
+
+Teste chi-quadrado ($\chi^2$)
+- H<sub>0</sub> - Não existe associação entre as variáveis.
+```{r}
+data = read.csv("survey.csv")
+chisq.test(data$treatment,data$Country)
+
+
+```
+
+Kruskall-Wallis
+- H<sub>0</sub> - Não existe associação entre empresas que dão benefícios de saúde mental aos seus empregados e a facilidade que os empregados tiram baixa por causa de problemas mentais.
+```{r}
+kruskal.test(data$benefits, data$leave)
+
+```
+
+
+Após a escolha do teste indicado, deve estudar-se bem o teste para se verificar se faz sentido para o objectivo que se quer. 
+
+Resumo
+=====================================================
+- Verificar os tipos de variáveis
+- Verificar os tipos de amostra
+- Escolher o teste que se quer realizar
+- Realizar verficações de pressupostos do teste (p.e. normalidade)
+- Realizar o teste
+
+
+Exercício 3
+=====================================================
+Verifique se existe uma diferença estatisticamente significativa entre as váriaveis Age e tech_company (empresa tecnológica ou não) no dataset survey.csv .
+
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script>
 
