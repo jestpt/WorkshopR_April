@@ -1,0 +1,22 @@
+---
+title: "Solutions_stats_pres"
+output: html_document
+---
+
+##Exercício 1
+
+Country - Nominal
+No_employees - Discreta
+work_interfere - Ordinal
+
+##Exercício 2
+
+```{r}
+library(dplyr)
+library(tidyr)
+
+dataset <-read.csv("survey.csv")
+shapiro.test(dataset$Age)
+
+```
+

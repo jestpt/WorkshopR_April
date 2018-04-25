@@ -3,6 +3,7 @@ statistical_tests.R
 author: JEST
 date: 25/04/2018
 autosize: true
+
 <style>
 body {
     overflow: scroll;
@@ -34,44 +35,35 @@ Tipos de Amostras
 - Emparelhadas
   - Variáveis emparelhadas sao aquelas que estao associadas a medições sobre os mesmos sujeitos (p.e. medições ao longo do tempo)
 - Independentes
-  - Variáveis independentes sao aquelas que nao dependem de valores de outras observações (p.e. testes ao sangue a dois grupos de pessoas diferentes)
+  - Variáveis independentes sao aquelas que não dependem de valores de outras observações (p.e. testes ao sangue a dois grupos de pessoas diferentes)
 
-
-Dataset
-========================================================
-
-```{r}
-# https://www.kaggle.com/osmi/mental-health-in-tech-survey
-library(dplyr)
-library(tidyr)
-dataset <- read.csv("survey.csv", header = T)
-summary(dataset)
-
-```
 
 Exercício 1
 ======================================================
 
-Faça load do dataset como visto no módulo prévio, e indique qual o tipo das variáveis:
-- "Country"
-- "no_employees"
-- "tech_company"
+Faça load do dataset (https://www.kaggle.com/osmi/mental-health-in-tech-survey/data) survey.csv em (jest.pt/R/survey.csv) como visto no módulo prévio, e indique qual o tipo das variáveis:
+- "Country" (país da pessoa em causa)
+- "no_employees" (número de empregados da empresa)
+- "work_interfere" (se a condição mental interfere com o tabalho)
 
 
 Hipótese Nula
 =======================================================
 
-Esta e uma hipótese apresentada, cuja falsidade se tenta provar através do teste estatístico adequado para as variáveis presentes. Esta pode ser rejeitada atraves do p-value.
+Esta e uma hipótese apresentada, cuja falsidade se tenta provar através do teste estatístico adequado para as variáveis presentes. Esta pode ser rejeitada através do p-value.
 
 Exemplo:
-- H<sub>0</sub> - A terra não é redonda
+- H<sub>0</sub> - A terra não é redonda.
 
+Normalmente a hipótese nula é formulada na forma negativa, de modo a que se a rejeitarmos, podemos aceitar a hipótese alternativa, que é neste caso:
+- H<sub>1</sub> - A terra é redonda.
 
 p-value
 ======================================================
 
 - Este é utilizado para determinar a significância dos resultados.
 - Se o p-value for menor do que $\alpha$, a hipótese nula é rejeitada.
+- Em geral, o $\alpha$ utilizado é 0.05 .
 
 <div align="center">
 <img src="imagens/Curva_de_gauss.png" width=700 height=400>
@@ -85,21 +77,72 @@ Entre os vários testes estatísticos que iremos aprender mais à frente, alguns
 <img src="imagens/normal.png" width=700 height=400>
 </div>
 
+
+Testes de Normalidade - Dataset Iris
+========================================================
+
+```{r}
+library(dplyr)
+library(tidyr)
+library(datasets)
+# A library datasets contém um dataset sobre plantas guardado na variavel iris
+summary(iris)
+
+```
+
 Testes de Normalidade
 =====================================================
 
-- n>20 - Teste Kolmogorov-Smirnov
-A hipótese nula deste teste 
+- Teste Kolmogorov-Smirnov
+
+A hipótese nula deste teste é que a amostra é retirada da distribuição de referência. Logo, se o p-value for menor que 0.05, rejeitamos a hipótese nula, e verificamos que a distribuição da amostra não é retirada da distribuição de referência.
 ```{r}
-ks.test(dataset$Age, "pnorm")
+ks.test(iris$Sepal.Length, "pnorm")
 ```
+
+Este teste não é tão poderoso como o próximo.
 
 Testes de Normalidade
 ====================================================
-- n<=20 - Teste Shapiro-Wilk
+
+- Teste Shapiro-Wilk
+
+A hipótese nula deste teste é que a distribuição da amostra é normal. Logo, se o p-value for menor que 0.05, rejeitamos a hipótese nula, e verificamos que a distibuição não é normal.
 ```{r}
-shapiro.test(dataset$Age)
+shapiro.test(iris$Sepal.Length)
 ```
+
+Como o p-value é 0.01, rejeita-se a hipótese nula.
+
+Testes de Normalidade
+====================================================
+
+Se quisessemos aplicar o teste de normalidade ao grupo de plantas versicolor, teríamos de fazer:
+
+```{r}
+shapiro.test(iris[iris$Species == "versicolor",]$Sepal.Width)
+
+```
+
+
+Exercício 2
+====================================================
+-No dataset survey.csv, verifique se a variável Age segue uma distribuição normal. Indique qual a hipótese nula do teste, e se esta foi rejeitada ou não.
+
+Testes Estatísticos
+=====================================================
+
+<div align="center">
+<img src="imagens/testes1.png" width=1300 height=370>
+</div>
+
+- Um teste paramétrico assume que as amostras seguem uma distribuição específica 
+- Um teste paramétrico não assume nenhuma distribuição das amostras.
+
+Testes Estatísticos
+====================================================
+
+Falar de mais em específico e colocar imagem (testes)
 
 
 ======================================================
