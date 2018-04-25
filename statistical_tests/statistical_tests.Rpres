@@ -138,7 +138,7 @@ Testes Estatísticos
 </div>
 
 - Um teste paramétrico assume que as amostras seguem uma distribuição específica 
-- Um teste paramétrico não assume nenhuma distribuição das amostras.
+- Um teste não paramétrico não assume nenhuma distribuição das amostras.
 
 Testes Estatísticos
 ===================================================
